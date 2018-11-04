@@ -1,0 +1,80 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{package} \PYG{n+nn}{de.lukasrost.apoplexy}
+
+\PYG{k}{import} \PYG{n+nn}{android.os.Bundle}
+\PYG{k}{import} \PYG{n+nn}{android.support.design.widget.Snackbar}
+\PYG{k}{import} \PYG{n+nn}{android.support.design.widget.NavigationView}
+\PYG{k}{import} \PYG{n+nn}{android.support.v4.view.GravityCompat}
+\PYG{k}{import} \PYG{n+nn}{android.support.v7.app.ActionBarDrawerToggle}
+\PYG{k}{import} \PYG{n+nn}{android.support.v7.app.AppCompatActivity}
+\PYG{k}{import} \PYG{n+nn}{android.view.Menu}
+\PYG{k}{import} \PYG{n+nn}{android.view.MenuItem}
+\PYG{k}{import} \PYG{n+nn}{kotlinx.android.synthetic.main.activity\PYGZus{}home\PYGZus{}nav.*}
+\PYG{k}{import} \PYG{n+nn}{kotlinx.android.synthetic.main.app\PYGZus{}bar\PYGZus{}home\PYGZus{}nav.*}
+
+\PYG{k}{class} \PYG{n+nc}{HomeNavActivity} \PYG{p}{:} \PYG{n}{AppCompatActivity}\PYG{p}{(),} \PYG{n}{NavigationView}\PYG{p}{.}\PYG{n}{OnNavigationItemSelectedListener} \PYG{p}{\PYGZob{}}
+
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onCreate}\PYG{p}{(}\PYG{n}{savedInstanceState}\PYG{p}{:} \PYG{n}{Bundle}\PYG{p}{?)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{super}\PYG{p}{.}\PYG{n}{onCreate}\PYG{p}{(}\PYG{n}{savedInstanceState}\PYG{p}{)}
+        \PYG{n}{setContentView}\PYG{p}{(}\PYG{n}{R}\PYG{p}{.}\PYG{n}{layout}\PYG{p}{.}\PYG{n}{activity\PYGZus{}home\PYGZus{}nav}\PYG{p}{)}
+        \PYG{n}{setSupportActionBar}\PYG{p}{(}\PYG{n}{toolbar}\PYG{p}{)}
+
+        \PYG{n}{fab}\PYG{p}{.}\PYG{n}{setOnClickListener} \PYG{p}{\PYGZob{}} \PYG{n}{view} \PYG{p}{\PYGZhy{}\PYGZgt{}}
+            \PYG{n}{Snackbar}\PYG{p}{.}\PYG{n}{make}\PYG{p}{(}\PYG{n}{view}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}Replace with your own action\PYGZdq{}}\PYG{p}{,} \PYG{n}{Snackbar}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{)}
+                    \PYG{p}{.}\PYG{n}{setAction}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Action\PYGZdq{}}\PYG{p}{,} \PYG{k}{null}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{k}{val} \PYG{n+py}{toggle} \PYG{p}{=} \PYG{n}{ActionBarDrawerToggle}\PYG{p}{(}
+                \PYG{k}{this}\PYG{p}{,} \PYG{n}{drawer\PYGZus{}layout}\PYG{p}{,} \PYG{n}{toolbar}\PYG{p}{,} \PYG{n}{R}\PYG{p}{.}\PYG{n}{string}\PYG{p}{.}\PYG{n}{navigation\PYGZus{}drawer\PYGZus{}open}\PYG{p}{,} \PYG{n}{R}\PYG{p}{.}\PYG{n}{string}\PYG{p}{.}\PYG{n}{navigation\PYGZus{}drawer\PYGZus{}close}\PYG{p}{)}
+        \PYG{n}{drawer\PYGZus{}layout}\PYG{p}{.}\PYG{n}{addDrawerListener}\PYG{p}{(}\PYG{n}{toggle}\PYG{p}{)}
+        \PYG{n}{toggle}\PYG{p}{.}\PYG{n}{syncState}\PYG{p}{()}
+
+        \PYG{n}{nav\PYGZus{}view}\PYG{p}{.}\PYG{n}{setNavigationItemSelectedListener}\PYG{p}{(}\PYG{k}{this}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onBackPressed}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{drawer\PYGZus{}layout}\PYG{p}{.}\PYG{n}{isDrawerOpen}\PYG{p}{(}\PYG{n}{GravityCompat}\PYG{p}{.}\PYG{n}{START}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{n}{drawer\PYGZus{}layout}\PYG{p}{.}\PYG{n}{closeDrawer}\PYG{p}{(}\PYG{n}{GravityCompat}\PYG{p}{.}\PYG{n}{START}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{k}{super}\PYG{p}{.}\PYG{n}{onBackPressed}\PYG{p}{()}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onCreateOptionsMenu}\PYG{p}{(}\PYG{n}{menu}\PYG{p}{:} \PYG{n}{Menu}\PYG{p}{):} \PYG{n}{Boolean} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{// Inflate the menu; this adds items to the action bar if it is present.}
+        \PYG{n}{menuInflater}\PYG{p}{.}\PYG{n}{inflate}\PYG{p}{(}\PYG{n}{R}\PYG{p}{.}\PYG{n}{menu}\PYG{p}{.}\PYG{n}{home\PYGZus{}nav}\PYG{p}{,} \PYG{n}{menu}\PYG{p}{)}
+        \PYG{k}{return} \PYG{k}{true}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onOptionsItemSelected}\PYG{p}{(}\PYG{n}{item}\PYG{p}{:} \PYG{n}{MenuItem}\PYG{p}{):} \PYG{n}{Boolean} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{// Handle action bar item clicks here. The action bar will}
+        \PYG{c+c1}{// automatically handle clicks on the Home/Up button, so long}
+        \PYG{c+c1}{// as you specify a parent activity in AndroidManifest.xml.}
+        \PYG{k}{when} \PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{itemId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{R}\PYG{p}{.}\PYG{n}{id}\PYG{p}{.}\PYG{n}{action\PYGZus{}settings} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{k}{return} \PYG{k}{true}
+            \PYG{k}{else} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{k}{return} \PYG{k}{super}\PYG{p}{.}\PYG{n}{onOptionsItemSelected}\PYG{p}{(}\PYG{n}{item}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onNavigationItemSelected}\PYG{p}{(}\PYG{n}{item}\PYG{p}{:} \PYG{n}{MenuItem}\PYG{p}{):} \PYG{n}{Boolean} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{// Handle navigation view item clicks here.}
+        \PYG{k}{when} \PYG{p}{(}\PYG{n}{item}\PYG{p}{.}\PYG{n}{itemId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n}{R}\PYG{p}{.}\PYG{n}{id}\PYG{p}{.}\PYG{n}{nav\PYGZus{}home} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{c+c1}{// Startseite}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{R}\PYG{p}{.}\PYG{n}{id}\PYG{p}{.}\PYG{n}{nav\PYGZus{}exercise} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{c+c1}{//Übungen}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{R}\PYG{p}{.}\PYG{n}{id}\PYG{p}{.}\PYG{n}{nav\PYGZus{}minigame} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{c+c1}{//Minispiel}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{R}\PYG{p}{.}\PYG{n}{id}\PYG{p}{.}\PYG{n}{nav\PYGZus{}settings} \PYG{p}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{c+c1}{//Einstellungen}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{n}{drawer\PYGZus{}layout}\PYG{p}{.}\PYG{n}{closeDrawer}\PYG{p}{(}\PYG{n}{GravityCompat}\PYG{p}{.}\PYG{n}{START}\PYG{p}{)}
+        \PYG{k}{return} \PYG{k}{true}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

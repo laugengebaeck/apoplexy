@@ -1,0 +1,39 @@
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\setcounter{subsection}{2}
+%\setcounter{figure}{0}
+\tocless\subsubsection{Schlaganfall als Krankheitsbild}
+\begin{figure}[H]
+\centering
+\includesvg[width=0.8\textwidth]{pics/Schlaganfall}
+\caption{Schaubild zum FAST-Test}
+\label{fig:fasttest}
+\end{figure}
+
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+\tocless\subsubsection{Gamification}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{pics/pianostairs.jpg}
+\caption{Die Klavier-Treppe aus dem Projekt \emph{The Fun Theory}}
+\label{fig:pianostairs}
+\end{figure}
+
+
+\setcounter{subsection}{4}
+\setcounter{subsubsection}{1}
+\tocless\subsubsection{Entwicklung des Programms auf dem Mikrocontroller}
+\renewcommand{\listingscaption}{Quellcode}
+ \begin{longlisting}
+ \cfile{../Softwareprodukt/Mikrocontroller/SchlaganfallRehaMotivationsGeraet/SchlaganfallRehaMotivationsGeraet/main.c}
+ \caption{Das Programm für den Mikrocontroller}
+ \label{listing:mikrocontroller}
+ \end{longlisting}
+ 
+\setcounter{subsection}{5}
+\setcounter{subsubsection}{0}
+\tocless\subsubsection{Grundlegender Aufbau der App}
+ \begin{longlisting}
+ \kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/HomeNavActivity.kt}
+ \caption{Die Homescreen-Activity der App}
+ \end{longlisting}

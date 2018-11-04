@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Personalisierung">
+        <EditTextPreference
+            android:defaultValue="Apoplexy-Nutzer"
+            android:key="userName"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Dein Name" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Datenbank-Export und -Import">
+        <Preference android:title="Datenbank exportieren"
+            android:key="databaseExport"
+            android:summary="schreibt auf SD-Karte unter /ApoplexyBackup/exported.db"/>
+        <Preference android:title="Datenbank importieren"
+            android:key="databaseImport"
+            android:summary="liest von SD-Karte unter /ApoplexyBackup/imported.db"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Erinnerungen">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="alarmEnabled"
+            android:title="Erinnerung einschalten" />
+        <Preference
+            android:key="alarmTime"
+            android:title="Tägliche Erinnerung um ..."
+            android:defaultValue="15:00"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Info">
+        <Preference
+            android:key="pref_static_field_licenses"
+            android:persistent="false"
+            android:title="Lizenzen"
+            android:summary="@string/info_text_licenses">
+                <intent android:action="android.intent.action.VIEW"
+                    android:data="https://laugengebaeck.github.io/apoplexy/licenses.html" />
+        </Preference>
+        <Preference
+            android:key="pref_static_field_version"
+            android:persistent="false"
+            android:title="App-Version"
+            android:summary="1.0">
+                <intent android:action="android.intent.action.VIEW"
+                    android:data="https://github.com/laugengebaeck/apoplexy/" />
+        </Preference>
+        <Preference
+            android:key="pref_static_field_developer"
+            android:persistent="false"
+            android:title="Entwickler"
+            android:summary="Entwickelt im Rahmen einer Seminarfacharbeit der 11./12. Klasse am Spezialschulteil des ASG Erfurt. Entwickelt von Lukas Rost (@laugengebaeck)">
+                <intent android:action="android.intent.action.VIEW"
+                    android:data="https://github.com/laugengebaeck/" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

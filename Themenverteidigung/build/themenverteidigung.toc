@@ -1,0 +1,6 @@
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Zielstellung}{6}{0}{1}
+\beamer@subsectionintoc {1}{1}{Gliederung der Arbeit}{13}{0}{1}
+\beamer@sectionintoc {2}{Einordnung und Abgrenzung}{14}{0}{2}
+\beamer@sectionintoc {3}{Methodisches Vorgehen}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Zeitplan}{31}{0}{3}

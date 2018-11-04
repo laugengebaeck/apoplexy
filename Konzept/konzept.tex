@@ -1,0 +1,61 @@
+\documentclass[a4paper, 11pt, titlepage, bibliography=totocnumbered,landscape]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5cm, bottom=1cm, left=2.5cm, right=2.5cm, landscape]{geometry}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage[hyphens]{url}
+\pagenumbering{gobble}
+
+\pagestyle{fancy}
+\rhead{\today}
+\chead{Konzept zur Seminarfacharbeit}
+\lhead{Lukas Rost}
+
+\usepackage{dblfnote}
+\DFNalwaysdouble % for this example
+
+\begin{document}
+\centering \textbf{\Large{Entwicklung eines Gamification-basierten Biofeedback-Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten}}
+\\
+\begin{multicols*}{2}
+\section{Hardwareseitiger Aufbau}
+\begin{itemize}
+\item Vorrichtung zur Befestigung am Arm (Armbänder und daran befestigte Metallschienen)
+\item Potentiometer (misst, wie stark Arm gebeugt wird = wie gut Übung durchgeführt wird) -$>$ \textit{Erweiterungsmöglichkeit:} bessere Sensoren finden (z.B. Anwendung von Elektromyografie mit Obeflächenelektroden)
+\item Mikrocontroller Atmel ATmega88PA \footnote{\url{http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf}}
+\item Bluetooth-Modul HC-05 (aus China 3 Euro, sonst 6,50)
+\item Android-Mobilgerät mit eingebautem Bluetooth-Chip
+\end{itemize}
+\section{Softwareseitiger Aufbau}
+\begin{itemize}
+\item Programm auf dem Mikrocontroller in C (Auslesen und Digitalisierung des Potentiometer-Wertes und Senden über den Bluetooth-Chip)
+\item Programmierung mit Atmel Studio\footnote{\url{http://www.microchip.com/development-tools/atmel-studio-7}} und avr-gcc über USB-SPI-Adapter bzw. In-System-Programmer AVRISP mkII
+\item Tutorial zur Programmierung siehe \footnote{\url{https://www.mikrocontroller.net/articles/AVR-GCC-Tutorial}}
+\item Tutorial zum Bluetooth-Chip siehe \footnote{\url{https://alexbloggt.com/arduino-bluetooth/}}
+\item App auf dem Mobilgerät (erinnert an Übungen etc.)
+\item erste Stufe: ähnlich konventioneller Fitness-App
+\item zweite Stufe: eingebautes Minispiel z.B. unter Verwendung von Googles PlayN-Engine\footnote{\url{https://github.com/playn/playn}}
+\item empfängt Werte per Bluetooth und benutzt diese als Eingabe für das Spiel bzw. die App
+\item Möglichkeit, Erfahrungspunkte, Highscore oder ähnliches zu erreichen -$>$ Motivationssteigerung bei monotonen Bewegungsübungen
+\item Spiel darf nicht zu actiongeladen sein -$>$ Überforderung bei der Bewegung -$>$ geeignet z.B. Fußball schießen bzw. Ball werfen o.ä.
+\end{itemize}
+\section{Themen für den Theorieteil}
+\begin{itemize}
+\item Schlaganfall als Krankheitsbild (kurzer Exkurs)
+\item Studien zu Schlaganfall-Bewegungsübungen und deren Effektivität als Hinführung zum Eigenanteil
+\item Studien zur Motivationssteigerung bei konventionellen Aktivitätstrackern (z.B. Fitbit)
+\item Konzept der Gamification (Anwendung spiel­typischer Elemente in einem spielfremden Kontext)\footnote{\url{https://de.wikipedia.org/wiki/Gamification}}
+\item Konzept des Biofeedbacks (Rückmeldung normalerweise unbewusst ablaufender körperlicher Signale)\footnote{\url{https://de.wikipedia.org/wiki/Biofeedback}}
+\end{itemize}
+\section{Benötigte Hardware und Kosten}
+\begin{tabular}{|c|c|c|c|}
+\hline
+	\textbf{Hardware} & \textbf{Preis} & \textbf{Bemerkungen}\\ \hline
+	HC-05 (Bluetooth) & 3 - 6,50 Euro & \\ \hline
+	Multimeter & ab 10 Euro & eventuell vom FB Physik leihbar? \\ \hline
+	Metallschienen etc. & wenige Euro & \\ \hline
+\end{tabular}
+\end{multicols*}
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass[a4paper, 11pt, titlepage, bibliography=totocnumbered]{scrartcl}
+
+%import packages
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{courier}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{overcite}
+\usepackage{tikz}
+\usepackage{authblk}
+\usepackage{svg}
+\usepackage{footmisc}
+\usepackage[top=2.5cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{caption}
+
+\usepackage{minted}
+\fvset{breaklines=true}
+
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+
+\newmintedfile{c}{frame=single,linenos,samepage=false,firstnumber=1,rulecolor=\color{Gray},autogobble,breakafter=.,fontsize=\small}
+
+\newmintedfile{kotlin}{frame=single,linenos,samepage=false,firstnumber=1,rulecolor=\color{Gray},autogobble,breakafter=.,fontsize=\small}
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\providecommand*{\listingautorefname}{Quellcode}
+
+\addto\extrasngerman{\def\figureautorefname{Abb.}}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.5\textwidth]{pics/logo}\par\vspace{1cm}
+	{\huge\bfseries Entwicklung eines Gamification-basierten Biofeedback-Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten\par}
+	\vspace{2cm}
+	{\large Seminarfacharbeit der \textsc{Klassenstufe 11/12} (Schuljahre 2017-2019)\\ am \\}
+		{\scshape\Large\itshape Albert-Schweitzer-Gymnasium Erfurt, Spezialschulteil \par}
+	\vspace{2cm}
+	{\Large Lukas Rost}
+	\vfill
+	{\begin{tabular}{ll}
+	\Large Fachbetreuer: & \Large Johannes Süpke \\[5pt]
+	\Large Seminarfachbetreuer: & \Large Dr. Marion Moor \\[5pt]
+	\Large Außenbetreuer: & \Large Hannes Weichel \\
+	\end{tabular}}
+	\vfill
+	{\Large 20. Dezember 2018\par Erfurt}
+\end{titlepage}
+
+\newpage
+
+%table of contents
+\tableofcontents
+\setcounter{page}{1}
+\newpage
+
+\section{Einleitung}
+\input{einleitung}
+
+\newpage
+\section{Die Erkrankung Schlaganfall und geeignete Therapiemethoden}
+\input{schlaganfall}
+
+\newpage
+\section{Umgesetzte Konzepte}
+\input{gamification_biofeed}
+
+\newpage
+\section{Schaltung und Implementierung des Mikrocontroller-Systems}
+\input{mikrocontroller}
+
+\newpage
+\section{Entwicklung der Begleitapp für Android}
+\input{androidapp}
+
+\newpage
+\section{Zusammenfassung}
+\input{zusammenfassung}
+
+\newpage
+\input{literatur}
+
+\newpage
+\section{Anhang}
+\input{anhang}
+
+\newpage
+\section*{Eidesstattliche Erklärung}
+Hiermit erkläre ich an Eides Statt, dass ich meine Seminarfacharbeit \glqq Entwicklung eines Gamification-basierten Biofeedback-Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten\grqq ~selbstständig und nur unter Verwendung der angegebenen Literatur und Hilfsmittel verfasst habe. Außerdem erkläre ich, dass ich alle wörtlich oder sinngemäß aus fremden Werken entnommene Stellen als solche kenntlich gemacht habe.\\ \\
+Die vorliegende Arbeit entspricht in ihrer Vollständigkeit der auf der gegebenenfalls beigelegten DVD gespeicherten digitalen Version.
+\\ \\
+Erfurt, 20. Dezember 2018
+\\ \\
+\begin{center}
+\begin{tabular}{@{}l@{}}\hline
+$\: \: \:$ Lukas Rost $\: \: \:$
+\end{tabular}
+\end{center}
+
+\newpage
+\section*{Digitale Version}
+\vspace{2cm}
+\hspace{0.5cm}
+\begin{tikzpicture}[x=12.5cm,y=12.5cm]
+\draw (0,0) rectangle (1,1);
+\end{tikzpicture}
+
+\end{document}

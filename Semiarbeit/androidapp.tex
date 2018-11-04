@@ -1,0 +1,32 @@
+\subsection{Grundlegender Aufbau und Konzept der App}
+Um die vom EMG-Sensor gelieferten Daten zu verarbeiten und dem Benutzer bzw. Patienten anschaulich darzustellen, erschien es sinnvoll, eine App für Mobilgeräte zu programmieren. Hierbei entschied ich mich, das weitverbreitete Betriebssystem Android zu verwenden und die App zu diesem (ab Android 6.0) kompatibel zu machen. Diese App sollte folgende grundlegende Funktionen enthalten:
+\begin{itemize}
+	\item \textbf{Durchführung von Bewegungsübungen:} Es sollten einfache Bewegungsübungen möglich sein, bei denen sowohl der aktuelle Messwert als auch die Messwerte im zeitlichen Verlauf angezeigt werden sollten. Dabei sollte auch ein Vergleich mit früheren Übungen möglich sein.
+	\item \textbf{Ein durch Bewegungsübungen steuerbares Minispiel:} Die App sollte ein durch den Benutzer mithilfe von Bewegungen steuerbares Minispiel enthalten. dieses sollte möglichst einfach verständlich sein.
+	\item \textbf{Ein verbindendes Gamification-System:} Sowohl bei normalen Übungen als auch beim Minispiel sollten Gamification-Elemente eingebracht werden. So sollte das Sammeln von Erfahrungspunkten (Experience Points, XP) möglich sein und es sollten für besondere Leistungen sogenannte Badges (Abzeichen) vergeben werden können. Dabei sollten die zu erbringenden Leistungen für die Badges in Form von Quests bzw. Aufgaben vorher für den Benutzer sichtbar sein.
+	\item \textbf{Erinnerungen an die Übungen:} Die App sollte den Benutzer zu von ihm festgelegten Zeiten durch z.B. eine Benachrichtigung an die Durchführung seiner Übungen erinnern.
+\end{itemize}
+Ausgehend davon bot sich eine Gliederung in insgesamt vier für den Anwender sichtbare und miteinander verknüpfte Bildschirmseiten (bei Android Activities\cite{Src:AndroidKuenneth} genannt) an. Dies sind:
+\begin{itemize}
+	\item Eine \textbf{Startseite}, die die bisher erreichten Gamification-Erfolge zusammenfasst und kurze Informationstexte sowie Verknüpfungen zu den Übungsmöglichkeiten anbietet. Damit soll der Einstieg möglichst einfach gestaltet werden. Um die einzelnen Bereiche klar voneinander zu unterscheiden, kommt hier das einer Karteikarte ähnelnde Oberflächenelement \texttt{CardView} zum Einsatz.
+	\item Eine \textbf{Übungsseite}, auf der man Übungen durchführen kann. Dabei zeigt ein tachoähnliches Oberflächenelement den aktuell festgestellten Messwert an, während mithilfe eines Diagramms die Messwerte während der gesamten Übung dargestellt werden. Diese Übung kann durch den Benutzer beliebig gestartet und beendet werden, während diese Seite auch eine Funktion zur Ansicht der aktuell verfügbaren Quests bereitstellt.
+	\item Eine Seite für das \textbf{Minispiel}. Da dieses in einem späteren Abschnitt noch genauer beschrieben wird, soll hier nicht darauf eingegangen werden.
+	\item Eine \textbf{Einstellungsseite}. Hier können Einstellungen getroffen werden, die für die restlichen Teile der App von Bedeutung sind. So kann man hier den eigenen Namen einstellen, die Gamification-Datenbank importieren und exportieren und die Übungserinnerungen konfigurieren. Für solche Seiten stellt das Android-SDK die Klasse \texttt{PreferenceFragment} bereit.
+\end{itemize}
+Die einzelnen Funktionen sollen im folgenden näher erläutert werden. Screenshots der jeweiligen Activities befinden sich im Anhang.
+\newpage
+\subsection{Kommunikation mit dem Mikrocontroller}
+Wie bereits erläutert, sendet der Mikrocontroller die Messdaten über eine Bluetooth-Verbindung. Um nun mit  diesem kommunizieren zu können, muss die Android-App eine solche Verbindung implementieren. Glücklicherweise enthält das Android-SDK (Software Development Kit) bereits eine Softwarebibliothek, die genau dies vereinfacht. \\ \\
+Um eine Verbindung herzustellen, müssen zunächst einige Schritte durchlaufen werden, die nur in den Activities durchgeführt werden können. In dieser App benötigen zwei Activities Bluetooth-Zugriff: die Übungsseite und die Minispiel-Seite. Beide müssen unabhängig voneinander den Code zum Auffinden des zu verbindenden Bluetooth-Geräts implementieren. Dabei müssen beispielsweise die nötigen Berechtigungen überprüft, der Bluetooth-Adapter eingeschaltet und, sofern noch nicht geschehen, das Bluetooth-Gerät gekoppelt werden. \\ \\
+Ist dies geschehen, kann mit dem Einlesen der per Bluetooth eintreffenden Werte begonnen werden. Diese Funktionalität ist in der App in der Klasse \texttt{BluetoothNoService} gekapselt. Um kurzzeitige Schwankungen der Messwerte auszugleichen, bietet es sich an, diese in einer \textit{Queue} zwischenzulagern. Eine Queue oder Warteschlange ist eine in der Informatik häufig eingesetzte Datenstruktur, die nach dem First In - First Out - Prinzip (FIFO) arbeitet, d.h. das Objekt, welches als erstes der Warteschlange hinzugefügt wurde, verlässt sie auch als erstes wieder. Für diesen Zweck eignet sie sich sehr gut, da im Laufe der Zeit immer wieder neue Messwerte hinzukommen, während ältere entfernt werden müssen. Damit keine zu alten Werte verwendet werden, ist es sinnvoll, die Länge der Queue auf 10 Werte zu beschränken. \\ \\
+Zum Hinzufügen der Werte ist es sinnvoll, einen Thread zu implementieren, d.h. eine Funktion, die parallel zum übrigen Programm abläuft. Dieser Thread kann der Queue dann beständig neue Werte hinzufügen, sobald diese eintreffen. \\ \\
+Um nun zu jedem Zeitpunkt einen Durchschnittswert aus der Queue berechnen zu können, bietet sich der Median der Werte an. Da die Werte jedoch als Spannung abgelegt sind und der EMG-Sensor Werte zwischen $U_{min} = 1.5 V$ und $U_{max} = 3.3 V$ ausgibt, ist es sinnvoll, dem Nutzer die Werte in Prozent des Maximalwertes zu präsentieren. Ein solcher Wert lässt sich mit folgender Gleichung berechnen (wobei $x$ der Median der Messwerte ist):
+\begin{equation*}
+p = 100 * \frac{x - U_{min}}{U_{max} - U_{min}}
+\end{equation*}
+Dieser Wert kann nun an die Benutzeroberfläche zur weiteren Darstellung übergeben werden.
+\subsection{Konzept und programmiertechnische Umsetzung des Minispiels}
+\newpage
+\subsection{Umsetzung der Gamification in der App}
+\newpage
+\subsection{Funktionsweise des Benachrichtigungssystems}

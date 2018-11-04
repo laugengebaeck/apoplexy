@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Apoplexy</string>
+
+    <string name="navigation_drawer_open">Navigationsmenü öffnen</string>
+    <string name="navigation_drawer_close">Navigationsmenü schließen</string>
+
+    <string name="action_settings">Einstellungen</string>
+    <string name="no_bluetooth">Das Gerät unterstützt kein Bluetooth</string>
+
+    <string name="default_user">Apoplexy</string>
+    <string name="info_text_licenses">Die Lizenzen der für diese App verwendeten Softwarebibliotheken findest du unter http://laugengebaeck.github.io/apoplexy/licenses.html</string>
+    <string name="info_text_minigame">Spiele ein Minispiel! Hier steuerst du mithilfe deine Muskelaktivität ein Flugzeug über ein Gebirge. Je mehr Muskelaktivität gemessen wird, desto höher fliegst du und kannst den Bergen ausweichen. Auch hier wirst du mit Erfahrungspunkten und Abzeichen belohnt. Versuch es doch einfach mal! </string>
+    <string name="info_text_exercise">Hier kannst du deine Schlaganfall-Übungen durchführen. Dazu zeichnet ein Diagramm deine Muskelaktivität auf und leitet daraus deinen Erfolg ab. Dafür wirst du mit Erfahrungspunkten und Abzeichen belohnt. Die Übungen in dieser App sollten am besten zusammen mit einem Arm-Basis- oder Arm-Fähigkeits-Training durchgeführt werden. Viel Spaß!</string>
+    <string name="title_activity_exercise">Übungen</string>
+    <string name="title_activity_game">Minispiel</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="text_info_exercise">Hier kannst du deine Übungen durchführen und die Ergebnisse ansehen</string>
+    <string name="starten">Starten!</string>
+    <string name="ergebnisse_anzeigen">Ergebnisse anzeigen</string>
+    <string name="zeit_fuer_uebungen">Zeit für Übungen?</string>
+    <string name="ja_sicher">Ja, sicher!</string>
+    <string name="lust_auf_ein_minispiel">Lust auf ein Minispiel?</string>
+    <string name="ja_gerne">Ja, gerne!</string>
+    <string name="deine_ergebnisse">Deine Ergebnisse</string>
+    <string name="badge_icon_hint">Badge-Icon</string>
+</resources>

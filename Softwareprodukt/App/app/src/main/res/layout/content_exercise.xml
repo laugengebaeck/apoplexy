@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+    tools:context="de.lukasrost.apoplexy.ExerciseActivity"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/text_info_exercise"
+        android:fontFamily="serif"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <com.github.glomadrian.velocimeterlibrary.VelocimeterView
+        android:id="@+id/velocimeter"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_gravity="center"
+        app:bottom_velocimeter_color="?android:colorBackground"
+        app:digital_number_blur_color="#111111"
+        app:digital_number_color="#111111"
+        app:inside_progress_color="#00ff00"
+        app:internal_velocimeter_color="#000000"
+        app:max="100"
+        app:progress_blur_color="#00ff00"
+        app:units="%" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+
+</LinearLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_start_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_play_arrow" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_quests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:paddingBottom="30dp"
+        android:src="@drawable/ic_noun_quest"
+        app:layout_anchor="@id/fab_start_stop"
+        app:layout_anchorGravity="end" />
+
+</FrameLayout>
