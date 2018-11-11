@@ -34,7 +34,7 @@ class PlaneGameView : View {
     private var effWidth = width - (paddingLeft + paddingRight)
     private var effHeight = height - (paddingTop + paddingBottom)
 
-    // Züfällige Berge als Queue
+    // Zufällige Berge als Queue
     private val random = Random()
     private var randomHills = mutableListOf<Int>()
 
@@ -82,7 +82,7 @@ class PlaneGameView : View {
             canvas?.apply {
                 bluetoothPercList.add(bluetoothNoService.getCurrentValuePercent())
                 // Verschiebung des Flugzeugs nach oben
-                val verschieb = 80
+                val verschieb = 20
                 // obere linke Ecke des Flugzeugs durch  *Magie* bestimmen
                 val top = paddingTop + effHeight - ( effHeight * (bluetoothPercList[bluetoothPercList.size-1] + verschieb) / 100 )
                 val left = paddingLeft + effWidth/2 - planeBitmap.width
