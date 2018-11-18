@@ -22,8 +22,7 @@ class GamificationGraderHelper(val context: Context) {
         val avg = if (data.average().isNaN()) 0.0 else data.average()
 
         // Bewertungsfunktion
-        var points = ((avg + min + max) / 3 )
-        points *= 100
+        val points = ((avg + min + max) / 3 )
         val pointsInt = if(!points.isNaN() && points.roundToInt() > 0) points.roundToInt() else 0
 
         // neue XP zu bisherigen XP hinzufügen
@@ -40,8 +39,7 @@ class GamificationGraderHelper(val context: Context) {
         val avg = if (data.average().isNaN()) 0.0 else data.average()
 
         // Bewertungsfunktion
-        var points = ((avg + min + max) / 3 ) + distanceUntilCrash * 2
-        points *= 100
+        val points = ((avg + min + max) / 3 ) + distanceUntilCrash * 2
         val pointsInt = if(!points.isNaN() && points.roundToInt() > 0) points.roundToInt() else 0
 
         // neue XP zu bisherigen XP hinzufügen

@@ -1,0 +1,124 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{package} \PYG{n+nn}{de.lukasrost.apoplexy.notifications}
+
+\PYG{k}{import} \PYG{n+nn}{android.content.Context}
+\PYG{k}{import} \PYG{n+nn}{android.preference.PreferenceManager}
+\PYG{k}{import} \PYG{n+nn}{java.util.*}
+\PYG{k}{import} \PYG{n+nn}{android.content.pm.PackageManager}
+\PYG{k}{import} \PYG{n+nn}{android.content.ComponentName}
+\PYG{k}{import} \PYG{n+nn}{android.app.AlarmManager}
+\PYG{k}{import} \PYG{n+nn}{android.content.Context.ALARM\PYGZus{}SERVICE}
+\PYG{k}{import} \PYG{n+nn}{android.app.PendingIntent}
+\PYG{k}{import} \PYG{n+nn}{android.content.Intent}
+\PYG{k}{import} \PYG{n+nn}{android.support.v4.app.NotificationCompat}
+\PYG{k}{import} \PYG{n+nn}{android.app.NotificationManager}
+\PYG{k}{import} \PYG{n+nn}{android.support.v4.content.ContextCompat.getSystemService}
+\PYG{k}{import} \PYG{n+nn}{android.app.NotificationChannel}
+\PYG{k}{import} \PYG{n+nn}{android.os.Build}
+\PYG{k}{import} \PYG{n+nn}{android.support.v4.app.NotificationManagerCompat}
+\PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.*}
+
+\PYG{c+c1}{// Funktionen zur Benachrichtigungsverwaltung}
+
+\PYG{c+c1}{// Benachrichtigungszeitpunkt neu setzen}
+\PYG{k}{fun} \PYG{n+nf}{setReminder}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{val} \PYG{n+py}{prefs} \PYG{p}{=} \PYG{n}{PreferenceManager}\PYG{p}{.}\PYG{n}{getDefaultSharedPreferences}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{)}
+
+    \PYG{c+c1}{// wenn Benachrichtigungen aktiviert}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getBoolean}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}ALARM\PYGZus{}ENABLED}\PYG{p}{,}\PYG{k}{false}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+
+        \PYG{c+c1}{// Zeit aus Einstellungen lesen}
+        \PYG{k}{val} \PYG{n+py}{time} \PYG{p}{=} \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getString}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}ALARM\PYGZus{}TIME}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}00:00\PYGZdq{}}\PYG{p}{)}\PYG{o}{?.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}:\PYGZdq{}}\PYG{p}{)}\PYG{o}{!!}
+        \PYG{k}{val} \PYG{n+py}{hour} \PYG{p}{=} \PYG{n}{time}\PYG{p}{[}\PYG{l+m}{0}\PYG{p}{].}\PYG{n}{toInt}\PYG{p}{()}
+        \PYG{k}{val} \PYG{n+py}{minute} \PYG{p}{=} \PYG{n}{time}\PYG{p}{[}\PYG{l+m}{1}\PYG{p}{].}\PYG{n}{toInt}\PYG{p}{()}
+        \PYG{k}{val} \PYG{n+py}{calendar} \PYG{p}{=} \PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{getInstance}\PYG{p}{()}
+        \PYG{k}{val} \PYG{n+py}{setcalendar} \PYG{p}{=} \PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{getInstance}\PYG{p}{()}
+
+        \PYG{c+c1}{// Zeit setzen}
+        \PYG{n}{setcalendar}\PYG{p}{.}\PYG{k}{set}\PYG{p}{(}\PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{HOUR\PYGZus{}OF\PYGZus{}DAY}\PYG{p}{,} \PYG{n}{hour}\PYG{p}{)}
+        \PYG{n}{setcalendar}\PYG{p}{.}\PYG{k}{set}\PYG{p}{(}\PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{MINUTE}\PYG{p}{,} \PYG{n}{minute}\PYG{p}{)}
+        \PYG{n}{setcalendar}\PYG{p}{.}\PYG{k}{set}\PYG{p}{(}\PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{SECOND}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{)}
+
+        \PYG{c+c1}{// bisherige Reminder löschen}
+        \PYG{n}{cancelReminder}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{)}
+
+        \PYG{c+c1}{// wenn Zeit heute schon vergangen \PYGZhy{}\PYGZgt{} für morgen setzen}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{setcalendar}\PYG{p}{.}\PYG{n}{before}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{n}{setcalendar}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{Calendar}\PYG{p}{.}\PYG{n}{DATE}\PYG{p}{,} \PYG{l+m}{1}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}}
+
+        \PYG{c+c1}{// Receiver des Alarms setzen}
+        \PYG{k}{val} \PYG{n+py}{receiver} \PYG{p}{=} \PYG{n}{ComponentName}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NotificationReceiver}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+        \PYG{n}{ctx}\PYG{p}{.}\PYG{n}{packageManager}\PYG{p}{.}\PYG{n}{setComponentEnabledSetting}\PYG{p}{(}\PYG{n}{receiver}\PYG{p}{,}
+                \PYG{n}{PackageManager}\PYG{p}{.}\PYG{n}{COMPONENT\PYGZus{}ENABLED\PYGZus{}STATE\PYGZus{}ENABLED}\PYG{p}{,}
+                \PYG{n}{PackageManager}\PYG{p}{.}\PYG{n}{DONT\PYGZus{}KILL\PYGZus{}APP}\PYG{p}{)}
+        \PYG{k}{val} \PYG{n+py}{intent1} \PYG{p}{=} \PYG{n}{Intent}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,} \PYG{n}{NotificationReceiver}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+        \PYG{k}{val} \PYG{n+py}{pendingIntent} \PYG{p}{=} \PYG{n}{PendingIntent}\PYG{p}{.}\PYG{n}{getBroadcast}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{,}
+                \PYG{n}{DAILY\PYGZus{}REMINDER\PYGZus{}CODE}\PYG{p}{,} \PYG{n}{intent1}\PYG{p}{,}
+                \PYG{n}{PendingIntent}\PYG{p}{.}\PYG{n}{FLAG\PYGZus{}UPDATE\PYGZus{}CURRENT}\PYG{p}{)}
+
+        \PYG{c+c1}{// Benachrichtigung dem AlarmManager übergeben}
+        \PYG{k}{val} \PYG{n+py}{am} \PYG{p}{=} \PYG{n}{ctx}\PYG{p}{.}\PYG{n}{getSystemService}\PYG{p}{(}\PYG{n}{ALARM\PYGZus{}SERVICE}\PYG{p}{)} \PYG{k}{as} \PYG{n}{AlarmManager}
+        \PYG{n}{am}\PYG{p}{.}\PYG{n}{setInexactRepeating}\PYG{p}{(}\PYG{n}{AlarmManager}\PYG{p}{.}\PYG{n}{RTC\PYGZus{}WAKEUP}\PYG{p}{,} \PYG{n}{setcalendar}\PYG{p}{.}\PYG{n}{timeInMillis}\PYG{p}{,}
+                \PYG{n}{AlarmManager}\PYG{p}{.}\PYG{n}{INTERVAL\PYGZus{}DAY}\PYG{p}{,} \PYG{n}{pendingIntent}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+        \PYG{c+c1}{// wenn Benachrichtigung deaktiviert \PYGZhy{}\PYGZgt{} Erinnerung löschen}
+        \PYG{n}{cancelReminder}\PYG{p}{(}\PYG{n}{ctx}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Alarm des AlarmManagers mithilfe von *Magie* löschen}
+\PYG{k}{fun} \PYG{n+nf}{cancelReminder}\PYG{p}{(}\PYG{n}{context}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{val} \PYG{n+py}{receiver} \PYG{p}{=} \PYG{n}{ComponentName}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{NotificationReceiver}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+    \PYG{k}{val} \PYG{n+py}{pm} \PYG{p}{=} \PYG{n}{context}\PYG{p}{.}\PYG{n}{packageManager}
+    \PYG{n}{pm}\PYG{p}{.}\PYG{n}{setComponentEnabledSetting}\PYG{p}{(}\PYG{n}{receiver}\PYG{p}{,}
+            \PYG{n}{PackageManager}\PYG{p}{.}\PYG{n}{COMPONENT\PYGZus{}ENABLED\PYGZus{}STATE\PYGZus{}DISABLED}\PYG{p}{,}
+            \PYG{n}{PackageManager}\PYG{p}{.}\PYG{n}{DONT\PYGZus{}KILL\PYGZus{}APP}\PYG{p}{)}
+
+    \PYG{k}{val} \PYG{n+py}{intent1} \PYG{p}{=} \PYG{n}{Intent}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{NotificationReceiver}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+    \PYG{k}{val} \PYG{n+py}{pendingIntent} \PYG{p}{=} \PYG{n}{PendingIntent}\PYG{p}{.}\PYG{n}{getBroadcast}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,}
+            \PYG{n}{DAILY\PYGZus{}REMINDER\PYGZus{}CODE}\PYG{p}{,} \PYG{n}{intent1}\PYG{p}{,} \PYG{n}{PendingIntent}\PYG{p}{.}\PYG{n}{FLAG\PYGZus{}UPDATE\PYGZus{}CURRENT}\PYG{p}{)}
+    \PYG{k}{val} \PYG{n+py}{am} \PYG{p}{=} \PYG{n}{context}\PYG{p}{.}\PYG{n}{getSystemService}\PYG{p}{(}\PYG{n}{ALARM\PYGZus{}SERVICE}\PYG{p}{)} \PYG{k}{as} \PYG{n}{AlarmManager}
+    \PYG{n}{am}\PYG{p}{.}\PYG{n}{cancel}\PYG{p}{(}\PYG{n}{pendingIntent}\PYG{p}{)}
+    \PYG{n}{pendingIntent}\PYG{p}{.}\PYG{n}{cancel}\PYG{p}{()}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Benachrichtigung anzeigen}
+\PYG{k}{fun} \PYG{n+nf}{showNotification}\PYG{p}{(}\PYG{n}{context}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)\PYGZob{}}
+
+    \PYG{c+c1}{// Activity, die geöffnet werden soll}
+    \PYG{k}{val} \PYG{n+py}{intent} \PYG{p}{=} \PYG{n}{Intent}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{HomeNavActivity}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+    \PYG{n}{intent}\PYG{p}{.}\PYG{n}{flags} \PYG{p}{=} \PYG{n}{Intent}\PYG{p}{.}\PYG{n}{FLAG\PYGZus{}ACTIVITY\PYGZus{}NEW\PYGZus{}TASK} \PYG{n}{or} \PYG{n}{Intent}\PYG{p}{.}\PYG{n}{FLAG\PYGZus{}ACTIVITY\PYGZus{}CLEAR\PYGZus{}TASK}
+    \PYG{k}{val} \PYG{n+py}{pendingIntent} \PYG{p}{=} \PYG{n}{PendingIntent}\PYG{p}{.}\PYG{n}{getActivity}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{,} \PYG{n}{intent}\PYG{p}{,} \PYG{l+m}{0}\PYG{p}{)}
+
+    \PYG{c+c1}{// Aussehen der Benachrichtigung}
+    \PYG{k}{val} \PYG{n+py}{builder} \PYG{p}{=} \PYG{n}{NotificationCompat}\PYG{p}{.}\PYG{n}{Builder}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{DAILY\PYGZus{}REMINDER\PYGZus{}CHANNEL\PYGZus{}ID}\PYG{p}{)}
+            \PYG{p}{.}\PYG{n}{setSmallIcon}\PYG{p}{(}\PYG{n}{R}\PYG{p}{.}\PYG{n}{drawable}\PYG{p}{.}\PYG{n}{ic\PYGZus{}minigame\PYGZus{}icon}\PYG{p}{)}
+            \PYG{p}{.}\PYG{n}{setContentTitle}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Zeit zum Üben!\PYGZdq{}}\PYG{p}{)}
+            \PYG{p}{.}\PYG{n}{setContentText}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Hast du Lust, deine Schlaganfall\PYGZhy{}Übungen mit Apoplexy durchzuführen?\PYGZdq{}}\PYG{p}{)}
+            \PYG{p}{.}\PYG{n}{setStyle}\PYG{p}{(}\PYG{n}{NotificationCompat}\PYG{p}{.}\PYG{n}{BigTextStyle}\PYG{p}{()}
+                    \PYG{p}{.}\PYG{n}{bigText}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Hast du Lust, deine Schlaganfall\PYGZhy{}Übungen mit Apoplexy durchzuführen?\PYGZdq{}}\PYG{p}{))}
+            \PYG{p}{.}\PYG{n}{setPriority}\PYG{p}{(}\PYG{n}{NotificationCompat}\PYG{p}{.}\PYG{n}{PRIORITY\PYGZus{}DEFAULT}\PYG{p}{)}
+            \PYG{c+c1}{// Set the intent that will fire when the user taps the notification}
+            \PYG{p}{.}\PYG{n}{setContentIntent}\PYG{p}{(}\PYG{n}{pendingIntent}\PYG{p}{)}
+            \PYG{p}{.}\PYG{n}{setAutoCancel}\PYG{p}{(}\PYG{k}{true}\PYG{p}{)}
+
+    \PYG{c+c1}{// Benachrichtigung senden}
+    \PYG{k}{val} \PYG{n+py}{notificationManager} \PYG{p}{=} \PYG{n}{NotificationManagerCompat}\PYG{p}{.}\PYG{n}{from}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
+    \PYG{n}{notificationManager}\PYG{p}{.}\PYG{n}{notify}\PYG{p}{(}\PYG{n}{DAILY\PYGZus{}REMINDER\PYGZus{}CODE}\PYG{p}{,}\PYG{n}{builder}\PYG{p}{.}\PYG{n}{build}\PYG{p}{())}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Benachrichtigungskanal auf unterstützten Geräten erstellen}
+\PYG{k}{fun} \PYG{n+nf}{createNotificationChannel}\PYG{p}{(}\PYG{n}{context}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{Build}\PYG{p}{.}\PYG{n}{VERSION}\PYG{p}{.}\PYG{n}{SDK\PYGZus{}INT} \PYG{p}{\PYGZgt{}=} \PYG{n}{Build}\PYG{p}{.}\PYG{n}{VERSION\PYGZus{}CODES}\PYG{p}{.}\PYG{n}{O}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{name} \PYG{p}{=} \PYG{l+s}{\PYGZdq{}Erinnerungen\PYGZdq{}}
+        \PYG{k}{val} \PYG{n+py}{description} \PYG{p}{=} \PYG{l+s}{\PYGZdq{}Apoplexys Übungserinnerungen\PYGZdq{}}
+        \PYG{k}{val} \PYG{n+py}{importance} \PYG{p}{=} \PYG{n}{NotificationManager}\PYG{p}{.}\PYG{n}{IMPORTANCE\PYGZus{}DEFAULT}
+        \PYG{k}{val} \PYG{n+py}{channel} \PYG{p}{=} \PYG{n}{NotificationChannel}\PYG{p}{(}\PYG{n}{DAILY\PYGZus{}REMINDER\PYGZus{}CHANNEL\PYGZus{}ID}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{importance}\PYG{p}{)}
+        \PYG{n}{channel}\PYG{p}{.}\PYG{n}{description} \PYG{p}{=} \PYG{n}{description}
+
+        \PYG{k}{val} \PYG{n+py}{notificationManager} \PYG{p}{=} \PYG{n}{getSystemService}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,}\PYG{n}{NotificationManager}\PYG{o}{::}\PYG{k}{class}\PYG{p}{.}\PYG{n}{java}\PYG{p}{)}
+        \PYG{n}{notificationManager}\PYG{o}{!!}\PYG{p}{.}\PYG{n}{createNotificationChannel}\PYG{p}{(}\PYG{n}{channel}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,4 +1,7 @@
 App-Logo wurde mit https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html erstellt
+Flugzeug-Icon von https://icon-icons.com/de/symbol/Flugzeug-rechts-rot/26360
+Quellen der anderen Icons heraussuchen!
+
 https://delsys.com/Attachments_pdf/download/technical-notes/101_emg-sensor-placement.pdf
 https://delsys.com/Attachments_pdf/download/technical-notes/103_emg-signal-analysis.pdf
 https://cdn.sparkfun.com/assets/a/3/a/f/a/AT-04-001.pdf

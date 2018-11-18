@@ -14,7 +14,6 @@ import de.lukasrost.apoplexy.helpers.GamificationGraderHelper
 import java.util.*
 
 // eigene View, beinhaltet das Minispiel
-// Flugzeug-Icon von https://icon-icons.com/de/symbol/Flugzeug-rechts-rot/26360
 class PlaneGameView : View {
     // Konstruktoren: zeichnet sich nicht selbst
     constructor(context : Context) : super(context){

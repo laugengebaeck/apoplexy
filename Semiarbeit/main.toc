@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {5.2}Kommunikation mit dem Mikrocontroller}{11}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Konzept und programmiertechnische Umsetzung des Minispiels}{11}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Umsetzung der Gamification in der App}{12}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Funktionsweise des Benachrichtigungssystems}{13}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.5}Funktionsweise des Benachrichtigungssystems}{12}{subsection.5.5}
 \contentsline {section}{\numberline {6}Zusammenfassung}{14}{section.6}
 \contentsline {section}{\numberline {7}Literatur- und Quellenverzeichnis}{15}{section.7}
 \contentsline {section}{\numberline {8}Anhang}{18}{section.8}

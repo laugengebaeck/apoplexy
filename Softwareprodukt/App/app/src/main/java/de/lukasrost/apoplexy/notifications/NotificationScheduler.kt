@@ -18,7 +18,6 @@ import android.support.v4.app.NotificationManagerCompat
 import de.lukasrost.apoplexy.*
 
 // Funktionen zur Benachrichtigungsverwaltung
-// basiert auf http://droidmentor.com/schedule-notifications-using-alarmmanager/
 
 // Benachrichtigungszeitpunkt neu setzen
 fun setReminder(ctx: Context){

@@ -21,7 +21,14 @@
 
 
 \setcounter{subsection}{4}
-\setcounter{subsubsection}{1}
+\setcounter{subsubsection}{0}
+\tocless\subsubsection{Aufbau der Schaltung}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{pics/mikrocontroller.jpg}
+	\caption{Foto der aufgebauten Schaltung auf einem Breadboard}
+	\label{fig:pianostairs}
+\end{figure}
 \tocless\subsubsection{Entwicklung des Programms auf dem Mikrocontroller}
 \renewcommand{\listingscaption}{Quellcode}
  \begin{longlisting}
@@ -31,9 +38,31 @@
  \end{longlisting}
  
 \setcounter{subsection}{5}
-\setcounter{subsubsection}{0}
-\tocless\subsubsection{Grundlegender Aufbau der App}
- \begin{longlisting}
- \kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/HomeNavActivity.kt}
- \caption{Die Homescreen-Activity der App}
- \end{longlisting}
+\setcounter{subsubsection}{1}
+\tocless\subsubsection{Kommunikation mit dem Mikrocontroller}
+\begin{longlisting}
+	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/BluetoothNoService.kt}
+	\caption{Die \texttt{BluetoothNoService}-Klasse mit der Bluetooth-Funktionalität}
+	\label{listing:bluetooth}
+\end{longlisting}
+
+\tocless\subsubsection{Konzept und programmiertechnische Umsetzung des Minispiels}
+\begin{longlisting}
+	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/game/PlaneGameView.kt}
+	\caption{Die \texttt{PlaneGameView}-Klasse mit der Implementierung des Minispiels}
+	\label{listing:game}
+\end{longlisting}
+
+\tocless\subsubsection{Umsetzung der Gamification in der App}
+\begin{longlisting}
+	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/helpers/GamificationGraderHelper.kt}
+	\caption{Die \texttt{GamificationGraderHelper}-Klasse mit den Gamification-Bewertungsfunktionen}
+	\label{listing:gamification}
+\end{longlisting}
+
+\tocless\subsubsection{Funktionsweise des Benachrichtigungssystems}
+\begin{longlisting}
+	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/notifications/NotificationScheduler.kt}
+	\caption{Der \texttt{NotificationScheduler} zur Verwaltung der Benachrichtigungen}
+	\label{listing:gamification}
+\end{longlisting}

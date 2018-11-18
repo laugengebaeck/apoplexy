@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.30)  8 NOV 2018 17:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.30)  17 NOV 2018 17:56
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -975,7 +975,14 @@ runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `fig:pianostairs' multiply defined.
+
+
+LaTeX Warning: Label `listing:gamification' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -994,8 +1001,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 40.
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 40.
@@ -1485,47 +1491,71 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 28.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 28.
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
+
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 29.
+(babel)             in language  on input line 35.
 [11]
+Underfull \hbox (badness 10000) in paragraph at lines 38--41
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--41
+
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 30.
+(babel)             in language  on input line 45.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 46.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
- [12]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 32.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 32.
+(babel)             in language  on input line 46.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 33--86
+Underfull \hbox (badness 10000) in paragraph at lines 47--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--86
+Underfull \hbox (badness 10000) in paragraph at lines 47--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--86
+Underfull \hbox (badness 10000) in paragraph at lines 47--86
 
  []
 
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 86.
+[12]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 87.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1534,7 +1564,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 87.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 87.
-[13]
+ [13]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 88.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1607,173 +1637,173 @@ Underfull \hbox (badness 1365) in paragraph at lines 28--29
 ech-nik mit Con-trol-lern der At-mel AVR-RISC-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 47.
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 []\OT1/cmr/m/n/10.95 Atmel Cor-po-ra-ti-on: \OT1/cmr/m/it/10.95 AT-me-ga48A/PA/
 88A/PA/168A/PA/328/P\OT1/cmr/m/n/10.95 , At-mel 8-Bit
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 36--37
+Underfull \hbox (badness 2865) in paragraph at lines 53--54
 \OT1/cmr/m/n/10.95 Mi-cro-con-trol-ler with 4/8/16/32 KBy-tes In-System Pro-gra
 m-ma-ble Flash, Da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 \OT1/cmr/m/n/10.95 tas-heet, []$\OT1/pcr/m/n/10.95 http : / / www . atmel . com
  / images / Atmel -[] 8271 -[] 8 -[] bit -[] AVR -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 \OT1/pcr/m/n/10.95 Microcontroller -[] ATmega48A -[] 48PA -[] 88A -[] 88PA -[] 
 168A -[] 168PA -[] 328 -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 []\OT1/cmr/m/n/10.95 Atmel Cor-po-ra-ti-on: \OT1/cmr/m/it/10.95 AT-me-ga48PA/88
 PA/168PA\OT1/cmr/m/n/10.95 , 8-bit AVR Mi-cro-con-trol-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 \OT1/cmr/m/n/10.95 lers, Da-tas-heet Com-ple-te, []$\OT1/pcr/m/n/10.95 http : /
  / ww1 . microchip . com / downloads / en /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 \OT1/pcr/m/n/10.95 DeviceDoc / Atmel -[] 42734 -[] 8 -[] bit -[] AVR -[] Microc
 ontroller -[] ATmega48PA -[]
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 41.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 41.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 41.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 41.
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 []\OT1/cmr/m/n/10.95 Autorengemeinschaft: \OT1/cmr/m/it/10.95 AVR-GCC-Tutorial\
 OT1/cmr/m/n/10.95 , []$\OT1/pcr/m/n/10.95 https : / / www . mikrocontroller .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 []\OT1/cmr/m/n/10.95 Autorengemeinschaft: \OT1/cmr/m/it/10.95 Bio-feed-back\OT1
 /cmr/m/n/10.95 , []$\OT1/pcr/m/n/10.95 https : / / de . wikipedia . org / wiki 
 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 []\OT1/cmr/m/n/10.95 Autorengemeinschaft: \OT1/cmr/m/it/10.95 Schlag-an-fall\OT
 1/cmr/m/n/10.95 , []$\OT1/pcr/m/n/10.95 https : / / de . wikipedia . org / wiki
  /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 \OT1/pcr/m/n/10.95 wissen . de / gesellschaft / spiele _ und _ spielzeug / gami
 fication /
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 64--65
+Underfull \hbox (badness 1097) in paragraph at lines 81--82
 []\OT1/cmr/m/n/10.95 Feichter, Mar-ti-na: \OT1/cmr/m/it/10.95 Schlag-an-fall\OT
 1/cmr/m/n/10.95 , []$\OT1/pcr/m/n/10.95 https : / / www . netdoktor . de / kran
 kheiten /
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 68--69
+Underfull \hbox (badness 2042) in paragraph at lines 89--90
 []\OT1/cmr/m/n/10.95 Freyer, Ti-mo; M[]orkl, Sa-bri-na; Os-ten-dorf, Nor-bert: 
 \OT1/cmr/m/it/10.95 Bobath-Konzept\OT1/cmr/m/n/10.95 , []$\OT1/pcr/m/n/10.95 ht
 tp : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 []\OT1/cmr/m/n/10.95 ITead Stu-dio: \OT1/cmr/m/it/10.95 HC-05\OT1/cmr/m/n/10.95
  , Blue-tooth to Se-ri-al Port Mo-du-le, []$\OT1/pcr/m/n/10.95 http : / / www .
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 95.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 95.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 95.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 95.
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 []\OT1/cmr/m/n/10.95 Parrish, Ke-vin: Pro-fes-sor Uses RPG-like Exp Rat-her Tha
 n Gra-des,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 []$\OT1/pcr/m/n/10.95 https : / / www . tomsguide . com / us / Experience -[] P
 oints -[] XP -[] Indiana -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 \OT1/cmr/m/n/10.95 ti-on\, []$\OT1/pcr/m/n/10.95 http : / / www . deutschlandfu
 nk . de / spieltheorie -[] gamification -[]
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 89.
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 []$\OT1/pcr/m/n/10.95 https : / / www . destatis . de / DE / Publikationen / Th
 ematisch /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 \OT1/pcr/m/n/10.95 Gesundheit / Todesursachen / Todesursachenstatistik523210115
 7015 .
  []
 
 
-Underfull \hbox (badness 2393) in paragraph at lines 100--101
+Underfull \hbox (badness 2393) in paragraph at lines 121--122
 []\OT1/cmr/m/n/10.95 W wie Wis-sen: \OT1/cmr/m/it/10.95 Ga-mi-fi-ca-ti-on - Wie
  Spie-len den All-tag in-ter-essan-ter macht\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 \OT1/cmr/m/n/10.95 Uhr), []$\OT1/pcr/m/n/10.95 http : / / www . ardmediathek . 
 de / tv / W -[] wie -[] Wissen / Gamification -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 \OT1/pcr/m/n/10.95 Wie -[] Spielen -[] den -[] Alltag -[] in / Das -[] Erste / 
 Video ? bcastId = 427262 &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 [][]$\OT1/pcr/m/n/10.95 http : / / www . volkskrankheiten . at / images / 1237 
 / widgets /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 [][]$\OT1/pcr/m/n/10.95 https : / / scontent -[] frx5 -[] 1 . xx . fbcdn . net 
 / v / t1 . 0 -[] 9 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 \OT1/pcr/m/n/10.95 225807 _ 10150179024982659 _ 311531 _ n . jpg ? _nc _ cat = 
 0 & oh =
  []
@@ -1796,7 +1826,7 @@ Package babel Info: Redefining ngerman shorthand "~
 Package svg Info: Last page of `./svg-inkscape/Schlaganfall_svg-tex.pdf' is 1 o
 n input line 7.
  (./svg-inkscape/Schlaganfall_svg-tex.pdf_tex
-<./svg-inkscape/Schlaganfall_svg-tex.pdf, id=392, page=1, 209.1313pt x 128.0383
+<./svg-inkscape/Schlaganfall_svg-tex.pdf, id=423, page=1, 209.1313pt x 128.0383
 5pt>
 File: ./svg-inkscape/Schlaganfall_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Schlaganfall_svg-tex.pdf, page 1>
@@ -1804,12 +1834,25 @@ Package pdftex.def Info: ./svg-inkscape/Schlaganfall_svg-tex.pdf , page1 used o
 n input line 52.
 (pdftex.def)             Requested size: 364.19667pt x 222.98027pt.
 )
-<pics/pianostairs.jpg, id=393, 646.35844pt x 362.36789pt>
+<pics/pianostairs.jpg, id=424, 646.35844pt x 362.36789pt>
 File: pics/pianostairs.jpg Graphic file (type jpg)
 <use pics/pianostairs.jpg>
 Package pdftex.def Info: pics/pianostairs.jpg  used on input line 17.
 (pdftex.def)             Requested size: 364.19667pt x 204.17976pt.
-
+<pics/mikrocontroller.jpg, id=425, 3234.0825pt x 2690.05pt>
+File: pics/mikrocontroller.jpg Graphic file (type jpg)
+<use pics/mikrocontroller.jpg>
+Package pdftex.def Info: pics/mikrocontroller.jpg  used on input line 28.
+(pdftex.def)             Requested size: 318.66948pt x 265.03922pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 32.
+ [18 <./svg-inkscape/Schlaganfall_svg-tex.pdf> <./pics/pianostairs.jpg>]
 (./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/default.pygstyle)
 (./_minted-main/93A4D84724FF17B7D03B682607DA0100F071622ACF8D0A36A59C578D803E5A9
 9.pygtex
@@ -1820,56 +1863,141 @@ LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 12.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 13.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 13.
- [18 <./svg-inkscape/Schlaganfall_svg-tex.pdf> <./pics/pianostairs.jpg>])
+(babel)             in language  on input line 34.
+ [19 <./pics/mikrocontroller.jpg>])
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
-t line 29.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 35.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 35.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 35.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 35.
- [19]
-(./_minted-main/9BD88F553A8C23D05D02F40BBC815DB6F8D83C07F0EF9E01741689EFA635984
+t line 36.
+
+(./_minted-main/DD07B7DEBF42D40482B06290F8E707C4F8D83C07F0EF9E01741689EFA635984
 8.pygtex
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 2.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 56.
+(babel)             in language  on input line 22.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 56.
- [20]))
+(babel)             in language  on input line 22.
+ [20])
+(./_minted-main/B69508F271D4DEFF3FE86D6E9B1572A6F8D83C07F0EF9E01741689EFA635984
+8.pygtex
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 5.
  [21]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 57.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 57.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 57.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 57.
+ [22]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
+ [23]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 160.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 160.
+ [24]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 213.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 213.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 213.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 213.
+ [25])
+(./_minted-main/C504D7C5CA4F998522565E11A25BE736F8D83C07F0EF9E01741689EFA635984
+8.pygtex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 48.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 48.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 48.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 48.
+ [26]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 93.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 93.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 93.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 93.
+ [27])
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[][][]|\OT1/cmr/m/n/10.95 Die \OT1/pcr/m/n/10.95 GamificationGraderHelper\OT1/c
+mr/m/n/10.95 -Klasse mit den Gamification-
+ []
+
+
+(./_minted-main/5066375A94D12F505AEC1915463630CDF8D83C07F0EF9E01741689EFA635984
+8.pygtex
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 32.
+ [28]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 86.
+ [29]))
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 98.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 98.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 98.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 98.
+ [30]
 Overfull \hbox (22.9412pt too wide) in paragraph at lines 100--105
 \OT1/cmr/m/n/10.95 Hiermit er-kl[]are ich an Ei-des Statt, dass ich mei-ne Se-m
 i-nar-fach-ar-beit []Ent-wick-lung ei-nes Gamification-
  []
 
 
-Overfull \hbox (7.81982pt too wide) in paragraph at lines 100--105
-\OT1/cmr/m/n/10.95 basierten Biofeedback-Unterst[]utzungs- und Mo-ti-va-ti-ons-
-ger[]ats zur Re-ha-bi-li-ta-ti-on von Schlaganfall-
+Overfull \hbox (16.42773pt too wide) in paragraph at lines 100--105
+\OT1/cmr/m/n/10.95 Unterst[]utzungs- und Mo-ti-va-ti-ons-ger[]ats zur Re-ha-bi-
+li-ta-ti-on von Schlaganfall-Patienten\ selbstst[]andig
  []
 
 
@@ -1900,7 +2028,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 111.
-[22]
+[31]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1909,7 +2037,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 119.
- [23]
+ [32]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
  (./main.aux)
@@ -1917,18 +2045,25 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 53B790340FA4FB17B51C2CC22A3A8533;1675.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  ) 
 Here is how much of TeX's memory you used:
- 25298 strings out of 492642
- 468592 string characters out of 6135566
- 718324 words of memory out of 5000000
- 28613 multiletter control sequences out of 15000+600000
+ 25349 strings out of 492642
+ 470425 string characters out of 6135566
+ 719074 words of memory out of 5000000
+ 28632 multiletter control sequences out of 15000+600000
  17446 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,9n,60p,9083b,717s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
+ 64i,10n,60p,9083b,717s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 , replaced by a fixed one
@@ -1956,10 +2091,10 @@ frm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></u
 sr/share/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texmf-dist/f
 onts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courie
 r/ucrro8a.pfb>
-Output written on main.pdf (24 pages, 977913 bytes).
+Output written on main.pdf (33 pages, 3034868 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 468 compressed objects within 5 object streams
- 98 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 540 compressed objects within 6 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
