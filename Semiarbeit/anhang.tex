@@ -27,7 +27,7 @@
 	\centering
 	\includegraphics[width=0.7\textwidth]{pics/mikrocontroller.jpg}
 	\caption{Foto der aufgebauten Schaltung auf einem Breadboard}
-	\label{fig:pianostairs}
+	\label{fig:mikrocon}
 \end{figure}
 \tocless\subsubsection{Entwicklung des Programms auf dem Mikrocontroller}
 \renewcommand{\listingscaption}{Quellcode}
@@ -37,8 +37,43 @@
  \label{listing:mikrocontroller}
  \end{longlisting}
  
+\newpage
 \setcounter{subsection}{5}
-\setcounter{subsubsection}{1}
+\setcounter{subsubsection}{0}
+\tocless\subsubsection{Grundlegender Aufbau und Konzept der App}
+\begin{multicols}{2}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-home.png}
+	\caption{Die Startseite der App}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-exercise.png}
+	\caption{Die Übungsseite der App}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-game.png}
+	\caption{Das Minispiel}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-settings.png}
+	\caption{Die Einstellungsseite der App}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-badges.png}
+	\caption{Die Liste der verfügbaren Quests}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.1]{pics/device-notification.png}
+	\caption{Eine Übungsbenachrichtigung}
+\end{figure}
+\end{multicols}
+
 \tocless\subsubsection{Kommunikation mit dem Mikrocontroller}
 \begin{longlisting}
 	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/BluetoothNoService.kt}
@@ -60,9 +95,15 @@
 	\label{listing:gamification}
 \end{longlisting}
 
+\begin{longlisting}
+	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/helpers/GamificationDBHelper.kt}
+	\caption{Die \texttt{GamificationDBHelper}-Klasse, welche für den Zugriff auf die Datenbank verantwortlich ist.}
+	\label{listing:gamificationdb}
+\end{longlisting}
+
 \tocless\subsubsection{Funktionsweise des Benachrichtigungssystems}
 \begin{longlisting}
 	\kotlinfile{../Softwareprodukt/App/app/src/main/java/de/lukasrost/apoplexy/notifications/NotificationScheduler.kt}
 	\caption{Der \texttt{NotificationScheduler} zur Verwaltung der Benachrichtigungen}
-	\label{listing:gamification}
+	\label{listing:notification}
 \end{longlisting}

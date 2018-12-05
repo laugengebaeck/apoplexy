@@ -1,0 +1,126 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{package} \PYG{n+nn}{de.lukasrost.apoplexy.helpers}
+
+\PYG{k}{import} \PYG{n+nn}{android.content.ContentValues}
+\PYG{k}{import} \PYG{n+nn}{android.content.Context}
+\PYG{k}{import} \PYG{n+nn}{android.database.Cursor}
+\PYG{k}{import} \PYG{n+nn}{android.database.sqlite.SQLiteDatabase}
+\PYG{k}{import} \PYG{n+nn}{android.database.sqlite.SQLiteOpenHelper}
+\PYG{k}{import} \PYG{n+nn}{android.preference.PreferenceManager}
+\PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.*}
+
+\PYG{c+c1}{// Verbindung zur Gamification\PYGZhy{}Datenbank}
+\PYG{k}{class} \PYG{n+nc}{GamificationDBHelper}\PYG{p}{(}\PYG{k}{val} \PYG{n+py}{context}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)} \PYG{p}{:} \PYG{n}{SQLiteOpenHelper}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,} \PYG{n}{DATABASE\PYGZus{}NAME}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,} \PYG{n}{DATABASE\PYGZus{}VERSION}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// Tabelle erstellen, Standard\PYGZhy{}Quests einfügen}
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onCreate}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{?)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{db}\PYG{o}{?.}\PYG{n}{execSQL}\PYG{p}{(}\PYG{n}{CREATE\PYGZus{}TABLE\PYGZus{}GAMIFICATION}\PYG{p}{)}
+        \PYG{n}{questOne}\PYG{p}{(}\PYG{n}{db}\PYG{o}{!!}\PYG{p}{)}
+        \PYG{n}{questTwo}\PYG{p}{(}\PYG{n}{db}\PYG{p}{)}
+        \PYG{n}{questThree}\PYG{p}{(}\PYG{n}{db}\PYG{p}{)}
+        \PYG{n}{questFour}\PYG{p}{(}\PYG{n}{db}\PYG{p}{)}
+        \PYG{n}{questFive}\PYG{p}{(}\PYG{n}{db}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Upgrade der Tabelle bei neuer Datenbankversion}
+    \PYG{k}{override} \PYG{k}{fun} \PYG{n+nf}{onUpgrade}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{?,} \PYG{n}{old}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{,} \PYG{n}{new}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{db}\PYG{o}{?.}\PYG{n}{execSQL}\PYG{p}{(}\PYG{n}{DROP\PYGZus{}TABLE\PYGZus{}GAMIFICATION}\PYG{p}{)}
+        \PYG{n}{onCreate}\PYG{p}{(}\PYG{n}{db}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// alle erledigten Quests / erreichten Badges zurückgeben}
+    \PYG{k}{fun} \PYG{n+nf}{getCompletedQuests}\PYG{p}{()} \PYG{p}{:} \PYG{n}{Cursor}\PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{readableDatabase}\PYG{p}{.}\PYG{n}{query}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdl{}QUEST\PYGZus{}COMPLETED = 1\PYGZdq{}}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdl{}QUEST\PYGZus{}ID ASC\PYGZdq{}}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// alle gerade durchführbaren Quests zurückgeben}
+    \PYG{k}{fun} \PYG{n+nf}{getAvailableQuests}\PYG{p}{()} \PYG{p}{:} \PYG{n}{Cursor}\PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{xp} \PYG{p}{=} \PYG{n}{PreferenceManager}\PYG{p}{.}\PYG{n}{getDefaultSharedPreferences}\PYG{p}{(}\PYG{n}{context}\PYG{p}{).}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{readableDatabase}\PYG{p}{.}\PYG{n}{query}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdl{}QUEST\PYGZus{}REQ\PYGZus{}XP \PYGZlt{}= ? AND \PYGZdl{}QUEST\PYGZus{}COMPLETED = 0\PYGZdq{}}\PYG{p}{,} \PYG{n}{arrayOf}\PYG{p}{(}\PYG{n}{xp}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{()),}
+                \PYG{k}{null}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdl{}QUEST\PYGZus{}REQ\PYGZus{}XP ASC\PYGZdq{}}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Quest auf erledigt setzen}
+    \PYG{k}{fun} \PYG{n+nf}{setQuestCompleted}\PYG{p}{(}\PYG{n}{id}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{1}\PYG{p}{)}
+        \PYG{n}{writableDatabase}\PYG{p}{.}\PYG{n}{update}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{n}{values}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdl{}QUEST\PYGZus{}ID = ?\PYGZdq{}}\PYG{p}{,} \PYG{n}{arrayOf}\PYG{p}{(}\PYG{n}{id}\PYG{p}{.}\PYG{n}{toString}\PYG{p}{()))}
+        \PYG{n}{writableDatabase}\PYG{p}{.}\PYG{n}{close}\PYG{p}{()}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// die folgenden Funktionen fügen die Standard\PYGZhy{}Quests in die Datenbank ein}
+    \PYG{k}{fun} \PYG{n+nf}{questOne}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Fünfzigtausend\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}DESCRIPTION}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Erreiche 50000 XP und du erhältst dieses Badge sowie 8000 XP.\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{,} \PYG{n}{ICON\PYGZus{}ONE}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}REQ\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{50000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{8000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{db}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{n}{values}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{fun} \PYG{n+nf}{questTwo}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Die Antwort auf die Frage nach dem Leben, ...\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}DESCRIPTION}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Erreiche während einer Übung einen Wert von mindestens 42 \PYGZpc{} und du erhältst dieses Badge sowie 10000 XP.\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{,} \PYG{n}{ICON\PYGZus{}TWO}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}REQ\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{10000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{42}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{db}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{n}{values}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{fun} \PYG{n+nf}{questThree}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Das Problem mit der Ausdauer\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}DESCRIPTION}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Halte 20 Sekunden lang einen Wert von mindestens 50 \PYGZpc{}. Als Belohnung gibt\PYGZsq{}s zusätzlich 6000 XP.\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{,} \PYG{n}{ICON\PYGZus{}THREE}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}REQ\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{15000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{6000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{50}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{20}\PYG{p}{)}
+        \PYG{n}{db}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{n}{values}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{fun} \PYG{n+nf}{questFour}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Was ihr wollt\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}DESCRIPTION}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Diese komplett sinnlose Mischung besteht aus: 100000 XP erhalten, einmal über 61 \PYGZpc{} haben und 20 Sekunden über 39 \PYGZpc{} bleiben. Du bekommst 11000 XP\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{,} \PYG{n}{ICON\PYGZus{}FOUR}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}REQ\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{100000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{11000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{61}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{39}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{20}\PYG{p}{)}
+        \PYG{n}{db}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{n}{values}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{fun} \PYG{n+nf}{questFive}\PYG{p}{(}\PYG{n}{db}\PYG{p}{:} \PYG{n}{SQLiteDatabase}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{val} \PYG{n+py}{values} \PYG{p}{=} \PYG{n}{ContentValues}\PYG{p}{()}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Viel zu viel\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}DESCRIPTION}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Eine Million XP und einmal über 80 \PYGZpc{} erreichen. Schaffst du das?\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{,} \PYG{n}{ICON\PYGZus{}FIVE}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}COMPLETED}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}REQ\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{20000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{1000000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{,}\PYG{l+m}{20000}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{80}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{values}\PYG{p}{.}\PYG{n}{put}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{db}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{TABLE\PYGZus{}NAME\PYGZus{}GAMIFICATION}\PYG{p}{,}\PYG{k}{null}\PYG{p}{,}\PYG{n}{values}\PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -81,7 +81,7 @@ class PlaneGameView : View {
             canvas?.apply {
                 bluetoothPercList.add(bluetoothNoService.getCurrentValuePercent())
                 // Verschiebung des Flugzeugs nach oben
-                val verschieb = 20
+                val verschieb = 70
                 // obere linke Ecke des Flugzeugs durch  *Magie* bestimmen
                 val top = paddingTop + effHeight - ( effHeight * (bluetoothPercList[bluetoothPercList.size-1] + verschieb) / 100 )
                 val left = paddingLeft + effWidth/2 - planeBitmap.width
