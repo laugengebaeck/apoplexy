@@ -88,14 +88,14 @@
         \PYG{c+c1}{// Dialog an Aufrufer zurückgeben}
         \PYG{k}{if} \PYG{p}{(}\PYG{n}{shouldShowDialog}\PYG{p}{)\PYGZob{}}
             \PYG{n}{title} \PYG{p}{=} \PYG{n}{title}\PYG{p}{.}\PYG{n}{substring}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{n}{title}\PYG{p}{.}\PYG{n}{length}\PYG{p}{\PYGZhy{}}\PYG{l+m}{2}\PYG{p}{)}
-            \PYG{k}{return} \PYG{n}{BadgeDialogFragment}\PYG{p}{().}\PYG{n}{setDialogInformation}\PYG{p}{(}\PYG{n}{icon}\PYG{p}{,} \PYG{n}{title}\PYG{p}{,} \PYG{n}{earnedXP}\PYG{p}{)}
+            \PYG{k}{return} \PYG{n}{newBadgeInstance}\PYG{p}{(}\PYG{n}{icon}\PYG{p}{,} \PYG{n}{title}\PYG{p}{,} \PYG{n}{earnedXP}\PYG{p}{)}
         \PYG{p}{\PYGZcb{}}
         \PYG{k}{return} \PYG{k}{null}
     \PYG{p}{\PYGZcb{}}
 
     \PYG{c+c1}{// Überprüfen der Bedingung, dass man bestimmte Zeit über bestimmtem Prozentwert war}
     \PYG{k}{private} \PYG{k}{fun} \PYG{n+nf}{checkOverPercCondition}\PYG{p}{(}\PYG{k}{data}\PYG{p}{:} \PYG{n}{MutableList}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{},} \PYG{n}{overPerc} \PYG{p}{:}\PYG{n}{Int}\PYG{p}{,} \PYG{n}{timeOverPerc}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{):} \PYG{n}{Boolean}\PYG{p}{\PYGZob{}}
-        \PYG{k}{var} \PYG{n+py}{count} \PYG{p}{=} \PYG{l+m}{0}\PYG{p}{;}
+        \PYG{k}{var} \PYG{n+py}{count} \PYG{p}{=} \PYG{l+m}{0}
         \PYG{k}{for} \PYG{p}{(}\PYG{n}{el} \PYG{k}{in} \PYG{k}{data}\PYG{p}{)\PYGZob{}}
             \PYG{k}{if} \PYG{p}{(}\PYG{n}{el} \PYG{p}{\PYGZgt{}=} \PYG{n}{overPerc}\PYG{p}{)\PYGZob{}}
                 \PYG{n}{count}\PYG{p}{++}

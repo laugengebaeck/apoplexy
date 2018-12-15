@@ -4,7 +4,6 @@
 \PYG{k}{import} \PYG{n+nn}{android.annotation.SuppressLint}
 \PYG{k}{import} \PYG{n+nn}{android.content.Context}
 \PYG{k}{import} \PYG{n+nn}{android.graphics.*}
-\PYG{k}{import} \PYG{n+nn}{android.support.v4.app.FragmentActivity}
 \PYG{k}{import} \PYG{n+nn}{android.util.AttributeSet}
 \PYG{k}{import} \PYG{n+nn}{android.view.GestureDetector}
 \PYG{k}{import} \PYG{n+nn}{android.view.MotionEvent}
@@ -13,6 +12,8 @@
 \PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.R}
 \PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.helpers.GamificationGraderHelper}
 \PYG{k}{import} \PYG{n+nn}{java.util.*}
+\PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.BadgeListener}
+
 
 \PYG{c+c1}{// eigene View, beinhaltet das Minispiel}
 \PYG{k}{class} \PYG{n+nc}{PlaneGameView} \PYG{p}{:} \PYG{n}{View} \PYG{p}{\PYGZob{}}
@@ -26,6 +27,7 @@
 
     \PYG{c+c1}{// Bluetooth\PYGZhy{} und Gamification\PYGZhy{}Variablen}
     \PYG{k}{private} \PYG{k}{lateinit} \PYG{k}{var} \PYG{n+py}{bluetoothNoService} \PYG{p}{:} \PYG{n}{BluetoothNoService}
+    \PYG{k}{private} \PYG{k}{lateinit} \PYG{k}{var} \PYG{n+py}{badgeListener}\PYG{p}{:} \PYG{n}{BadgeListener}
     \PYG{k}{private} \PYG{k}{var} \PYG{n+py}{bluetoothPercList} \PYG{p}{=} \PYG{n}{mutableListOf}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{}()}
     \PYG{k}{private} \PYG{k}{var} \PYG{n+py}{inGame} \PYG{p}{=} \PYG{k}{false}
     \PYG{k}{private} \PYG{k}{val} \PYG{n+py}{graderHelper} \PYG{p}{=} \PYG{n}{GamificationGraderHelper}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
@@ -135,16 +137,15 @@
         \PYG{n}{effWidth} \PYG{p}{=} \PYG{n}{width} \PYG{p}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{paddingLeft} \PYG{p}{+} \PYG{n}{paddingRight}\PYG{p}{)}
         \PYG{n}{effHeight} \PYG{p}{=} \PYG{n}{height} \PYG{p}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{paddingTop} \PYG{p}{+} \PYG{n}{paddingBottom}\PYG{p}{)}
         \PYG{n}{backgroundRect} \PYG{p}{=} \PYG{n}{Rect}\PYG{p}{(}\PYG{n}{paddingLeft}\PYG{p}{,}\PYG{n}{paddingTop}\PYG{p}{,}\PYG{n}{effWidth}\PYG{p}{,}\PYG{n}{effHeight}\PYG{p}{)}
-        \PYG{n}{genRandomHills}\PYG{p}{()}
+        \PYG{n}{genHills}\PYG{p}{()}
         \PYG{k}{super}\PYG{p}{.}\PYG{n}{onSizeChanged}\PYG{p}{(}\PYG{n}{w}\PYG{p}{,} \PYG{n}{h}\PYG{p}{,} \PYG{n}{oldw}\PYG{p}{,} \PYG{n}{oldh}\PYG{p}{)}
     \PYG{p}{\PYGZcb{}}
 
-    \PYG{c+c1}{// neue initiale Berge\PYGZhy{}Liste zufällig generieren}
-    \PYG{k}{private} \PYG{k}{fun} \PYG{n+nf}{genRandomHills}\PYG{p}{()\PYGZob{}}
+    \PYG{c+c1}{// neue initiale Berge\PYGZhy{}Liste mit Null\PYGZhy{}Höhe generieren}
+    \PYG{k}{private} \PYG{k}{fun} \PYG{n+nf}{genHills}\PYG{p}{()\PYGZob{}}
         \PYG{n}{randomHills} \PYG{p}{=} \PYG{n}{mutableListOf}\PYG{p}{\PYGZlt{}}\PYG{n}{Int}\PYG{p}{\PYGZgt{}().}\PYG{n}{apply} \PYG{p}{\PYGZob{}}
             \PYG{k}{for} \PYG{p}{(}\PYG{n}{i} \PYG{k}{in} \PYG{l+m}{0.}\PYG{p}{.}\PYG{n}{effWidth}\PYG{p}{/}\PYG{l+m}{100}\PYG{p}{)\PYGZob{}}
-                \PYG{k}{val} \PYG{n+py}{k} \PYG{p}{=} \PYG{n}{random}\PYG{p}{.}\PYG{n}{nextInt}\PYG{p}{(} \PYG{n}{effHeight}\PYG{p}{)} \PYG{p}{\PYGZhy{}} \PYG{n}{effHeight} \PYG{p}{/} \PYG{l+m}{5}
-                \PYG{n}{add}\PYG{p}{(}\PYG{k}{if} \PYG{p}{(}\PYG{n}{k} \PYG{p}{\PYGZlt{}} \PYG{l+m}{0}\PYG{p}{)} \PYG{n}{effHeight} \PYG{p}{/} \PYG{l+m}{4} \PYG{k}{else} \PYG{n}{k}\PYG{p}{)}
+                \PYG{n}{add}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{)}
             \PYG{p}{\PYGZcb{}}
         \PYG{p}{\PYGZcb{}}
     \PYG{p}{\PYGZcb{}}
@@ -194,15 +195,14 @@
             \PYG{c+c1}{// Gamification durchführen}
             \PYG{n}{graderHelper}\PYG{p}{.}\PYG{n}{gradeForGame}\PYG{p}{(}\PYG{n}{bluetoothPercList}\PYG{p}{.}\PYG{n}{size}\PYG{p}{,} \PYG{n}{bluetoothPercList}\PYG{p}{)}
             \PYG{k}{val} \PYG{n+py}{fragment} \PYG{p}{=} \PYG{n}{graderHelper}\PYG{p}{.}\PYG{n}{checkBadgesForCompletion}\PYG{p}{(}\PYG{n}{bluetoothPercList}\PYG{p}{)}
-            \PYG{k}{val} \PYG{n+py}{activity} \PYG{p}{=} \PYG{n}{context} \PYG{k}{as} \PYG{n}{FragmentActivity}
-            \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{fragment}\PYG{o}{?.}\PYG{n}{show}\PYG{p}{(}\PYG{n}{activity}\PYG{p}{.}\PYG{n}{supportFragmentManager}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}badgecompleted\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZcb{}}
+            \PYG{n}{badgeListener}\PYG{p}{.}\PYG{n}{callback}\PYG{p}{(}\PYG{k}{this}\PYG{p}{,}\PYG{n}{fragment}\PYG{p}{)}
 
             \PYG{c+c1}{// Bluetooth\PYGZhy{} und Berge\PYGZhy{}Listen leeren}
             \PYG{n}{bluetoothPercList} \PYG{p}{=} \PYG{n}{mutableListOf}\PYG{p}{()}
             \PYG{n}{randomHills} \PYG{p}{=} \PYG{n}{mutableListOf}\PYG{p}{()}
         \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
             \PYG{c+c1}{// Starten \PYGZhy{}\PYGZgt{} Berge generieren}
-            \PYG{n}{genRandomHills}\PYG{p}{()}
+            \PYG{n}{genHills}\PYG{p}{()}
         \PYG{p}{\PYGZcb{}}
         \PYG{c+c1}{// View neu zeichnen}
         \PYG{n}{invalidate}\PYG{p}{()}
@@ -212,6 +212,10 @@
     \PYG{k}{fun} \PYG{n+nf}{setBluetoothNoService}\PYG{p}{(}\PYG{n}{bb} \PYG{p}{:} \PYG{n}{BluetoothNoService}\PYG{p}{)\PYGZob{}}
         \PYG{n}{bluetoothNoService} \PYG{p}{=} \PYG{n}{bb}
         \PYG{n}{bluetoothNoService}\PYG{p}{.}\PYG{n}{startReading}\PYG{p}{()}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{fun} \PYG{n+nf}{setBadgeListener}\PYG{p}{(}\PYG{n}{bl}\PYG{p}{:} \PYG{n}{BadgeListener}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{badgeListener} \PYG{p}{=} \PYG{n}{bl}
     \PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}
 \end{Verbatim}
