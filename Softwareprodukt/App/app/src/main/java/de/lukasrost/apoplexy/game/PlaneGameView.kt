@@ -3,7 +3,6 @@ package de.lukasrost.apoplexy.game
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
-import android.support.v4.app.FragmentActivity
 import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -12,6 +11,8 @@ import de.lukasrost.apoplexy.BluetoothNoService
 import de.lukasrost.apoplexy.R
 import de.lukasrost.apoplexy.helpers.GamificationGraderHelper
 import java.util.*
+import de.lukasrost.apoplexy.BadgeListener
+
 
 // eigene View, beinhaltet das Minispiel
 class PlaneGameView : View {
@@ -25,6 +26,7 @@ class PlaneGameView : View {
 
     // Bluetooth- und Gamification-Variablen
     private lateinit var bluetoothNoService : BluetoothNoService
+    private lateinit var badgeListener: BadgeListener
     private var bluetoothPercList = mutableListOf<Float>()
     private var inGame = false
     private val graderHelper = GamificationGraderHelper(context)
@@ -134,16 +136,15 @@ class PlaneGameView : View {
         effWidth = width - (paddingLeft + paddingRight)
         effHeight = height - (paddingTop + paddingBottom)
         backgroundRect = Rect(paddingLeft,paddingTop,effWidth,effHeight)
-        genRandomHills()
+        genHills()
         super.onSizeChanged(w, h, oldw, oldh)
     }
 
-    // neue initiale Berge-Liste zufällig generieren
-    private fun genRandomHills(){
+    // neue initiale Berge-Liste mit Null-Höhe generieren
+    private fun genHills(){
         randomHills = mutableListOf<Int>().apply {
             for (i in 0..effWidth/100){
-                val k = random.nextInt( effHeight) - effHeight / 5
-                add(if (k < 0) effHeight / 4 else k)
+                add(0)
             }
         }
     }
@@ -193,15 +194,14 @@ class PlaneGameView : View {
             // Gamification durchführen
             graderHelper.gradeForGame(bluetoothPercList.size, bluetoothPercList)
             val fragment = graderHelper.checkBadgesForCompletion(bluetoothPercList)
-            val activity = context as FragmentActivity
-            activity.runOnUiThread { fragment?.show(activity.supportFragmentManager,"badgecompleted") }
+            badgeListener.callback(this,fragment)
 
             // Bluetooth- und Berge-Listen leeren
             bluetoothPercList = mutableListOf()
             randomHills = mutableListOf()
         } else {
             // Starten -> Berge generieren
-            genRandomHills()
+            genHills()
         }
         // View neu zeichnen
         invalidate()
@@ -211,5 +211,9 @@ class PlaneGameView : View {
     fun setBluetoothNoService(bb : BluetoothNoService){
         bluetoothNoService = bb
         bluetoothNoService.startReading()
+    }
+
+    fun setBadgeListener(bl: BadgeListener){
+        badgeListener = bl
     }
 }

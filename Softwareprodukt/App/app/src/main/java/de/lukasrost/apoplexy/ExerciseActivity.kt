@@ -255,7 +255,7 @@ class ExerciseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         // Bewertung, entsprechend Dialog anzeigen
         graderHelper.gradeForExercise(currentData)
         val fragment = graderHelper.checkBadgesForCompletion(currentData)
-        runOnUiThread { fragment?.show(supportFragmentManager,"badgecompleted") }
+        runOnUiThread { fragment?.show(this@ExerciseActivity.supportFragmentManager,"badgecompleted") }
     }
 
     // Übung starten

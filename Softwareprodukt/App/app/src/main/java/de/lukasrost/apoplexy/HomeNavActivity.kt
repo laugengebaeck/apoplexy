@@ -42,7 +42,7 @@ class HomeNavActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         button_minigame_start.setOnClickListener {startActivity(Intent(this,GameActivity::class.java))}
 
         // XP anzeigen
-        val text = "Hallo ${prefs.getString(PREFS_NAME,"")}, du hast ${prefs.getInt(PREFS_POINTS,0)} XP erreicht!"
+        val text = "Hallo ${prefs.getString(PREFS_NAME,"Apoplexy-Nutzer")}, du hast ${prefs.getInt(PREFS_POINTS,0)} XP erreicht!"
         results_gamification.text = text
 
         // Badges anzeigen

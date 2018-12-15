@@ -40,7 +40,7 @@ const val ICON_FIVE = 5
 
 // Datenbank
 const val DATABASE_NAME = "apoplexy.db"
-const val DATABASE_VERSION = 2
+const val DATABASE_VERSION = 3
 const val TABLE_NAME_GAMIFICATION = "quests"
 const val DROP_TABLE_GAMIFICATION = "DROP TABLE IF EXISTS $TABLE_NAME_GAMIFICATION"
 const val CREATE_TABLE_GAMIFICATION = "CREATE TABLE $TABLE_NAME_GAMIFICATION ($QUEST_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -49,7 +49,7 @@ const val CREATE_TABLE_GAMIFICATION = "CREATE TABLE $TABLE_NAME_GAMIFICATION ($Q
         "$QUEST_TIME_OVER_PERC INTEGER, $QUEST_MIN_PERC INTEGER);"
 
 // Median einer Liste
-fun MutableList<Double>.median() = if (this.isNotEmpty()) this.filterNotNull().sorted().let { (it[it.size / 2] + it[(it.size - 1) / 2]) / 2 } else 0.0
+fun MutableList<Double>.median() = if (this.isNotEmpty()) this.sorted().let { (it[it.size / 2] + it[(it.size - 1) / 2]) / 2 } else 0.0
 
 // Badge-Icons (Zuordnung Zahl -> Icon)
 // Copyright: Icons made by Roundicons from www.flaticon.com is licensed by CC 3.0 BY

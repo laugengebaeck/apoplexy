@@ -4,36 +4,40 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
-import android.support.v4.content.ContextCompat
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import de.lukasrost.apoplexy.R
 import de.lukasrost.apoplexy.getIconRes
-import kotlinx.android.synthetic.main.badge_completed_dialog.*
 
 // Dialog, wenn ein Badge freigeschaltet wurde
 class BadgeDialogFragment : DialogFragment() {
-    private var icon = 0
-    private var title = "Beispielabzeichen"
-    private var earnedXP = 0
-
     // Dialog entsprechend Icon, Titel, XP erstellen
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(activity!!)
 
-        builder.setTitle("Abzeichen freigeschaltet!").setView(activity!!.layoutInflater.inflate(R.layout.badge_completed_dialog, LinearLayout(context), false))
-        builder.setNeutralButton("Schließen"){ _, _ -> this@BadgeDialogFragment.dialog.cancel()}
-        imageIconBadge.setImageDrawable(ContextCompat.getDrawable(context!!, getIconRes(icon)))
+        val icon = arguments?.getInt("icon") ?: 1
+        val title = arguments?.getString("title") ?: "Beispielbadge"
+        val earnedXP = arguments?.getInt("earnedXP") ?: 0
 
+        val view = activity!!.layoutInflater.inflate(R.layout.badge_completed_dialog, LinearLayout(context), false)
+        view.findViewById<ImageView>(R.id.imageIconBadge).setImageResource(getIconRes(icon))
         val text = "Herzlichen Glückwunsch! Du hast eine Quest gelöst und damit das/die Abzeichen $title freigeschaltet! Zusätzlich erhältst du dafür $earnedXP Erfahrungspunkte."
-        textBadgeCompleted.text = text
+        view.findViewById<TextView>(R.id.textBadgeCompleted).text = text
+
+        builder.setTitle("Abzeichen freigeschaltet!").setView(view)
+        builder.setNeutralButton("Schließen"){ _, _ -> this@BadgeDialogFragment.dialog.dismiss()}
         return builder.create()
     }
+}
 
-    // nötige Informationen übergeben
-    fun setDialogInformation(icon : Int, title: String, earnedXP: Int) : BadgeDialogFragment{
-        this.icon = icon
-        this.title = title
-        this.earnedXP = earnedXP
-        return this
-    }
+// nötige Informationen übergeben
+fun newBadgeInstance(icon : Int, title: String, earnedXP: Int) : BadgeDialogFragment{
+    val df = BadgeDialogFragment()
+    val bundle = Bundle()
+    bundle.putInt("icon",icon)
+    bundle.putString("title",title)
+    bundle.putInt("earnedXP",earnedXP)
+    df.arguments = bundle
+    return df
 }

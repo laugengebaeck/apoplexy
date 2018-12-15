@@ -15,13 +15,15 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import de.lukasrost.apoplexy.badges.BadgeDialogFragment
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.app_bar_game.*
 import kotlinx.android.synthetic.main.content_game.*
 
 // Bildschirmseite für das Minispiel
-class GameActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class GameActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BadgeListener {
     // alle 500 Millisekunden Spiel-View neu zeichnen
     private var stopThread = false
     private val invalidateRunnable = Runnable {
@@ -63,6 +65,7 @@ class GameActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         intenty = Intent(this,BluetoothNoService::class.java)
 
         nav_view.setNavigationItemSelectedListener(this)
+        plane_game.setBadgeListener(this)
 
         val t = Thread(invalidateRunnable)
         t.start()
@@ -177,6 +180,12 @@ class GameActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun createNoService(device: BluetoothDevice){
         bluetoothNoService.establishConnection(device)
         plane_game.setBluetoothNoService(bluetoothNoService)
+    }
+
+    override fun callback(view: View, fragment: BadgeDialogFragment?) {
+        if(fragment != null) {
+            supportFragmentManager.beginTransaction().add(fragment, "badgecompleted").addToBackStack(null).commit()
+        }
     }
 
     // Aktualisierungs-Thread beenden usw.

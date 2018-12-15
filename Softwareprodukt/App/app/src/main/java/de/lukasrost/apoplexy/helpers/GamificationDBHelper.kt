@@ -49,12 +49,12 @@ class GamificationDBHelper(val context: Context) : SQLiteOpenHelper(context, DAT
     // die folgenden Funktionen fügen die Standard-Quests in die Datenbank ein
     fun questOne(db: SQLiteDatabase) {
         val values = ContentValues()
-        values.put(QUEST_TITLE,"Fünfzigtausend")
-        values.put(QUEST_DESCRIPTION,"Erreiche 50000 XP und du erhältst dieses Badge sowie 8000 XP.")
+        values.put(QUEST_TITLE,"Tausend")
+        values.put(QUEST_DESCRIPTION,"Erreiche 1000 XP und du erhältst dieses Badge sowie 8000 XP.")
         values.put(QUEST_ICON, ICON_ONE)
         values.put(QUEST_COMPLETED,0)
         values.put(QUEST_REQ_XP,0)
-        values.put(QUEST_FIN_XP,50000)
+        values.put(QUEST_FIN_XP,200)
         values.put(QUEST_EARN_XP,8000)
         values.put(QUEST_MIN_PERC,0)
         values.put(QUEST_OVER_PERC,0)

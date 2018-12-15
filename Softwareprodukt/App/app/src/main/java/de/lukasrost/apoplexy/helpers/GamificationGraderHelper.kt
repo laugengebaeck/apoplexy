@@ -87,14 +87,14 @@ class GamificationGraderHelper(val context: Context) {
         // Dialog an Aufrufer zurückgeben
         if (shouldShowDialog){
             title = title.substring(0,title.length-2)
-            return BadgeDialogFragment().setDialogInformation(icon, title, earnedXP)
+            return newBadgeInstance(icon, title, earnedXP)
         }
         return null
     }
 
     // Überprüfen der Bedingung, dass man bestimmte Zeit über bestimmtem Prozentwert war
     private fun checkOverPercCondition(data: MutableList<Float>, overPerc :Int, timeOverPerc: Int): Boolean{
-        var count = 0;
+        var count = 0
         for (el in data){
             if (el >= overPerc){
                 count++
