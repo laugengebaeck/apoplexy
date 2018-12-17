@@ -1,0 +1,21 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Einleitung}{2}{section.1}
+\contentsline {section}{\numberline {2}Die Erkrankung Schlaganfall und geeignete Therapiemethoden}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Schlaganfall als Krankheitsbild}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Rehabilitation und Effektivit\IeC {\"a}t von Bewegungs\IeC {\"u}bungen}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Umgesetzte Konzepte}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Gamification}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Grundlegende Mechanismen der Gamification}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Beispiele f\IeC {\"u}r die motivationssteigernde Wirkung}{6}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Biofeedback}{7}{subsection.3.2}
+\contentsline {section}{\numberline {4}Schaltung und Implementierung des Mikrocontroller-Systems}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Aufbau der Schaltung}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Entwicklung des Programms auf dem Mikrocontroller}{8}{subsection.4.2}
+\contentsline {section}{\numberline {5}Entwicklung der Begleitapp f\IeC {\"u}r Android}{10}{section.5}
+\contentsline {subsection}{\numberline {5.1}Grundlegender Aufbau und Konzept der App}{10}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Kommunikation mit dem Mikrocontroller}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Konzept und programmiertechnische Umsetzung des Minispiels}{11}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Umsetzung der Gamification in der App}{13}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Funktionsweise des Benachrichtigungssystems}{15}{subsection.5.5}
+\contentsline {section}{\numberline {6}Zusammenfassung}{16}{section.6}
+\contentsline {section}{\numberline {7}Literatur- und Quellenverzeichnis}{17}{section.7}

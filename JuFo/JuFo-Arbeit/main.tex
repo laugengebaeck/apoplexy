@@ -1,0 +1,84 @@
+\documentclass[a4paper, 11pt, titlepage, bibliography=totocnumbered]{scrartcl}
+
+%import packages
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{courier}
+\usepackage[hyphens]{url}
+\usepackage{overcite}
+\usepackage{authblk}
+\usepackage{footmisc}
+\usepackage[top=2.5cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\hyphenation{Ga-mi-fi-ca-tion}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\addto\extrasngerman{\def\figureautorefname{Abb.}}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.5\textwidth]{pics/logo}\par\vspace{1cm}
+	{\huge\bfseries Apoplexy - Ein Fitnesstracker zur Rehabilitation von Schlaganfall-Patienten? \par}
+	\vspace{0.3cm}
+	{\large Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten \par}
+	\vspace{2cm}
+	{\Large Jugend-forscht-Arbeit\\ \large für den Wettbewerb \\}
+		{\scshape\Large\itshape \glqq Jugend forscht\grqq ~2019 \par}
+	\vspace{2cm}
+	{\Large Lukas Rost}
+	\vfill
+	{\begin{tabular}{ll}
+	\Large Projektbetreuer: & \Large Johannes Süpke \\[5pt]
+	\Large Seminarfachbetreuer: & \Large Dr. Marion Moor \\[5pt]
+	\Large Außenbetreuer: & \Large Hannes Weichel \\
+	\end{tabular}}
+	\vfill
+	{\Large 18. Januar 2018\par Erfurt}
+\end{titlepage}
+
+\newpage
+
+%table of contents
+\tableofcontents
+\setcounter{page}{1}
+\newpage
+
+\section{Einleitung}
+\input{einleitung}
+
+\newpage
+\section{Die Erkrankung Schlaganfall und geeignete Therapiemethoden}
+\input{schlaganfall}
+
+\newpage
+\section{Umgesetzte Konzepte}
+\input{gamification_biofeed}
+
+\newpage
+\section{Schaltung und Implementierung des Mikrocontroller-Systems}
+\input{mikrocontroller}
+
+\newpage
+\section{Entwicklung der Begleitapp für Android}
+\input{androidapp}
+
+\newpage
+\section{Zusammenfassung}
+\input{zusammenfassung}
+
+\newpage
+\input{literatur}
+
+\end{document}
