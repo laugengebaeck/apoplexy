@@ -178,7 +178,7 @@ class GameActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // Verbindung des Services herstellen und der Spiel-View übergeben
     fun createNoService(device: BluetoothDevice){
-        bluetoothNoService.establishConnection(device)
+        bluetoothNoService.establishConnection(device,this)
         plane_game.setBluetoothNoService(bluetoothNoService)
     }
 

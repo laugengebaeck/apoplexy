@@ -48,9 +48,6 @@ const val CREATE_TABLE_GAMIFICATION = "CREATE TABLE $TABLE_NAME_GAMIFICATION ($Q
         "$QUEST_FIN_XP INTEGER, $QUEST_EARN_XP INTEGER, $QUEST_COMPLETED INTEGER, $QUEST_OVER_PERC INTEGER, " +
         "$QUEST_TIME_OVER_PERC INTEGER, $QUEST_MIN_PERC INTEGER);"
 
-// Median einer Liste
-fun MutableList<Double>.median() = if (this.isNotEmpty()) this.sorted().let { (it[it.size / 2] + it[(it.size - 1) / 2]) / 2 } else 0.0
-
 // Badge-Icons (Zuordnung Zahl -> Icon)
 // Copyright: Icons made by Roundicons from www.flaticon.com is licensed by CC 3.0 BY
 fun getIconRes(icon : Int) : Int{

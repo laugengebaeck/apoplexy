@@ -1,7 +1,9 @@
 package de.lukasrost.apoplexy
 
+import android.app.Activity
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
+import android.widget.Toast
 import java.nio.charset.StandardCharsets
 import java.util.*
 
@@ -9,6 +11,7 @@ import java.util.*
 class BluetoothNoService {
     // Bluetooth-Gerät und Socket
     private lateinit var device: BluetoothDevice
+    private lateinit var activity: Activity
     private var bluetoothSocket: BluetoothSocket? = null
 
     // Queue der Messwerte
@@ -24,7 +27,7 @@ class BluetoothNoService {
         if (bluetoothSocket != null) {
 
             // solange nicht gestoppt und Datenempfang vorhanden
-            while (this@BluetoothNoService.keepRunning && ((bluetoothSocket!!.inputStream.read(data).let { read = it; it != -1 }))) {
+            while (this@BluetoothNoService.keepRunning && bluetoothSocket != null && ((bluetoothSocket!!.inputStream.read(data).let { read = it; it != -1 }))) {
 
                 // Einlesen der Bluetooth-Daten
                 val readdata = Arrays.copyOf(data, read)
@@ -32,7 +35,7 @@ class BluetoothNoService {
 
                 // Daten der Queue hinzufügen
                 for (number in value.split("\r\n")) {
-                    if (btQueue.size == 10) {
+                    if (btQueue.size == 4) {
                         btQueue.removeAt(0)
                     }
                     val num = number.toDoubleOrNull()
@@ -40,19 +43,26 @@ class BluetoothNoService {
                 }
             }
         }
+        activity.runOnUiThread { Toast.makeText(activity,"Bluetooth-Verbindung beendet!", Toast.LENGTH_LONG).show() }
     }
 
     // Verbindung beginnen
-    fun establishConnection(device: BluetoothDevice){
+    fun establishConnection(device: BluetoothDevice, activity: Activity){
         this.device = device
+        this.activity = activity
     }
 
     // mit Bluetooth-Gerät verbinden und Thread starten
     fun startReading(){
-        bluetoothSocket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
-        bluetoothSocket?.connect()
-        keepRunning = true
-        Thread(updateQueueRunnable).start()
+        try {
+            bluetoothSocket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
+            bluetoothSocket?.connect()
+            keepRunning = true
+            Thread(updateQueueRunnable).start()
+            activity.runOnUiThread { Toast.makeText(activity,"Erfolgreich verbunden!", Toast.LENGTH_LONG).show() }
+        } catch (e: Exception){
+            activity.runOnUiThread { Toast.makeText(activity,"Fehler beim Verbinden über Bluetooth!", Toast.LENGTH_LONG).show() }
+        }
     }
 
     // Verbindung beenden, Thread stoppen
@@ -63,5 +73,5 @@ class BluetoothNoService {
     }
 
     // aktuellen Durchschnittswert der Queue in Prozent des Maximalwerts berechnen
-    fun getCurrentValuePercent() : Float = 100 * ((btQueue.median() - MIN_VOLTAGE_EMG) / (MAX_VOLTAGE_EMG - MIN_VOLTAGE_EMG)).toFloat()
+    fun getCurrentValuePercent() : Float = 100 * ((btQueue.average() - MIN_VOLTAGE_EMG) / (MAX_VOLTAGE_EMG - MIN_VOLTAGE_EMG)).toFloat()
 }

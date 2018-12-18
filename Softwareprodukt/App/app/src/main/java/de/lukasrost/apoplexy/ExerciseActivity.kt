@@ -196,7 +196,7 @@ class ExerciseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     // Verbindung des Services herstellen
     fun createNoService(device: BluetoothDevice){
-        bluetoothNoService.establishConnection(device)
+        bluetoothNoService.establishConnection(device,this)
     }
 
     // Thread mit Schleife zur Aktualisierung der UI-Elemente
