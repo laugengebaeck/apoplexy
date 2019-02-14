@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.12.10)  14 DEC 2018 18:36
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/Arch Linux) (preloaded format=xelatex 2019.2.11)  12 FEB 2019 13:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -122,7 +122,8 @@ File: babel.def 2018/11/13 3.27 Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 
-(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texmf-dist/tex/generic/babel/xebabel.def
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def))
 \bbl@dirlevel=\count90
 )
 Package babel Info: Making " an active character on input line 121.
@@ -131,8 +132,11 @@ Package babel Info: Making " an active character on input line 121.
 Package: inputenc 2018/04/06 v1.3b Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
-)
-(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
@@ -189,15 +193,17 @@ LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: xetex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -229,7 +235,7 @@ LaTeX Font Info:    ... okay on input line 8.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (11.74988pt too wide) in paragraph at lines 17--18
+Overfull \hbox (12.0pt too wide) in paragraph at lines 17--18
 [][] 
  []
 
@@ -240,22 +246,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Thesenpapier.aux) ) 
+] (./Thesenpapier.aux) ) 
 Here is how much of TeX's memory you used:
- 3464 strings out of 492639
- 60878 string characters out of 6135496
- 236494 words of memory out of 5000000
- 7363 multiletter control sequences out of 15000+600000
- 7289 words of font info for 26 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 42i,9n,52p,9118b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
-</us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on Thesenpapier.pdf (1 page, 27066 bytes).
-PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3494 strings out of 492956
+ 61475 string characters out of 6139024
+ 240927 words of memory out of 5000000
+ 7514 multiletter control sequences out of 15000+600000
+ 6408 words of font info for 27 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 42i,8n,52p,9118b,191s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on Thesenpapier.pdf (1 page).

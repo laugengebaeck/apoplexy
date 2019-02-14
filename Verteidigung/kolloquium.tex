@@ -5,68 +5,250 @@
 
 \usepackage{array}
 \usepackage{tabularx}
-\newcolumntype{Z}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{0.65\textwidth}}
+\newcolumntype{Z}{>{\raggedright\let\newline\\\arraybackslash}X}
 
 \usepackage{amssymb}
 \usepackage{pifont}
 \newcommand{\xmark}{\ding{55}}
 \usepackage{svg}
+\usepackage[autostyle]{csquotes}
+\usepackage{minted}
 
-\usetheme[progressbar=frametitle,block=fill]{metropolis}
+\usetheme{Execushares}
 
 \setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=2em%
+	\inserttocsectionnumber.\inserttocsubsectionnumber~%
+	\inserttocsubsection\par}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
-\defbeamertemplate{subsubsection in toc}{subsubsections numbered}
-{\leavevmode\leftskip=3em%
- \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
- \inserttocsubsubsection\par}
-
-\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
-
 \begin{document}
-  \title[Gerät zur Schlaganfall-Rehabilitation]{Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten \\ \small{- Kolloquium -}}
-  \author[Lukas Rost]{Lukas Rost  \\ \and \emph{Fachbetreuer:} Johannes Süpke \\ \and \emph{Außenbetreuer:} Hannes Weichel (topdev GmbH)}
-  \institute[ASGspez]{Spezialschulteil des staatlichen Gymnasiums "'Albert Schweitzer"' Erfurt}
+  \title[Gerät zur Schlaganfall-Rehabilitation]{\LARGE{Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten}}
+  \subtitle{Kolloquium am Spezialschulteil des staatlichen Gymnasiums "'Albert Schweitzer"' Erfurt}
+  \author[Lukas Rost]{Lukas Rost \\ \emph{Fachbetreuer:} Johannes Süpke \\ \emph{Außenbetreuer:} Hannes Weichel}
   \date{20. März 2019}
 
- \begin{frame}
+
  \titlepage
- \end{frame}
+ 
+ \begin{frame}
+ \begin{figure}
+ 	\includegraphics[scale=0.4]{pics/einleit1}
+ 	\caption{Therapiegerät für Armlähmungen}
+ \end{figure}
+\end{frame}
 
   \begin{frame}
 \begin{figure}
-\includegraphics[scale=0.6]{../Themenverteidigung/pics/einleit1}
+\includegraphics[scale=0.06]{pics/mikro}
   \caption{Therapiegerät für Armlähmungen}
 \end{figure}
  \end{frame}
 
- \begin{frame}
+ 
  \titlepage
- \end{frame}
 
  \begin{frame}{Gliederung}
  \tableofcontents
  \end{frame}
 
-%TODO TODO TODO
+\section{Schlaganfall und Therapiemethoden}
 
- \section{Kritische Reflexion des Erreichten}
+\begin{frame}{Schlaganfall als Krankheitsbild}
+\begin{figure}
+	\includegraphics[scale=0.6]{pics/sentst}
+	\caption{Arten des Schlaganfalls}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Schlaganfall als Krankheitsbild}
+\begin{figure}
+	\includegraphics[scale=1.1]{pics/laehm}
+	\caption{Gesichtslähmung als Symptom eines Schlaganfalls}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Schlaganfall als Krankheitsbild}
+\begin{figure}
+	\includesvg[scale=1.2]{pics/Schlaganfall}
+	\caption{Schaubild zum FAST-Test}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Mögliche Therapiemethoden}
+	\begin{itemize}
+		\item Constraint-Induced Movement Therapy
+		\item Bobath-Konzept
+		\item bilaterales Training
+		\item schädigungsorientiertes Training
+		\begin{itemize}
+			\item Arm-Basis-Training
+			\item Arm-Fähigkeits-Training
+		\end{itemize}
+		\item aufgabenorientiertes Training
+		\item technische Ansätze
+		\begin{itemize}
+			\item Armrobot
+			\item Elektrostimulation
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Mögliche Therapiemethoden}
+\begin{figure}
+	\includegraphics[scale=0.2]{pics/armbasis}
+	\caption{Übung während des Arm-Basis-Trainings}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Mögliche Therapiemethoden}
+\begin{figure}
+	\includegraphics[scale=0.6]{pics/armrobot}
+	\caption{Ein Armrobot-Gerät}
+\end{figure}
+\end{frame}
+
+\section{Motivation durch Gamification}
+
+\subsection{Mechanismen und Merkmale}
+
+\begin{frame}{Mechanismen und Merkmale}
+\textbf{Definition:} \\
+\blockquote{Verwendung von spieltypischen Mechaniken außerhalb reiner Spiele, mit dem Ziel, das Verhalten von Menschen zu beeinflussen}
+\hspace{0.5cm}
+\begin{itemize}
+	\item \textbf{Ziel:} Steigerung der Nutzungsmotivation
+	\item Ausnutzung des menschlichen Spieltriebs
+	\item Resultatstransparenz
+	\item operante Konditionierung
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mechanismen und Merkmale}
+\begin{figure}
+	\includegraphics[scale=0.45]{pics/elements}
+	\caption{Spieltypische Mechanismen und Elemente}
+\end{figure}
+\end{frame}
+
+\subsection{Beispiele für die motivationssteigernde Wirkung}
+
+\begin{frame}{Motivationssteigernde Wirkung}
+\begin{figure}
+	\includegraphics[scale=0.16]{pics/quora}
+	\caption{Die Frage-Antwort-Website Quora}
+\end{figure}
+\centering \href{https://www.youtube.com/watch?v=SByymar3bds}{Die Klaviertreppe aus dem Projekt \textsc{The Fun Theory}}
+\end{frame}
+
+\section{Schaltung und Implementierung des Geräts}
+
+\subsection{Aufbau der Schaltung}
+
+\begin{frame}{Aufbau der Schaltung}
+	\begin{itemize}
+		\item Elektromyografie-Sensor
+		\item Mikrocontroller Atmel ATmega 88PA
+		\item Bluetooth-Chip HC-05
+		\item Quarzoszillator und Kondensatoren
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufbau der Schaltung}
+\begin{figure}
+	\includegraphics[scale=0.7]{pics/mikrocontroller-schaltplan}
+	\caption{Der Schaltplan des Geräts}
+\end{figure}
+\end{frame}
+
+\subsection{Implementierung des Programms}
+
+\begin{frame}[fragile]{Implementierung des Programms}
+	\begin{figure}
+	\begin{minted}[frame=single]{c}
+void sendCurrentVoltage(void) {
+	ADCSRA |= (1 << ADSC);
+	while (ADCSRA & (1 << ADSC));
+	uint16_t out = ADC;
+	double voltage = (out/1024.0) * 4.5;
+	
+	char str[10];
+	sprintf(str, "%.3f \r\n", voltage);
+	u_puts(str);
+}
+	\end{minted}
+	\centering \caption{Ausschnitt aus dem Programm}
+\end{figure}
+\end{frame}
+
+\section{Entwicklung der Begleitapp}
+
+\subsection{Konzept und Aufbau der App}
+
+\begin{frame}{Konzept und Aufbau der App}
+Inhalt...
+\end{frame}
+
+\subsection{Kommunikation mit dem Mikrocontroller}
+
+\begin{frame}{Kommunikation mit dem Controller}
+	\begin{figure}
+		\includegraphics[scale=0.28]{pics/queue}
+		\caption{Funktionsweise einer Warteschlange (Queue)}
+	\end{figure}
+\end{frame}
+
+\subsection{Umsetzung der Gamification}
+
+\begin{frame}{Umsetzung der Gamification}
+Inhalt...
+\end{frame}
+
+ \section*{Kritische Reflexion des Erreichten}
  \begin{frame}{Kritische Reflexion des Erreichten}
+ 	\begin{table}
+ 		\begin{tabularx}{\textwidth}{|Z|c|}
+ 			\hline
+ 			\textbf{Ziel} & \textbf{Erreicht?} \\
+ 			\hline
+ 			\hline
+ 			Entwicklung eines funktionstüchtigen Prototypen des Geräts & \checkmark \\
+ 			\hline
+ 			Konzipierung und Implementierung einer entsprechenden Begleitapp & \checkmark \\
+ 			\hline
+ 			Nutzung der zur Verfügung gestellten Seminarfachtage  & \checkmark \\
+ 			\hline
+ 			weitestgehende Einhaltung des Zeitplans & \checkmark \\
+ 			\hline
+ 			Behebung aller Fehler in der Schaltung & \xmark \\ 
+ 			\hline
+ 			Test an realen Schlaganfallpatienten & \xmark \\ 
+ 			\hline
+ 			Entwicklung eines serienmäßig produzierbaren Geräts (\emph{kein Ziel!}) & \xmark \\ 
+ 			\hline
+ 		\end{tabularx}
+ 	\end{table}
  \end{frame}
 
  \begin{frame}{Bildquellen}
  \begin{itemize}
  \item \small{\url{https://raw.githubusercontent.com/SeeedDocument/Grove-EMG_Detector/master/img/Emg_connect.jpg}}
- \item \small{\url{https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin-logo.svg}}
- \item \small{\url{https://upload.wikimedia.org/wikipedia/commons/1/17/OpenGL_ES_Nov14.svg}}
- \item \small{selbst erstellt}
+ \item \small{\url{https://i.onmeda.de/schlaganfall_entstehung-465x290.jpg}}
+ \item \small{\url{http://www.volkskrankheiten.at/images/1237/widgets/Schlaganfall-(2).svg}}
+ \item \small{\url{https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/225807_10150179024982659_311531_n.jpg?_nc_cat=0&oh=986b13c0619d22e40dc9de883a6ed930&oe=5B5CEE4C}}
+ \item  \small{\url{https://www.neurozentrum-bern.ch/wp-content/uploads/2015/01/diagnose_schlaganfall.jpg}}
+ \item  \small{\url{http://news.mit.edu/sites/mit.edu.newsoffice/files/styles/news_article_image_top_slideshow/public/images/2010/20100414154658-1_0.jpg}}
  \end{itemize}
  \end{frame}
 
- \begin{frame}
+ \begin{frame}{Bildquellen}
+\begin{itemize}
+	\item \small{\url{http://www.lahsit-schlaganfall-reha.de/images/Laborn-Armbasistraining.JPG}}
+	\item \small{\url{http://blog.brandung.de/wp-content/uploads/2017/03/gmf-01.jpg}}
+	\item \small{\url{https://de.quora.com/Hat-es-einmal-jemand-geschafft-einen-ganzen-Wissenschaftsbereich-mit-komplett-erfundenen-wissenschaftlichen-Beweisen-zu-täuschen}}
+\end{itemize}
+\end{frame}
+
  \titlepage
- \end{frame}
 
 \end{document}

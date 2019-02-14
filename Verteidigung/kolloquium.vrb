@@ -1,0 +1,16 @@
+\frametitle{Implementierung des Programms}
+\begin{figure}
+	\begin{minted}[frame=single]{c}
+void sendCurrentVoltage(void) {
+	ADCSRA |= (1 << ADSC);
+	while (ADCSRA & (1 << ADSC));
+	uint16_t out = ADC;
+	double voltage = (out/1024.0) * 4.5;
+	
+	char str[10];
+	sprintf(str, "%.3f \r\n", voltage);
+	u_puts(str);
+}
+	\end{minted}
+	\centering \caption{Ausschnitt aus dem Programm}
+\end{figure}

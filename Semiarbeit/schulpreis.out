@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Einleitung}{}% 1
+\BOOKMARK [1][-]{section.2}{Die Erkrankung Schlaganfall und geeignete Therapiemethoden}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Schlaganfall als Krankheitsbild}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Rehabilitation und Effektivit\344t von Bewegungs\374bungen}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Umgesetzte Konzepte}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Gamification}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Grundlegende Mechanismen der Gamification}{subsection.3.1}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Beispiele f\374r die motivationssteigernde Wirkung}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Biofeedback}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Schaltung und Implementierung des Mikrocontroller-Systems}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Aufbau der Schaltung}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Entwicklung des Programms auf dem Mikrocontroller}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Entwicklung der Begleitapp f\374r Android}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Grundlegender Aufbau und Konzept der App}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Kommunikation mit dem Mikrocontroller}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Konzept und programmiertechnische Umsetzung des Minispiels}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.4}{Umsetzung der Gamification in der App}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.5}{Funktionsweise des Benachrichtigungssystems}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Zusammenfassung}{}% 19
+\BOOKMARK [1][-]{section.7}{Literatur- und Quellenverzeichnis}{}% 20
+\BOOKMARK [1][-]{section.8}{Anhang}{}% 21

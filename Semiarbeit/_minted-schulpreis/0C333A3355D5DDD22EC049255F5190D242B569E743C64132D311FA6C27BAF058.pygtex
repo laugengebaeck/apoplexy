@@ -1,0 +1,112 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{package} \PYG{n+nn}{de.lukasrost.apoplexy.helpers}
+
+\PYG{k}{import} \PYG{n+nn}{android.app.Activity}
+\PYG{k}{import} \PYG{n+nn}{android.content.Context}
+\PYG{k}{import} \PYG{n+nn}{android.preference.PreferenceManager}
+\PYG{k}{import} \PYG{n+nn}{android.widget.Toast}
+\PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.*}
+\PYG{k}{import} \PYG{n+nn}{de.lukasrost.apoplexy.badges.*}
+\PYG{k}{import} \PYG{n+nn}{kotlin.math.roundToInt}
+
+\PYG{c+c1}{//Bewertungshelfer für Gamification\PYGZhy{}Funktionen}
+\PYG{k}{class} \PYG{n+nc}{GamificationGraderHelper}\PYG{p}{(}\PYG{k}{val} \PYG{n+py}{context}\PYG{p}{:} \PYG{n}{Context}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k}{private} \PYG{k}{val} \PYG{n+py}{prefs} \PYG{p}{=} \PYG{n}{PreferenceManager}\PYG{p}{.}\PYG{n}{getDefaultSharedPreferences}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
+    \PYG{k}{private} \PYG{k}{val} \PYG{n+py}{activity} \PYG{p}{=} \PYG{n}{context} \PYG{k}{as} \PYG{n}{Activity}
+    \PYG{k}{private} \PYG{k}{lateinit} \PYG{k}{var} \PYG{n+py}{dbHelper} \PYG{p}{:} \PYG{n}{GamificationDBHelper}
+
+    \PYG{c+c1}{// XP für Übungen vergeben}
+    \PYG{k}{fun} \PYG{n+nf}{gradeForExercise}\PYG{p}{(}\PYG{k}{data} \PYG{p}{:} \PYG{n}{MutableList}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{})\PYGZob{}}
+        \PYG{c+c1}{// Minimal\PYGZhy{}, Maximal\PYGZhy{} und Durchschnittswert der Liste bestimmen}
+        \PYG{k}{val} \PYG{n+py}{min} \PYG{p}{=} \PYG{k}{data}\PYG{p}{.}\PYG{n}{min}\PYG{p}{()}\PYG{o}{?:}\PYG{l+m}{0f}
+        \PYG{k}{val} \PYG{n+py}{max} \PYG{p}{=} \PYG{k}{data}\PYG{p}{.}\PYG{n}{max}\PYG{p}{()}\PYG{o}{?:}\PYG{l+m}{0f}
+        \PYG{k}{val} \PYG{n+py}{avg} \PYG{p}{=} \PYG{k}{if} \PYG{p}{(}\PYG{k}{data}\PYG{p}{.}\PYG{n}{average}\PYG{p}{().}\PYG{n}{isNaN}\PYG{p}{())} \PYG{l+m}{0.0} \PYG{k}{else} \PYG{k}{data}\PYG{p}{.}\PYG{n}{average}\PYG{p}{()}
+
+        \PYG{c+c1}{// Bewertungsfunktion}
+        \PYG{k}{val} \PYG{n+py}{points} \PYG{p}{=} \PYG{p}{((}\PYG{n}{avg} \PYG{p}{+} \PYG{n}{min} \PYG{p}{+} \PYG{n}{max}\PYG{p}{)} \PYG{p}{/} \PYG{l+m}{3} \PYG{p}{)}
+        \PYG{k}{val} \PYG{n+py}{pointsInt} \PYG{p}{=} \PYG{k}{if}\PYG{p}{(!}\PYG{n}{points}\PYG{p}{.}\PYG{n}{isNaN}\PYG{p}{()} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{n}{points}\PYG{p}{.}\PYG{n}{roundToInt}\PYG{p}{()} \PYG{p}{\PYGZgt{}} \PYG{l+m}{0}\PYG{p}{)} \PYG{n}{points}\PYG{p}{.}\PYG{n}{roundToInt}\PYG{p}{()} \PYG{k}{else} \PYG{l+m}{0}
+
+        \PYG{c+c1}{// neue XP zu bisherigen XP hinzufügen}
+        \PYG{k}{val} \PYG{n+py}{pointsBefore} \PYG{p}{=} \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{edit}\PYG{p}{().}\PYG{n}{putInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{n}{pointsBefore} \PYG{p}{+} \PYG{n}{pointsInt}\PYG{p}{).}\PYG{n}{apply}\PYG{p}{()}
+        \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{makeText}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Du hast gerade \PYGZdl{}pointsInt XP erhalten!\PYGZdq{}}\PYG{p}{,}\PYG{n}{Toast}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// XP für Minispiel vergeben}
+    \PYG{k}{fun} \PYG{n+nf}{gradeForGame}\PYG{p}{(}\PYG{n}{distanceUntilCrash}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{,} \PYG{k}{data}\PYG{p}{:} \PYG{n}{MutableList}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{})\PYGZob{}}
+        \PYG{c+c1}{// Minimal\PYGZhy{}, Maximal\PYGZhy{} und Durchschnittswert der Liste bestimmen}
+        \PYG{k}{val} \PYG{n+py}{min} \PYG{p}{=} \PYG{k}{data}\PYG{p}{.}\PYG{n}{min}\PYG{p}{()}\PYG{o}{?:}\PYG{l+m}{0f}
+        \PYG{k}{val} \PYG{n+py}{max} \PYG{p}{=} \PYG{k}{data}\PYG{p}{.}\PYG{n}{max}\PYG{p}{()}\PYG{o}{?:}\PYG{l+m}{0f}
+        \PYG{k}{val} \PYG{n+py}{avg} \PYG{p}{=} \PYG{k}{if} \PYG{p}{(}\PYG{k}{data}\PYG{p}{.}\PYG{n}{average}\PYG{p}{().}\PYG{n}{isNaN}\PYG{p}{())} \PYG{l+m}{0.0} \PYG{k}{else} \PYG{k}{data}\PYG{p}{.}\PYG{n}{average}\PYG{p}{()}
+
+        \PYG{c+c1}{// Bewertungsfunktion}
+        \PYG{k}{val} \PYG{n+py}{points} \PYG{p}{=} \PYG{p}{((}\PYG{n}{avg} \PYG{p}{+} \PYG{n}{min} \PYG{p}{+} \PYG{n}{max}\PYG{p}{)} \PYG{p}{/} \PYG{l+m}{3} \PYG{p}{)} \PYG{p}{+} \PYG{n}{distanceUntilCrash} \PYG{p}{*} \PYG{l+m}{2}
+        \PYG{k}{val} \PYG{n+py}{pointsInt} \PYG{p}{=} \PYG{k}{if}\PYG{p}{(!}\PYG{n}{points}\PYG{p}{.}\PYG{n}{isNaN}\PYG{p}{()} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{n}{points}\PYG{p}{.}\PYG{n}{roundToInt}\PYG{p}{()} \PYG{p}{\PYGZgt{}} \PYG{l+m}{0}\PYG{p}{)} \PYG{n}{points}\PYG{p}{.}\PYG{n}{roundToInt}\PYG{p}{()} \PYG{k}{else} \PYG{l+m}{0}
+
+        \PYG{c+c1}{// neue XP zu bisherigen XP hinzufügen}
+        \PYG{k}{val} \PYG{n+py}{pointsBefore} \PYG{p}{=} \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+        \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{edit}\PYG{p}{().}\PYG{n}{putInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{n}{pointsBefore} \PYG{p}{+} \PYG{n}{pointsInt}\PYG{p}{).}\PYG{n}{apply}\PYG{p}{()}
+        \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{makeText}\PYG{p}{(}\PYG{n}{context}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Du hast gerade \PYGZdl{}pointsInt XP erhalten!\PYGZdq{}}\PYG{p}{,}\PYG{n}{Toast}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Freischaltung von Badges überprüfen}
+    \PYG{k}{fun} \PYG{n+nf}{checkBadgesForCompletion}\PYG{p}{(}\PYG{k}{data}\PYG{p}{:} \PYG{n}{MutableList}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{})} \PYG{p}{:} \PYG{n}{BadgeDialogFragment}\PYG{p}{?\PYGZob{}}
+        \PYG{n}{dbHelper} \PYG{p}{=} \PYG{n}{GamificationDBHelper}\PYG{p}{(}\PYG{n}{context}\PYG{p}{)}
+        \PYG{k}{val} \PYG{n+py}{cursor} \PYG{p}{=} \PYG{n}{dbHelper}\PYG{p}{.}\PYG{n}{getAvailableQuests}\PYG{p}{()}
+        \PYG{k}{var} \PYG{n+py}{shouldShowDialog} \PYG{p}{=} \PYG{k}{false}
+        \PYG{k}{var} \PYG{n+py}{icon} \PYG{p}{=} \PYG{l+m}{0}
+        \PYG{k}{var} \PYG{n+py}{title} \PYG{p}{=} \PYG{l+s}{\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{var} \PYG{n+py}{earnedXP} \PYG{p}{=} \PYG{l+m}{0}
+
+        \PYG{c+c1}{// durch alle vefügbaren Quests iterieren}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{moveToNext}\PYG{p}{())\PYGZob{}}
+            \PYG{k}{val} \PYG{n+py}{neededXP} \PYG{p}{=} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}FIN\PYGZus{}XP}\PYG{p}{))}
+            \PYG{k}{val} \PYG{n+py}{minPerc} \PYG{p}{=} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}MIN\PYGZus{}PERC}\PYG{p}{))}
+            \PYG{k}{val} \PYG{n+py}{isMinPercCompleted} \PYG{p}{=} \PYG{k}{data}\PYG{p}{.}\PYG{n}{any} \PYG{p}{\PYGZob{}} \PYG{n}{it} \PYG{p}{\PYGZgt{}=} \PYG{n}{minPerc}\PYG{p}{.}\PYG{n}{toFloat}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+            \PYG{k}{val} \PYG{n+py}{isOverPercCompleted} \PYG{p}{=} \PYG{n}{checkOverPercCondition}\PYG{p}{(}\PYG{k}{data}\PYG{p}{,}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{)),}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TIME\PYGZus{}OVER\PYGZus{}PERC}\PYG{p}{)))}
+
+            \PYG{c+c1}{// spezifische Bedingungen überprüfen}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{neededXP} \PYG{p}{\PYGZlt{}=} \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{n}{isMinPercCompleted} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{n}{isOverPercCompleted}\PYG{p}{)\PYGZob{}}
+
+                \PYG{c+c1}{// Quest fertig \PYGZhy{}\PYGZgt{} Badge freigeschaltet}
+                \PYG{n}{dbHelper}\PYG{p}{.}\PYG{n}{setQuestCompleted}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ID}\PYG{p}{)))}
+
+                \PYG{c+c1}{// entsprechend XP vergeben}
+                \PYG{k}{val} \PYG{n+py}{pointsBefore} \PYG{p}{=} \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,}\PYG{l+m}{0}\PYG{p}{)}
+                \PYG{n}{prefs}\PYG{p}{.}\PYG{n}{edit}\PYG{p}{().}\PYG{n}{putInt}\PYG{p}{(}\PYG{n}{PREFS\PYGZus{}POINTS}\PYG{p}{,} \PYG{n}{pointsBefore} \PYG{p}{+} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{))).}\PYG{n}{apply}\PYG{p}{()}
+
+                \PYG{c+c1}{// Dialog soll angezeigt werden}
+                \PYG{n}{icon} \PYG{p}{=} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}ICON}\PYG{p}{))}
+                \PYG{n}{title} \PYG{p}{+=} \PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{}\PYGZdq{}} \PYG{p}{+} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getString}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}TITLE}\PYG{p}{))} \PYG{p}{+} \PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{}, \PYGZdq{}}
+                \PYG{n}{earnedXP} \PYG{p}{+=} \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getInt}\PYG{p}{(}\PYG{n}{cursor}\PYG{p}{.}\PYG{n}{getColumnIndex}\PYG{p}{(}\PYG{n}{QUEST\PYGZus{}EARN\PYGZus{}XP}\PYG{p}{))}
+                \PYG{n}{shouldShowDialog} \PYG{p}{=} \PYG{k}{true}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{cursor}\PYG{p}{.}\PYG{n}{close}\PYG{p}{()}
+        \PYG{n}{dbHelper}\PYG{p}{.}\PYG{n}{close}\PYG{p}{()}
+
+        \PYG{c+c1}{// Dialog an Aufrufer zurückgeben}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{shouldShowDialog}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{title} \PYG{p}{=} \PYG{n}{title}\PYG{p}{.}\PYG{n}{substring}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{n}{title}\PYG{p}{.}\PYG{n}{length}\PYG{p}{\PYGZhy{}}\PYG{l+m}{2}\PYG{p}{)}
+            \PYG{k}{return} \PYG{n}{newBadgeInstance}\PYG{p}{(}\PYG{n}{icon}\PYG{p}{,} \PYG{n}{title}\PYG{p}{,} \PYG{n}{earnedXP}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{k}{null}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Überprüfen der Bedingung, dass man bestimmte Zeit über bestimmtem Prozentwert war}
+    \PYG{k}{private} \PYG{k}{fun} \PYG{n+nf}{checkOverPercCondition}\PYG{p}{(}\PYG{k}{data}\PYG{p}{:} \PYG{n}{MutableList}\PYG{p}{\PYGZlt{}}\PYG{n}{Float}\PYG{p}{\PYGZgt{},} \PYG{n}{overPerc} \PYG{p}{:}\PYG{n}{Int}\PYG{p}{,} \PYG{n}{timeOverPerc}\PYG{p}{:} \PYG{n}{Int}\PYG{p}{):} \PYG{n}{Boolean}\PYG{p}{\PYGZob{}}
+        \PYG{k}{var} \PYG{n+py}{count} \PYG{p}{=} \PYG{l+m}{0}
+        \PYG{k}{for} \PYG{p}{(}\PYG{n}{el} \PYG{k}{in} \PYG{k}{data}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{el} \PYG{p}{\PYGZgt{}=} \PYG{n}{overPerc}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{count}\PYG{p}{++}
+            \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+                \PYG{n}{count} \PYG{p}{=} \PYG{l+m}{0}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{count} \PYG{p}{\PYGZgt{}=} \PYG{n}{timeOverPerc}\PYG{p}{)\PYGZob{}}
+                \PYG{k}{return} \PYG{k}{true}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{k}{false}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

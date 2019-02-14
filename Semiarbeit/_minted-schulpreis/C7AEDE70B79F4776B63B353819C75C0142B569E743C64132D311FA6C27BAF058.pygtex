@@ -1,0 +1,79 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{package} \PYG{n+nn}{de.lukasrost.apoplexy}
+
+\PYG{k}{import} \PYG{n+nn}{android.app.Activity}
+\PYG{k}{import} \PYG{n+nn}{android.bluetooth.BluetoothDevice}
+\PYG{k}{import} \PYG{n+nn}{android.bluetooth.BluetoothSocket}
+\PYG{k}{import} \PYG{n+nn}{android.widget.Toast}
+\PYG{k}{import} \PYG{n+nn}{java.nio.charset.StandardCharsets}
+\PYG{k}{import} \PYG{n+nn}{java.util.*}
+
+\PYG{c+c1}{// Steuerung der Bluetooth\PYGZhy{}Verbindung}
+\PYG{k}{class} \PYG{n+nc}{BluetoothNoService} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// Bluetooth\PYGZhy{}Gerät und Socket}
+    \PYG{k}{private} \PYG{k}{lateinit} \PYG{k}{var} \PYG{n+py}{device}\PYG{p}{:} \PYG{n}{BluetoothDevice}
+    \PYG{k}{private} \PYG{k}{lateinit} \PYG{k}{var} \PYG{n+py}{activity}\PYG{p}{:} \PYG{n}{Activity}
+    \PYG{k}{private} \PYG{k}{var} \PYG{n+py}{bluetoothSocket}\PYG{p}{:} \PYG{n}{BluetoothSocket}\PYG{p}{?} \PYG{p}{=} \PYG{k}{null}
+
+    \PYG{c+c1}{// Queue der Messwerte}
+    \PYG{k}{private} \PYG{k}{val} \PYG{n+py}{btQueue} \PYG{p}{=} \PYG{n}{mutableListOf}\PYG{p}{\PYGZlt{}}\PYG{n}{Double}\PYG{p}{\PYGZgt{}()}
+
+    \PYG{c+c1}{// Thread zum Updaten der Queue}
+    \PYG{k}{private} \PYG{k}{var} \PYG{n+py}{keepRunning} \PYG{p}{=} \PYG{k}{false}
+    \PYG{k}{private} \PYG{k}{val} \PYG{n+py}{updateQueueRunnable} \PYG{p}{=} \PYG{n}{Runnable} \PYG{p}{\PYGZob{}}
+        \PYG{k}{var} \PYG{n+py}{read} \PYG{p}{=} \PYG{l+m}{0}
+        \PYG{k}{val} \PYG{n+py}{data} \PYG{p}{=} \PYG{n}{ByteArray}\PYG{p}{(}\PYG{l+m}{1024}\PYG{p}{)}
+
+        \PYG{c+c1}{// wenn verbunden}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{bluetoothSocket} \PYG{p}{!=} \PYG{k}{null}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+            \PYG{c+c1}{// solange nicht gestoppt und Datenempfang vorhanden}
+            \PYG{k}{while} \PYG{p}{(}\PYG{k}{this}\PYG{n}{@BluetoothNoService}\PYG{p}{.}\PYG{n}{keepRunning} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{n}{bluetoothSocket} \PYG{p}{!=} \PYG{k}{null} \PYG{p}{\PYGZam{}\PYGZam{}} \PYG{p}{((}\PYG{n}{bluetoothSocket}\PYG{o}{!!}\PYG{p}{.}\PYG{n}{inputStream}\PYG{p}{.}\PYG{n}{read}\PYG{p}{(}\PYG{k}{data}\PYG{p}{).}\PYG{n}{let} \PYG{p}{\PYGZob{}} \PYG{n}{read} \PYG{p}{=} \PYG{n}{it}\PYG{p}{;} \PYG{n}{it} \PYG{p}{!=} \PYG{p}{\PYGZhy{}}\PYG{l+m}{1} \PYG{p}{\PYGZcb{})))} \PYG{p}{\PYGZob{}}
+
+                \PYG{c+c1}{// Einlesen der Bluetooth\PYGZhy{}Daten}
+                \PYG{k}{val} \PYG{n+py}{readdata} \PYG{p}{=} \PYG{n}{Arrays}\PYG{p}{.}\PYG{n}{copyOf}\PYG{p}{(}\PYG{k}{data}\PYG{p}{,} \PYG{n}{read}\PYG{p}{)}
+                \PYG{k}{val} \PYG{n+py}{value} \PYG{p}{=} \PYG{n}{String}\PYG{p}{(}\PYG{n}{readdata}\PYG{p}{,} \PYG{n}{StandardCharsets}\PYG{p}{.}\PYG{n}{UTF\PYGZus{}8}\PYG{p}{)}
+
+                \PYG{c+c1}{// Daten der Queue hinzufügen}
+                \PYG{k}{for} \PYG{p}{(}\PYG{n}{number} \PYG{k}{in} \PYG{n}{value}\PYG{p}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}r\PYGZbs{}n\PYGZdq{}}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+                    \PYG{k}{if} \PYG{p}{(}\PYG{n}{btQueue}\PYG{p}{.}\PYG{n}{size} \PYG{p}{==} \PYG{l+m}{4}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                        \PYG{n}{btQueue}\PYG{p}{.}\PYG{n}{removeAt}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{)}
+                    \PYG{p}{\PYGZcb{}}
+                    \PYG{k}{val} \PYG{n+py}{num} \PYG{p}{=} \PYG{n}{number}\PYG{p}{.}\PYG{n}{toDoubleOrNull}\PYG{p}{()}
+                    \PYG{n}{num}\PYG{o}{?.}\PYG{n}{let} \PYG{p}{\PYGZob{}} \PYG{k}{if}\PYG{p}{(} \PYG{n}{num} \PYG{p}{\PYGZlt{}} \PYG{l+m}{1.5}\PYG{p}{)} \PYG{n}{btQueue}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{l+m}{1.5}\PYG{p}{)} \PYG{k}{else} \PYG{n}{btQueue}\PYG{p}{.}\PYG{n}{add}\PYG{p}{(}\PYG{n}{it}\PYG{p}{)} \PYG{p}{\PYGZcb{}} \PYG{c+c1}{// nur Werte \PYGZgt{} 1.5}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{makeText}\PYG{p}{(}\PYG{n}{activity}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Bluetooth\PYGZhy{}Verbindung beendet!\PYGZdq{}}\PYG{p}{,} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Verbindung beginnen}
+    \PYG{k}{fun} \PYG{n+nf}{establishConnection}\PYG{p}{(}\PYG{n}{device}\PYG{p}{:} \PYG{n}{BluetoothDevice}\PYG{p}{,} \PYG{n}{activity}\PYG{p}{:} \PYG{n}{Activity}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{this}\PYG{p}{.}\PYG{n}{device} \PYG{p}{=} \PYG{n}{device}
+        \PYG{k}{this}\PYG{p}{.}\PYG{n}{activity} \PYG{p}{=} \PYG{n}{activity}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// mit Bluetooth\PYGZhy{}Gerät verbinden und Thread starten}
+    \PYG{k}{fun} \PYG{n+nf}{startReading}\PYG{p}{()\PYGZob{}}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{n}{bluetoothSocket} \PYG{p}{=} \PYG{n}{device}\PYG{p}{.}\PYG{n}{createRfcommSocketToServiceRecord}\PYG{p}{(}\PYG{n}{UUID}\PYG{p}{.}\PYG{n}{fromString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}00001101\PYGZhy{}0000\PYGZhy{}1000\PYGZhy{}8000\PYGZhy{}00805F9B34FB\PYGZdq{}}\PYG{p}{))}
+            \PYG{n}{bluetoothSocket}\PYG{o}{?.}\PYG{n}{connect}\PYG{p}{()}
+            \PYG{n}{keepRunning} \PYG{p}{=} \PYG{k}{true}
+            \PYG{n}{Thread}\PYG{p}{(}\PYG{n}{updateQueueRunnable}\PYG{p}{).}\PYG{n}{start}\PYG{p}{()}
+            \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{makeText}\PYG{p}{(}\PYG{n}{activity}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Erfolgreich verbunden!\PYGZdq{}}\PYG{p}{,} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n}{e}\PYG{p}{:} \PYG{n}{Exception}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{activity}\PYG{p}{.}\PYG{n}{runOnUiThread} \PYG{p}{\PYGZob{}} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{makeText}\PYG{p}{(}\PYG{n}{activity}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Fehler beim Verbinden über Bluetooth!\PYGZdq{}}\PYG{p}{,} \PYG{n}{Toast}\PYG{p}{.}\PYG{n}{LENGTH\PYGZus{}LONG}\PYG{p}{).}\PYG{n}{show}\PYG{p}{()} \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// Verbindung beenden, Thread stoppen}
+    \PYG{k}{fun} \PYG{n+nf}{stopReading}\PYG{p}{()\PYGZob{}}
+        \PYG{n}{keepRunning} \PYG{p}{=} \PYG{k}{false}
+        \PYG{n}{Thread}\PYG{p}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m}{1000}\PYG{p}{)}
+        \PYG{n}{bluetoothSocket}\PYG{o}{?.}\PYG{n}{close}\PYG{p}{()}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{c+c1}{// aktuellen Durchschnittswert der Queue in Prozent des Maximalwerts berechnen}
+    \PYG{k}{fun} \PYG{n+nf}{getCurrentValuePercent}\PYG{p}{()} \PYG{p}{:} \PYG{n}{Float} \PYG{p}{=} \PYG{l+m}{100} \PYG{p}{*} \PYG{p}{((}\PYG{n}{btQueue}\PYG{p}{.}\PYG{n}{average}\PYG{p}{()} \PYG{p}{\PYGZhy{}} \PYG{n}{MIN\PYGZus{}VOLTAGE\PYGZus{}EMG}\PYG{p}{)} \PYG{p}{/} \PYG{p}{(}\PYG{n}{MAX\PYGZus{}VOLTAGE\PYGZus{}EMG} \PYG{p}{\PYGZhy{}} \PYG{n}{MIN\PYGZus{}VOLTAGE\PYGZus{}EMG}\PYG{p}{)).}\PYG{n}{toFloat}\PYG{p}{()}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

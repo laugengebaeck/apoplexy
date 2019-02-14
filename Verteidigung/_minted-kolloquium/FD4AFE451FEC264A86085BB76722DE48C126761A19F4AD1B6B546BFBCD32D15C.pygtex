@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{sendCurrentVoltage}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{ADCSRA} \PYG{o}{|=} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ADSC}\PYG{p}{);}
+	\PYG{k}{while} \PYG{p}{(}\PYG{n}{ADCSRA} \PYG{o}{\PYGZam{}} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{ADSC}\PYG{p}{));}
+	\PYG{k+kt}{uint16\PYGZus{}t} \PYG{n}{out} \PYG{o}{=} \PYG{n}{ADC}\PYG{p}{;}
+	\PYG{k+kt}{double} \PYG{n}{voltage} \PYG{o}{=} \PYG{p}{(}\PYG{n}{out}\PYG{o}{/}\PYG{l+m+mf}{1024.0}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mf}{4.5}\PYG{p}{;}
+	
+	\PYG{k+kt}{char} \PYG{n}{str}\PYG{p}{[}\PYG{l+m+mi}{10}\PYG{p}{];}
+	\PYG{n}{sprintf}\PYG{p}{(}\PYG{n}{str}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}\PYGZpc{}.3f }\PYG{l+s+se}{\PYGZbs{}r\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{voltage}\PYG{p}{);}
+	\PYG{n}{u\PYGZus{}puts}\PYG{p}{(}\PYG{n}{str}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
