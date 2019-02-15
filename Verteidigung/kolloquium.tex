@@ -13,6 +13,8 @@
 \usepackage{svg}
 \usepackage[autostyle]{csquotes}
 \usepackage{minted}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees}
 
 \usetheme{Execushares}
 
@@ -185,8 +187,42 @@ void sendCurrentVoltage(void) {
 
 \subsection{Konzept und Aufbau der App}
 
-\begin{frame}{Konzept und Aufbau der App}
-Inhalt...
+\begin{frame}[fragile]{Konzept und Aufbau der App}
+\tikzset{level 1 concept/.append style={font=\sf, sibling angle=90,level distance = 32mm}}
+\tikzset{level 2 concept/.append style={font=\sf, sibling angle=45,level distance = 27mm}}
+\tikzset{every node/.append style={scale=0.7,text width=}}
+\begin{center}
+	\begin{tikzpicture}
+	\path [
+	mindmap,
+	text = white,
+	level 1 concept/.append style =
+	{font=\Large\bfseries, sibling angle=100},
+	level 2 concept/.append style =
+	{font=\normalsize\bfseries},
+	level 3 concept/.append style =
+	{font=\small\bfseries},
+	style = {concept color=black,
+		font=\Large\bfseries},
+	engines/.style = {concept color=green!50!black},
+	formats/.style = {concept color=blue!50!black}
+	]
+	node [concept] {Begleitapp} [clockwise from=330]
+	child[concept color=green!50!black, nodes={engines}] {
+		node [concept] {Funktionen} [clockwise from=0]
+		child { node [concept] {Übungen} }
+		child { node [concept] {Minispiel} }
+		child { node [concept] {Gamification} }
+		child { node [concept] {Erinnerungen} }}
+	child [concept color=blue!50!black, nodes={formats}] {
+		node [concept] {Aufbau} [clockwise from=270]
+		child { node [concept] {Start} }
+		child { node [concept] {Übungen} }
+		child { node [concept] {Minispiel} }
+		child { node [concept] {Einstellungen} }
+	};
+	\end{tikzpicture}
+\end{center}
 \end{frame}
 
 \subsection{Kommunikation mit dem Mikrocontroller}
@@ -201,8 +237,69 @@ Inhalt...
 \subsection{Umsetzung der Gamification}
 
 \begin{frame}{Umsetzung der Gamification}
-Inhalt...
+\begin{figure}
+	\includesvg[scale=0.55]{pics/reldb}
+	\caption{Eine Tabelle einer relationalen Datenbank}
+\end{figure}
 \end{frame}
+
+\begin{frame}[fragile]{Umsetzung der Gamification}
+\tikzset{level 1 concept/.append style={font=\sf, sibling angle=90,level distance = 32mm}}
+\tikzset{level 2 concept/.append style={font=\sf, sibling angle=45,level distance = 30mm}}
+\tikzset{every node/.append style={scale=0.65,text width=}}
+\begin{center}
+	\begin{tikzpicture}
+	\path [
+	mindmap,
+	text = white,
+	level 1 concept/.append style =
+	{font=\Large\bfseries, sibling angle=140},
+	level 2 concept/.append style =
+	{font=\normalsize\bfseries},
+	level 3 concept/.append style =
+	{font=\small\bfseries},
+	style = {concept color=black,
+		font=\Large\bfseries},
+	engines/.style = {concept color=green!50!black},
+	formats/.style = {concept color=blue!50!black}
+	]
+	node [concept] {Quest-Tabelle} [clockwise from=305]
+	child[concept color=green!50!black, nodes={engines}] {
+		node [concept] {Anzeige} [clockwise from=310]
+		child { node [concept] {ID} }
+		child { node [concept] {Titel} }
+		child { node [concept] {Beschreibung} }
+		child { node [concept] {Symbol} }
+	}
+	child [concept color=blue!50!black, nodes={formats}] {
+		node [concept] {Anforderungen} [clockwise from=270]
+		child { node [concept] {Anzahl an XP} }
+		child { node [concept] {Wert übertreffen} }
+		child { node [concept] {Wert übertr. (Dauer)} }
+	}
+	child[concept color=orange!50!black]{
+		node [concept] {Beendet?}
+	};
+	\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Umsetzung der Gamification}
+\textbf{XP-Vergabe:}
+\begin{itemize}
+	\item Punktzahl $P$ für eine Übung:
+	\begin{flalign*}
+	& P = \frac{min(L) + avg(L) + max(L)}{3}&
+	\end{flalign*}
+	\item Punktzahl $P_{S}$ für ein Minispiel:
+	\begin{flalign*}
+	& P_{S} = P + 2 \cdot d&
+	\end{flalign*}
+	\item beim Beenden einer Quest
+\end{itemize}
+\end{frame}
+
+\section*{Demonstration}
 
  \section*{Kritische Reflexion des Erreichten}
  \begin{frame}{Kritische Reflexion des Erreichten}
@@ -232,10 +329,9 @@ Inhalt...
 
  \begin{frame}{Bildquellen}
  \begin{itemize}
- \item \small{\url{https://raw.githubusercontent.com/SeeedDocument/Grove-EMG_Detector/master/img/Emg_connect.jpg}}
+ \item \small{\url{http://www.lahsit-schlaganfall-reha.de/images/slider/lahsit-banner-3.png}}
  \item \small{\url{https://i.onmeda.de/schlaganfall_entstehung-465x290.jpg}}
  \item \small{\url{http://www.volkskrankheiten.at/images/1237/widgets/Schlaganfall-(2).svg}}
- \item \small{\url{https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/225807_10150179024982659_311531_n.jpg?_nc_cat=0&oh=986b13c0619d22e40dc9de883a6ed930&oe=5B5CEE4C}}
  \item  \small{\url{https://www.neurozentrum-bern.ch/wp-content/uploads/2015/01/diagnose_schlaganfall.jpg}}
  \item  \small{\url{http://news.mit.edu/sites/mit.edu.newsoffice/files/styles/news_article_image_top_slideshow/public/images/2010/20100414154658-1_0.jpg}}
  \end{itemize}
@@ -246,6 +342,7 @@ Inhalt...
 	\item \small{\url{http://www.lahsit-schlaganfall-reha.de/images/Laborn-Armbasistraining.JPG}}
 	\item \small{\url{http://blog.brandung.de/wp-content/uploads/2017/03/gmf-01.jpg}}
 	\item \small{\url{https://de.quora.com/Hat-es-einmal-jemand-geschafft-einen-ganzen-Wissenschaftsbereich-mit-komplett-erfundenen-wissenschaftlichen-Beweisen-zu-täuschen}}
+	\item \small{\url{https://upload.wikimedia.org/wikipedia/commons/1/1b/Begriffe_relationaler_Datenbanken.svg}}
 \end{itemize}
 \end{frame}
 

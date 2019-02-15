@@ -1,16 +1,39 @@
-\frametitle{Implementierung des Programms}
-\begin{figure}
-	\begin{minted}[frame=single]{c}
-void sendCurrentVoltage(void) {
-	ADCSRA |= (1 << ADSC);
-	while (ADCSRA & (1 << ADSC));
-	uint16_t out = ADC;
-	double voltage = (out/1024.0) * 4.5;
-	
-	char str[10];
-	sprintf(str, "%.3f \r\n", voltage);
-	u_puts(str);
-}
-	\end{minted}
-	\centering \caption{Ausschnitt aus dem Programm}
-\end{figure}
+\frametitle{Umsetzung der Gamification}
+\tikzset{level 1 concept/.append style={font=\sf, sibling angle=90,level distance = 32mm}}
+\tikzset{level 2 concept/.append style={font=\sf, sibling angle=45,level distance = 30mm}}
+\tikzset{every node/.append style={scale=0.65,text width=}}
+\begin{center}
+	\begin{tikzpicture}
+	\path [
+	mindmap,
+	text = white,
+	level 1 concept/.append style =
+	{font=\Large\bfseries, sibling angle=140},
+	level 2 concept/.append style =
+	{font=\normalsize\bfseries},
+	level 3 concept/.append style =
+	{font=\small\bfseries},
+	style = {concept color=black,
+		font=\Large\bfseries},
+	engines/.style = {concept color=green!50!black},
+	formats/.style = {concept color=blue!50!black}
+	]
+	node [concept] {Quest-Tabelle} [clockwise from=305]
+	child[concept color=green!50!black, nodes={engines}] {
+		node [concept] {Anzeige} [clockwise from=310]
+		child { node [concept] {ID} }
+		child { node [concept] {Titel} }
+		child { node [concept] {Beschreibung} }
+		child { node [concept] {Symbol} }
+	}
+	child [concept color=blue!50!black, nodes={formats}] {
+		node [concept] {Anforderungen} [clockwise from=270]
+		child { node [concept] {Anzahl an XP} }
+		child { node [concept] {Wert übertreffen} }
+		child { node [concept] {Wert übertr. (Dauer)} }
+	}
+	child[concept color=orange!50!black]{
+		node [concept] {Beendet?}
+	};
+	\end{tikzpicture}
+\end{center}

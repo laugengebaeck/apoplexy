@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/Arch Linux) (preloaded format=xelatex 2019.2.11)  12 FEB 2019 13:22
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/Arch Linux) (preloaded format=xelatex 2019.2.11)  15 FEB 2019 14:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -249,11 +249,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 ] (./Thesenpapier.aux) ) 
 Here is how much of TeX's memory you used:
  3494 strings out of 492956
- 61475 string characters out of 6139024
- 240927 words of memory out of 5000000
- 7514 multiletter control sequences out of 15000+600000
- 6408 words of font info for 27 fonts, out of 8000000 for 9000
+ 61494 string characters out of 6139024
+ 244805 words of memory out of 5000000
+ 7513 multiletter control sequences out of 15000+600000
+ 6416 words of font info for 28 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 42i,8n,52p,9118b,191s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,51p,9118b,191s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Thesenpapier.pdf (1 page).

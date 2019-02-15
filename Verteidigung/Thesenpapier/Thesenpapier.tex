@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, titlepage, bibliography=totocnumbered]{scrartcl}
+\documentclass[a4paper, 12pt]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[top=1.5cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
@@ -17,12 +17,20 @@
 \end{tabularx} \\
 \begin{center}
 	\begin{LARGE}
-		\textbf{\\ Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten \\}
+		\textbf{Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten \\}
 	\end{LARGE}
 \end{center}
 
 \begin{enumerate}
-	\item lool leel saas soos
+	\item Als Schlaganfall wird eine plötzliche Durchblutungsstörung im Gehirn mit daraus folgendem regionalem Mangel an Sauerstoff und Nährstoffen bezeichnet. Ein einfaches Instrument zur Diagnose auch durch Laien stellt der \emph{FAST-Test} dar.
+	\item Zur Rehabilitation von durch einen Schlaganfall entstandenen Armlähmungen existieren sowohl Ansätze mit als auch ohne technisches Gerät. Das hier entwickelte Gerät lässt sich am besten im Zusammenhang mit dem schädigungsorientierten Training einsetzen.
+	\item Der Begriff \emph{Gamification} bezeichnet die Verwendung von spieltypischen Mechanismen außerhalb reiner Spiele mit dem Ziel, das Verhalten von Menschen zu beeinflussen. Dieses Konzept könnte im Rahmen einer Schlaganfall-Therapie mit Erfolg angewandt werden. Wissenschaftlich ist eine motivationssteigernde Wirkung jedoch noch umstritten.
+	\item Um die Muskelaktivität eines Patienten zu messen, wird ein Sensor benötigt, der an ein elektronisches Gerät angeschlossen ist. In diesem Fall ist das Messverfahren der Elektromyographie geeignet.
+	\item Das elektronische Gerät muss programmierbar sein. Dies ist bei einem Mikrocontroller möglich, weshalb dieser für den Einsatzzweck gut geeignet ist. Mithilfe der Schnittstellen \emph{UART} und \emph{Bluetooth} können die Sensordaten an ein Smartphone übertragen werden.
+	\item Die auf einem solchen Smartphone befindliche Begleitapp sollte sowohl ein einfaches Durchführen von Übungen zur Schlaganfall-Rehabilitation als auch das Spielen eines Minispiels ermöglichen, wobei beide Bestandteile durch ein Gamification-System verbunden werden. Diese Aufteilung muss auch im Aufbau der App repräsentiert sein.
+	\item Um Schwankungen der Messwerte auszugleichen, bietet es sich an, innerhalb der App eine Warteschlange (Queue) für diese zu benutzen.
+	\item Zur Speicherung der Quests erweist sich ein relationales Datenbanksystem wie \emph{SQLite} als vorteilhaft. In einer Datenbanktabelle können dabei zusammengehörige Informationen strukturiert gespeichert werden.
+	\item Das Bewegungstraining bei Schlaganfallpatienten könnte in naher Zukunft in der Robotik eine wichtige Rolle spielen.
 \end{enumerate}
 
 \end{document}

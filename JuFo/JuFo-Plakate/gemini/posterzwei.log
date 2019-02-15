@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.11)  12 FEB 2019 14:07
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.11)  14 FEB 2019 19:17
  system commands enabled.
 **posterzwei.tex
 (./posterzwei.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.227 seconds
+luaotfload | main : initialization completed in 0.203 seconds
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/09/20 v3.54 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -1468,6 +1468,14 @@ Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
 y
 Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)
 )
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+mindmap.code.tex
+File: tikzlibrarymindmap.code.tex 2013/07/16 v3.0.1a (rcs-revision 1.10)
+
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+trees.code.tex
+File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.1a (rcs-revision 1.2)
+))
 \sepwidth=\skip77
 \colwidth=\skip78
  (./posterzwei.aux)
@@ -1631,33 +1639,47 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 File: pics/mikrocontroller-schaltplan.png Graphic file (type png)
 <use pics/mikrocontroller-schaltplan.png>
 Package luatex.def Info: pics/mikrocontroller-schaltplan.png  used on input line
- 205.
+ 210.
 (luatex.def)             Requested size: 635.47922pt x 375.27887pt.
 <pics/mikrocontroller.jpg, id=14, 3234.0825pt x 2690.05pt>
 File: pics/mikrocontroller.jpg Graphic file (type jpg)
 <use pics/mikrocontroller.jpg>
-Package luatex.def Info: pics/mikrocontroller.jpg  used on input line 205.
+Package luatex.def Info: pics/mikrocontroller.jpg  used on input line 210.
 (luatex.def)             Requested size: 635.47922pt x 528.55971pt.
 <pics/queue.png, id=15, 1003.75pt x 656.4525pt>
 File: pics/queue.png Graphic file (type png)
 <use pics/queue.png>
-Package luatex.def Info: pics/queue.png  used on input line 205.
+Package luatex.def Info: pics/queue.png  used on input line 210.
 (luatex.def)             Requested size: 397.173pt x 259.75165pt.
-LaTeX Font Info:    Calculating math sizes for size <21.15> on input line 205.
+LaTeX Font Info:    Calculating math sizes for size <21.15> on input line 210.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <21.15> not available
-(Font)              size <20.74> substituted on input line 205.
+(Font)              size <20.74> substituted on input line 210.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <14.80492> not available
-(Font)              size <14.4> substituted on input line 205.
+(Font)              size <14.4> substituted on input line 210.
 
-LaTeX Font Info:    Calculating math sizes for size <17.63> on input line 205.
+LaTeX Font Info:    Calculating math sizes for size <17.63> on input line 210.
+Package svg Info: Calling Inkscape on input line 210.
+Package svg Info: Last page of `./svg-inkscape/reldb_svg-tex.pdf' is 1 on input 
+line 210.
+(./svg-inkscape/reldb_svg-tex.pdf_tex
+<./svg-inkscape/reldb_svg-tex.pdf, id=17, page=1, 579.71574pt x 269.26599pt>
+File: ./svg-inkscape/reldb_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/reldb_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/reldb_svg-tex.pdf , page1 used on input 
+line 56.
+(luatex.def)             Requested size: 397.173pt x 184.48717pt.
+)
+Overfull \vbox (6.96545pt too high) detected at line 210
+ []
+
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 <./pics/mikrocontroller-schaltplan.png><./pics/mikrocontroller.jpg><./pics/queue
-.png>]
+.png><./svg-inkscape/reldb_svg-tex.pdf>]
 \tf@nav=\write6
 
 \openout6 = posterzwei.nav
@@ -1667,13 +1689,14 @@ LaTeX Font Info:    Calculating math sizes for size <17.63> on input line 205.
 \tf@snm=\write8
 
 \openout8 = posterzwei.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 212.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 212.
  (./posterzwei.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 207.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 207.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 212.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 212.
 Package rerunfilecheck Info: File `posterzwei.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.40999pt have occurred.
@@ -1681,18 +1704,18 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 44432 strings out of 494407
- 156270,1373583 words of node,token memory allocated
- 67258 words of node memory still in use:
-   609 hlist, 43 vlist, 101 rule, 570 disc, 103 local_par, 36 math, 1672 glue, 9
-10 kern, 324 penalty, 4098 glyph, 1161 attribute, 78 glue_spec, 1161 attribute_l
-ist, 9 write, 112 pdf_literal, 3 pdf_dest, 504 pdf_colorstack, 3 pdf_setmatrix, 
-3 pdf_save, 3 pdf_restore nodes
-   avail lists: 1:1,2:268,3:456,4:545,5:962,6:104,7:5838,8:107,9:683,10:12,11:57
+ 44607 strings out of 494407
+ 156265,1373583 words of node,token memory allocated
+ 68422 words of node memory still in use:
+   625 hlist, 43 vlist, 102 rule, 580 disc, 104 local_par, 36 math, 1704 glue, 9
+20 kern, 338 penalty, 4155 glyph, 1192 attribute, 78 glue_spec, 1192 attribute_l
+ist, 9 write, 112 pdf_literal, 3 pdf_dest, 516 pdf_colorstack, 4 pdf_setmatrix, 
+4 pdf_save, 4 pdf_restore nodes
+   avail lists: 1:1,2:268,3:473,4:557,5:972,6:105,7:5927,8:108,9:699,10:12,11:58
 0
- 46774 multiletter control sequences out of 65536+600000
+ 46906 multiletter control sequences out of 65536+600000
  108 fonts using 17127519 bytes
- 62i,18n,96p,776b,1155s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 62i,18n,96p,776b,1333s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/f
 onts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
 enc}</usr/share/fonts/TTF/Lato-Light.ttf></usr/share/fonts/TTF/Lato-Regular.ttf>
@@ -1700,10 +1723,10 @@ enc}</usr/share/fonts/TTF/Lato-Light.ttf></usr/share/fonts/TTF/Lato-Regular.ttf>
 -Bold-Original.otf></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/lm/lmsy10.pfb>
-Output written on posterzwei.pdf (1 page, 2204921 bytes).
+Output written on posterzwei.pdf (1 page, 2227711 bytes).
 
-PDF statistics: 74 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+PDF statistics: 78 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
