@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/Arch Linux) (preloaded format=xelatex 2019.2.11)  15 FEB 2019 14:52
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/Arch Linux) (preloaded format=xelatex 2019.2.11)  15 FEB 2019 15:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1611,43 +1611,35 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 
 [1
 
-]
-File: pics/einleit1.png Graphic file (type bmp)
-<pics/einleit1.png>
- [2
+] [2
+
+] [3
+
+] (./kolloquium.toc) [4
 
 ]
-File: pics/mikro.jpg Graphic file (type bmp)
-<pics/mikro.jpg>
- [3
-
-] [4
-
-] (./kolloquium.toc) [5
-
-]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 57--57
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 47--47
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 57
+Overfull \vbox (5.0pt too high) detected at line 47
  []
 
-[6
+[5
 
 ]
 File: pics/sentst.jpg Graphic file (type bmp)
 <pics/sentst.jpg>
- [7
+ [6
 
 ]
 File: pics/laehm.jpg Graphic file (type bmp)
 <pics/laehm.jpg>
- [8
+ [7
 
 ]
-Package svg Info: Calling Inkscape on input line 78.
+Package svg Info: Calling Inkscape on input line 68.
 runsystem(inkscape -z -D --export-latex  --file="pics/Schlaganfall.svg" --expor
 t-pdf="Schlaganfall_svg-tex.pdf" )...executed.
 
@@ -1660,69 +1652,73 @@ runsystem(mv "Schlaganfall_svg-tex.pdf_tex" "./svg-inkscape/Schlaganfall_svg-te
 x.pdf_tex")...executed.
 
 Package svg Info: Last page of `./svg-inkscape/Schlaganfall_svg-tex.pdf' is 1 o
-n input line 78.
+n input line 68.
  (./svg-inkscape/Schlaganfall_svg-tex.pdf_tex
 File: ./svg-inkscape/Schlaganfall_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Schlaganfall_svg-tex.pdf, page 1>
-) [9
+) [8
 
-] [10
+] [9
 
 ]
 File: pics/armbasis.jpg Graphic file (type bmp)
 <pics/armbasis.jpg>
- [11
+ [10
 
 ]
 File: pics/armrobot.jpg Graphic file (type bmp)
 <pics/armrobot.jpg>
-
-[12
+ [11
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 113--113
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 103--103
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 113
+Overfull \vbox (5.0pt too high) detected at line 103
  []
 
-[13
+[12
 
-] [14
+] [13
 
 ]
 File: pics/elements.jpg Graphic file (type bmp)
 <pics/elements.jpg>
 
-Overfull \hbox (8.88846pt too wide) in paragraph at lines 134--134
+Overfull \hbox (8.88846pt too wide) in paragraph at lines 124--124
  [] 
  []
 
-[15
+[14
 
 ]
 File: pics/quora.png Graphic file (type bmp)
 <pics/quora.png>
- [16
+ [15
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 146--146
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 135--135
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 146
+Overfull \vbox (5.0pt too high) detected at line 135
  []
 
-[17
+[16
 
-] [18
+] [17
 
 ]
 File: pics/mikrocontroller-schaltplan.png Graphic file (type bmp)
 <pics/mikrocontroller-schaltplan.png>
+ [18
+
+]
+File: pics/mikro.jpg Graphic file (type bmp)
+<pics/mikro.jpg>
  [19
 
 ]
@@ -1738,12 +1734,12 @@ File: pics/mikrocontroller-schaltplan.png Graphic file (type bmp)
 D32D15C.pygtex)) [20
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 186--186
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 182--182
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 186
+Overfull \vbox (5.0pt too high) detected at line 182
  []
 
 [21
@@ -1764,7 +1760,7 @@ File: pics/queue.png Graphic file (type bmp)
  [23
 
 ]
-Package svg Info: Calling Inkscape on input line 244.
+Package svg Info: Calling Inkscape on input line 240.
 runsystem(inkscape -z -D --export-latex  --file="pics/reldb.svg" --export-pdf="
 reldb_svg-tex.pdf" )...executed.
 
@@ -1777,12 +1773,12 @@ runsystem(mv "reldb_svg-tex.pdf_tex" "./svg-inkscape/reldb_svg-tex.pdf_tex")...
 executed.
 
 Package svg Info: Last page of `./svg-inkscape/reldb_svg-tex.pdf' is 1 on input
- line 244.
+ line 240.
  (./svg-inkscape/reldb_svg-tex.pdf_tex
 File: ./svg-inkscape/reldb_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/reldb_svg-tex.pdf, page 1>
 )
-Overfull \hbox (11.55556pt too wide) in paragraph at lines 244--244
+Overfull \hbox (11.55556pt too wide) in paragraph at lines 240--240
  [] 
  []
 
@@ -1799,34 +1795,34 @@ Overfull \hbox (22.92332pt too wide) in paragraph at lines 38--39
 ) [25
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 300.
+LaTeX Font Info:    Try loading font information for U+msa on input line 296.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 300.
+LaTeX Font Info:    Try loading font information for U+msb on input line 296.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [26
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 302--302
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 298--298
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 302
+Overfull \vbox (5.0pt too high) detected at line 298
  []
 
 [27
 
 ]
-Overfull \hbox (56.90549pt too wide) in paragraph at lines 304--304
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 300--300
 [][][]  
  []
 
 
-Overfull \vbox (5.0pt too high) detected at line 304
+Overfull \vbox (5.0pt too high) detected at line 300
  []
 
 [28
@@ -1849,21 +1845,21 @@ Overfull \vbox (5.0pt too high) detected at line 304
 \tf@snm=\write11
 \openout11 = `kolloquium.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
  (./kolloquium.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 351.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 347.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
 Package rerunfilecheck Info: File `kolloquium.out' has not changed.
-(rerunfilecheck)             Checksum: B489DB3647692C5C900B3692D3296C33.
+(rerunfilecheck)             Checksum: 924EF424508173A26C954EBF165E429E.
 runsystem(rm kolloquium.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 39737 strings out of 492956
- 796944 string characters out of 6139024
- 975245 words of memory out of 5000000
- 43021 multiletter control sequences out of 15000+600000
+ 39733 strings out of 492956
+ 796868 string characters out of 6139024
+ 975212 words of memory out of 5000000
+ 43018 multiletter control sequences out of 15000+600000
  541728 words of font info for 115 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,12n,84p,777b,1373s stack positions out of 5000i,500n,10000p,200000b,80000s
