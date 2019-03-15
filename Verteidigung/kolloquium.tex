@@ -34,7 +34,10 @@
  \titlepage
  
  \begin{frame}
- \centering \href{https://www.youtube.com/watch?v=SByymar3bds}{Die Klaviertreppe aus dem Projekt \textsc{The Fun Theory}}
+ \begin{figure}
+ 	\includegraphics[scale=0.5]{pics/pianostairs}
+ 	\caption{\href{https://www.youtube.com/watch?v=SByymar3bds}{Die Klaviertreppe aus dem Projekt \textsc{The Fun Theory}}}
+ \end{figure}
 \end{frame}
 
  
@@ -224,6 +227,15 @@ void sendCurrentVoltage(void) {
 \subsection{Kommunikation mit dem Mikrocontroller}
 
 \begin{frame}{Kommunikation mit dem Controller}
+\begin{itemize}
+	\item Berechnung eines Prozentsatzes:
+	\begin{equation*}
+	p = 100 * \frac{x - U_{min}}{U_{max} - U_{min}}
+	\end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Kommunikation mit dem Controller}
 	\begin{figure}
 		\includegraphics[scale=0.28]{pics/queue}
 		\caption{Funktionsweise einer Warteschlange (Queue)}
@@ -339,6 +351,7 @@ void sendCurrentVoltage(void) {
 	\item \small{\url{http://blog.brandung.de/wp-content/uploads/2017/03/gmf-01.jpg}}
 	\item \small{\url{https://de.quora.com/Hat-es-einmal-jemand-geschafft-einen-ganzen-Wissenschaftsbereich-mit-komplett-erfundenen-wissenschaftlichen-Beweisen-zu-täuschen}}
 	\item \small{\url{https://upload.wikimedia.org/wikipedia/commons/1/1b/Begriffe_relationaler_Datenbanken.svg}}
+	\item \small{\url{https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/225807_10150179024982659_311531_n.jpg?_nc_cat=0&oh=986b13c0619d22e40dc9de883a6ed930&oe=5B5CEE4C}}
 \end{itemize}
 \end{frame}
 

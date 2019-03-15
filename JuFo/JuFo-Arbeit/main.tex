@@ -18,6 +18,7 @@
 \usepackage{tabu}
 \usepackage{multicol}
 \usepackage{hyperref}
+\usepackage{abstract}
 
 \hyphenation{Ga-mi-fi-ca-tion}
 
@@ -30,7 +31,7 @@
 \begin{titlepage}
 	\centering
 	\includegraphics[width=0.5\textwidth]{pics/logo}\par\vspace{1cm}
-	{\huge\bfseries Apoplexy - Ein Fitnesstracker zur Rehabilitation von Schlaganfall-Patienten? \par}
+	{\huge\bfseries Apoplexy - Ein Fitnesstracker zur Rehabilitation von Schlaganfall-Patienten \par}
 	\vspace{0.3cm}
 	{\large Entwicklung eines Gamification-basierten Unterstützungs- und Motivationsgeräts zur Rehabilitation von Schlaganfall-Patienten \par}
 	\vspace{2cm}
@@ -45,10 +46,17 @@
 	\Large Außenbetreuer: & \Large Hannes Weichel \\
 	\end{tabular}}
 	\vfill
-	{\Large 18. Januar 2018\par Erfurt}
+	{\Large 20. März 2019\par Erfurt}
 \end{titlepage}
 
 \newpage
+
+\renewcommand{\abstractname}{Kurzfassung}
+
+\begin{abstract}\hspace*{-1em}Oft erleiden Schlaganfall-Patienten eine Armlähmung, welche im Folgenden therapiert werden muss, um wieder Bewegungsfähigkeit herzustellen. In dieser Arbeit sollen die Methoden der Gamification (Spielifizierung) angewandt werden, um ein Gerät zur Unterstützung und Motivation der Patienten während der Therapie zu entwickeln. Dabei werden spieltypische Elemente wie Erfahrungspunkte und Aufgaben in die Rehabilitation eingebracht. \\ \\ Das Gerät besteht aus einem die Muskelaktivität messenden Sensor und einem Mikrocontroller, der seine Messdaten an ein Smartphone mit einer Begleitapp weiterleitet. Diese Begleitapp soll nach dem Modell konventioneller Fitness-Apps spielerisch zur Nutzung des Geräts anregen sowie ein Minispiel bieten. \\ \\
+\end{abstract}
+
+ \newpage
 
 %table of contents
 \tableofcontents
@@ -70,7 +78,6 @@
 \section{Schaltung und Implementierung des Mikrocontroller-Systems}
 \input{mikrocontroller}
 
-\newpage
 \section{Entwicklung der Begleitapp für Android}
 \input{androidapp}
 
@@ -80,5 +87,12 @@
 
 \newpage
 \input{literatur}
+
+\section*{Unterstützungsleistungen}
+\begin{itemize}
+	\item \textit{Johannes Süpke} (\textsc{Spezialschulteil am Albert-Schweitzer-Gymnasium Erfurt}): Projektbetreuer
+	\item \textit{Hannes Weichel} (\textsc{topdev GmbH}): Außenbetreuer, Bereitstellung des Mikrocontrollers und weiterer Elektronikbauteile
+	\item \textit{Frank Paulig} (\textsc{Schülerforschungszentrum Erfurt)} sowie \textit{Udo Weitz} (\textsc{Sponsorpool Thüringen}): Bereitstellung finanzieller Mittel zum Kauf des Sensors sowie des Bluetooth-Chips
+\end{itemize}
 
 \end{document}

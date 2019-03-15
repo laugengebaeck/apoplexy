@@ -9,4 +9,4 @@
 \beamer@sectionintoc {4}{Entwicklung der Begleitapp}{21}{0}{4}
 \beamer@subsectionintoc {4}{1}{Konzept und Aufbau der App}{22}{0}{4}
 \beamer@subsectionintoc {4}{2}{Kommunikation mit dem Mikrocontroller}{23}{0}{4}
-\beamer@subsectionintoc {4}{3}{Umsetzung der Gamification}{24}{0}{4}
+\beamer@subsectionintoc {4}{3}{Umsetzung der Gamification}{25}{0}{4}
