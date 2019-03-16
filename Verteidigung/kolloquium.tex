@@ -51,7 +51,7 @@
 
 \begin{frame}{Schlaganfall als Krankheitsbild}
 \begin{figure}
-	\includegraphics[scale=0.6]{pics/sentst}
+	\includegraphics[scale=0.15]{pics/sentst}
 	\caption{Arten des Schlaganfalls}
 \end{figure}
 \end{frame}
@@ -71,7 +71,7 @@
 \end{frame}
 
 \begin{frame}{Mögliche Therapiemethoden}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Constraint-Induced Movement Therapy
 		\item Bobath-Konzept
 		\item bilaterales Training
@@ -79,12 +79,6 @@
 		\begin{itemize}
 			\item Arm-Basis-Training
 			\item Arm-Fähigkeits-Training
-		\end{itemize}
-		\item aufgabenorientiertes Training
-		\item technische Ansätze
-		\begin{itemize}
-			\item Armrobot
-			\item Elektrostimulation
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -94,6 +88,25 @@
 	\includegraphics[scale=0.2]{pics/armbasis}
 	\caption{Übung während des Arm-Basis-Trainings}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Mögliche Therapiemethoden}
+\begin{itemize}
+	\item<1-> Constraint-Induced Movement Therapy
+	\item<1-> Bobath-Konzept
+	\item<1-> bilaterales Training
+	\item<1-> schädigungsorientiertes Training
+	\begin{itemize}
+		\item<1-> Arm-Basis-Training
+		\item<1-> Arm-Fähigkeits-Training
+	\end{itemize}
+	\item<2-> aufgabenorientiertes Training
+	\item<3-> technische Ansätze
+	\begin{itemize}
+		\item<4-> Armrobot
+		\item<5-> Elektrostimulation
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Mögliche Therapiemethoden}
@@ -110,8 +123,9 @@
 \begin{frame}{Mechanismen und Merkmale}
 \textbf{Definition:} \\
 \blockquote{Verwendung von spieltypischen Mechaniken außerhalb reiner Spiele, mit dem Ziel, das Verhalten von Menschen zu beeinflussen}
+\pause
 \hspace{0.5cm}
-\begin{itemize}
+\begin{itemize}[<+->]
 	\item \textbf{Ziel:} Steigerung der Nutzungsmotivation
 	\item Ausnutzung des menschlichen Spieltriebs
 	\item Resultatstransparenz
@@ -130,6 +144,13 @@
 
 \begin{frame}{Motivationssteigernde Wirkung}
 \begin{figure}
+	\includegraphics[scale=1.0]{pics/bottle}
+	\caption{Die \textit{Bottle Bank Arcade Machine}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Motivationssteigernde Wirkung}
+\begin{figure}
 	\includegraphics[scale=0.16]{pics/quora}
 	\caption{Die Frage-Antwort-Website Quora}
 \end{figure}
@@ -140,7 +161,7 @@
 \subsection{Aufbau der Schaltung}
 
 \begin{frame}{Aufbau der Schaltung}
-	\begin{itemize}
+	\begin{itemize}[<+->]
 		\item Elektromyografie-Sensor
 		\item Mikrocontroller Atmel ATmega 88PA
 		\item Bluetooth-Chip HC-05
@@ -227,6 +248,13 @@ void sendCurrentVoltage(void) {
 \subsection{Kommunikation mit dem Mikrocontroller}
 
 \begin{frame}{Kommunikation mit dem Controller}
+	\begin{figure}
+		\includegraphics[scale=0.28]{pics/queue}
+		\caption{Funktionsweise einer Warteschlange (Queue)}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Kommunikation mit dem Controller}
 \begin{itemize}
 	\item Berechnung eines Prozentsatzes:
 	\begin{equation*}
@@ -235,14 +263,22 @@ void sendCurrentVoltage(void) {
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Kommunikation mit dem Controller}
-	\begin{figure}
-		\includegraphics[scale=0.28]{pics/queue}
-		\caption{Funktionsweise einer Warteschlange (Queue)}
-	\end{figure}
-\end{frame}
-
 \subsection{Umsetzung der Gamification}
+
+\begin{frame}{Umsetzung der Gamification}
+\textbf{XP-Vergabe:}
+\begin{itemize}
+	\item Punktzahl $P$ für eine Übung:
+	\begin{flalign*}
+	& P = \frac{min(L) + avg(L) + max(L)}{3}&
+	\end{flalign*}
+	\item Punktzahl $P_{S}$ für ein Minispiel:
+	\begin{flalign*}
+	& P_{S} = P + 2 \cdot d&
+	\end{flalign*}
+	\item beim Beenden einer Quest
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Umsetzung der Gamification}
 \begin{figure}
@@ -292,21 +328,6 @@ void sendCurrentVoltage(void) {
 \end{center}
 \end{frame}
 
-\begin{frame}{Umsetzung der Gamification}
-\textbf{XP-Vergabe:}
-\begin{itemize}
-	\item Punktzahl $P$ für eine Übung:
-	\begin{flalign*}
-	& P = \frac{min(L) + avg(L) + max(L)}{3}&
-	\end{flalign*}
-	\item Punktzahl $P_{S}$ für ein Minispiel:
-	\begin{flalign*}
-	& P_{S} = P + 2 \cdot d&
-	\end{flalign*}
-	\item beim Beenden einer Quest
-\end{itemize}
-\end{frame}
-
 \section*{Demonstration}
 
  \section*{Kritische Reflexion des Erreichten}
@@ -325,7 +346,7 @@ void sendCurrentVoltage(void) {
  			\hline
  			weitestgehende Einhaltung des Zeitplans & \checkmark \\
  			\hline
- 			Behebung aller Fehler in der Schaltung & \xmark \\ 
+ 			Behebung aller Fehler in der Schaltung & \checkmark \\ 
  			\hline
  			Test an realen Schlaganfallpatienten & \xmark \\ 
  			\hline
@@ -337,11 +358,12 @@ void sendCurrentVoltage(void) {
 
  \begin{frame}{Bildquellen}
  \begin{itemize}
- \item \small{\url{http://www.lahsit-schlaganfall-reha.de/images/slider/lahsit-banner-3.png}}
- \item \small{\url{https://i.onmeda.de/schlaganfall_entstehung-465x290.jpg}}
+ \item \small{\url{http://farm3.staticflickr.com/2457/4007824775_7e2f60f894_b.jpg}}
+ \item \small{\url{https://www.welt.de/img/gesundheit/mobile110197548/4101627807-ci23x11-w1920/So-entsteht-ein-Schlaganfall-24-10-2012-3.jpg}}
  \item \small{\url{http://www.volkskrankheiten.at/images/1237/widgets/Schlaganfall-(2).svg}}
  \item  \small{\url{https://www.neurozentrum-bern.ch/wp-content/uploads/2015/01/diagnose_schlaganfall.jpg}}
  \item  \small{\url{http://news.mit.edu/sites/mit.edu.newsoffice/files/styles/news_article_image_top_slideshow/public/images/2010/20100414154658-1_0.jpg}}
+ \item  \small{\url{https://commons.wikimedia.org/wiki/File:Data_Queue.svg}}
  \end{itemize}
  \end{frame}
 

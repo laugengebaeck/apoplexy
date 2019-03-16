@@ -31,6 +31,11 @@
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 \addto\extrasngerman{\def\figureautorefname{Abb.}}
+\addtobeamertemplate{headline}{} 
+{	\begin{tikzpicture}[remember picture, overlay]
+	\node [anchor=north east, inner sep=4cm]  at (current page.north east)
+	{\includegraphics[height=5cm]{pics/logo}};
+	\end{tikzpicture}}
 % ====================
 % Title
 % ====================

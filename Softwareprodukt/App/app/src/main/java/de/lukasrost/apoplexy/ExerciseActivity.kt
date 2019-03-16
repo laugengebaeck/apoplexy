@@ -230,7 +230,7 @@ class ExerciseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             currentData.add(perc)
 
             // Diagramm ändern
-            dataset.addEntry(Entry(xval.toFloat(), if (perc > 0) perc else 0f))
+            dataset.addEntry(Entry(xval.toFloat(), perc))
             if (xval < oldDataList.size) {
                 dataSetOld.addEntry(Entry(xval.toFloat(), oldDataList[xval - 1].toFloat()))
             }

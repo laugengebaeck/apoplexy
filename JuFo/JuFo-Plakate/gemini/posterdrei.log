@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  15 MAR 2019 19:13
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  16 MAR 2019 14:06
  system commands enabled.
 **posterdrei.tex
 (./posterdrei.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.095 seconds
+luaotfload | main : initialization completed in 0.074 seconds
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/12/02 v3.55 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -1478,22 +1478,22 @@ Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)
  (./posterdrei.aux)
 \openout1 = posterdrei.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1561,7 +1561,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring OFF on input line 47.
+Package hyperref Info: Link coloring OFF on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1571,9 +1571,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count360
 )
-LaTeX Info: Redefining \ref on input line 47.
-LaTeX Info: Redefining \pageref on input line 47.
-LaTeX Info: Redefining \nameref on input line 47.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./posterdrei.out) (./posterdrei.out)
 \@outlinefile=\write5
@@ -1604,56 +1604,65 @@ Dictionary: translator-numbers-dictionary, Language: English
 sh.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 47.
+LaTeX Info: Redefining \selectfont on input line 52.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 ck labels; missing features). Consider writing \pgfplotsset{compat=1.16} into yo
 ur preamble.
- on input line 47.
+ on input line 52.
 
 (./posterdrei.nav)
-LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 47.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 47.
+LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 52.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 52.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 47.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 47.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.94> on input line 47.
-<pics/device-home.png, id=13, 1445.4pt x 2569.6pt>
+(Font)              <5.94> on input line 52.
+<pics/logo.png, id=13, 1660.2025pt x 1245.65375pt>
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 52.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
+<pics/device-home.png, id=14, 1445.4pt x 2569.6pt>
 File: pics/device-home.png Graphic file (type png)
 <use pics/device-home.png>
-Package luatex.def Info: pics/device-home.png  used on input line 93.
+Package luatex.def Info: pics/device-home.png  used on input line 98.
 (luatex.def)             Requested size: 476.61244pt x 847.3041pt.
-<pics/device-exercise.png, id=14, 1445.4pt x 2569.6pt>
+<pics/device-exercise.png, id=15, 1445.4pt x 2569.6pt>
 File: pics/device-exercise.png Graphic file (type png)
 <use pics/device-exercise.png>
-Package luatex.def Info: pics/device-exercise.png  used on input line 93.
+Package luatex.def Info: pics/device-exercise.png  used on input line 98.
 (luatex.def)             Requested size: 476.61244pt x 847.3041pt.
-<pics/device-game.png, id=15, 1445.4pt x 2569.6pt>
+<pics/device-game.png, id=16, 1445.4pt x 2569.6pt>
 File: pics/device-game.png Graphic file (type png)
 <use pics/device-game.png>
-Package luatex.def Info: pics/device-game.png  used on input line 93.
+Package luatex.def Info: pics/device-game.png  used on input line 98.
 (luatex.def)             Requested size: 476.61244pt x 847.3041pt.
-<pics/device-badges.png, id=16, 1445.4pt x 2569.6pt>
+<pics/device-badges.png, id=17, 1445.4pt x 2569.6pt>
 File: pics/device-badges.png Graphic file (type png)
 <use pics/device-badges.png>
-Package luatex.def Info: pics/device-badges.png  used on input line 93.
+Package luatex.def Info: pics/device-badges.png  used on input line 98.
 (luatex.def)             Requested size: 476.61244pt x 847.3041pt.
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 98.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-<./pics/device-home.png><./pics/device-exercise.png><./pics/device-game.png><./p
-ics/device-badges.png>]
+<./pics/logo.png><./pics/device-home.png><./pics/device-exercise.png><./pics/dev
+ice-game.png><./pics/device-badges.png>]
 \tf@nav=\write6
 
 \openout6 = posterdrei.nav
@@ -1663,33 +1672,34 @@ ics/device-badges.png>]
 \tf@snm=\write8
 
 \openout8 = posterdrei.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
- (./posterdrei.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 100.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 100.
+
+(./posterdrei.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 100.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 100.
 Package rerunfilecheck Info: File `posterdrei.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44928 strings out of 494383
+ 45005 strings out of 494383
  100000,1373583 words of node,token memory allocated
- 9741 words of node memory still in use:
-   168 hlist, 26 vlist, 24 rule, 24 disc, 31 local_par, 2 math, 357 glue, 74 ker
-n, 71 penalty, 196 glyph, 386 attribute, 78 glue_spec, 386 attribute_list, 3 wri
-te, 96 pdf_literal, 138 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4 pdf_resto
-re nodes
-   avail lists: 1:4,2:268,3:184,4:179,5:126,6:32,7:587,8:27,9:225,10:7,11:24,12:
+ 10295 words of node memory still in use:
+   187 hlist, 26 vlist, 25 rule, 24 disc, 32 local_par, 2 math, 378 glue, 75 ker
+n, 72 penalty, 196 glyph, 423 attribute, 78 glue_spec, 423 attribute_list, 4 wri
+te, 1 save_pos, 113 pdf_literal, 138 pdf_colorstack, 5 pdf_setmatrix, 5 pdf_save
+, 5 pdf_restore nodes
+   avail lists: 1:4,2:342,3:207,4:179,5:126,6:33,7:608,8:28,9:244,10:7,11:24,12:
 1
- 47332 multiletter control sequences out of 65536+600000
+ 47391 multiletter control sequences out of 65536+600000
  81 fonts using 17213631 bytes
  62i,17n,96p,776b,1035s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/fonts/OTF/Raleway-Regular-Original.otf></usr/share/fonts/OTF/Raleway
 -Bold-Original.otf>
-Output written on posterdrei.pdf (1 page, 758139 bytes).
+Output written on posterdrei.pdf (1 page, 1109347 bytes).
 
-PDF statistics: 45 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 47 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)

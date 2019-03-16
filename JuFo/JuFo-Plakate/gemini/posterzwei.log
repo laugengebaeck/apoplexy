@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  15 MAR 2019 19:24
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  16 MAR 2019 14:05
  system commands enabled.
 **posterzwei.tex
 (./posterzwei.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.093 seconds
+luaotfload | main : initialization completed in 0.074 seconds
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/12/02 v3.55 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -1486,22 +1486,22 @@ File: tikzlibrarytrees.code.tex 2019/02/02 v3.1.1 (3.1.1)
  (./posterzwei.aux)
 \openout1 = posterzwei.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1569,7 +1569,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring OFF on input line 47.
+Package hyperref Info: Link coloring OFF on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1579,9 +1579,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count360
 )
-LaTeX Info: Redefining \ref on input line 47.
-LaTeX Info: Redefining \pageref on input line 47.
-LaTeX Info: Redefining \nameref on input line 47.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./posterzwei.out) (./posterzwei.out)
 \@outlinefile=\write5
@@ -1612,37 +1612,42 @@ Dictionary: translator-numbers-dictionary, Language: English
 sh.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 47.
+LaTeX Info: Redefining \selectfont on input line 52.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 ck labels; missing features). Consider writing \pgfplotsset{compat=1.16} into yo
 ur preamble.
- on input line 47.
+ on input line 52.
 
 (./posterzwei.nav)
-LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 47.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 47.
+LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 52.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 52.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 47.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 47.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 52.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.94> on input line 47.
+(Font)              <5.94> on input line 52.
+<pics/logo.png, id=13, 1660.2025pt x 1245.65375pt>
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 52.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
 Package svg Info: Last page of `./svg-inkscape/blockschaltbild_svg-tex.pdf' is 1
- on input line 178.
+ on input line 183.
 
 (./svg-inkscape/blockschaltbild_svg-tex.pdf_tex
-<./svg-inkscape/blockschaltbild_svg-tex.pdf, id=14, page=1, 639.07263pt x 134.25
+<./svg-inkscape/blockschaltbild_svg-tex.pdf, id=15, page=1, 639.07263pt x 134.25
 551pt>
 File: ./svg-inkscape/blockschaltbild_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/blockschaltbild_svg-tex.pdf, page 1>
@@ -1650,43 +1655,48 @@ Package luatex.def Info: ./svg-inkscape/blockschaltbild_svg-tex.pdf , page1 used
  on input line 56.
 (luatex.def)             Requested size: 635.47922pt x 133.5013pt.
 )
-<pics/mikrocontroller.jpg, id=15, 3234.0825pt x 2690.05pt>
+<pics/mikrocontroller.jpg, id=16, 3234.0825pt x 2690.05pt>
 File: pics/mikrocontroller.jpg Graphic file (type jpg)
 <use pics/mikrocontroller.jpg>
-Package luatex.def Info: pics/mikrocontroller.jpg  used on input line 178.
+Package luatex.def Info: pics/mikrocontroller.jpg  used on input line 183.
 (luatex.def)             Requested size: 635.47922pt x 528.55971pt.
-LaTeX Font Info:    Calculating math sizes for size <24.63> on input line 178.
+LaTeX Font Info:    Calculating math sizes for size <24.63> on input line 183.
 Package svg Info: Last page of `./svg-inkscape/konzept_svg-tex.pdf' is 1 on inpu
-t line 178.
+t line 183.
 
 (./svg-inkscape/konzept_svg-tex.pdf_tex
-<./svg-inkscape/konzept_svg-tex.pdf, id=17, page=1, 710.14326pt x 368.95912pt>
+<./svg-inkscape/konzept_svg-tex.pdf, id=18, page=1, 710.14326pt x 368.95912pt>
 File: ./svg-inkscape/konzept_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/konzept_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/konzept_svg-tex.pdf , page1 used on inpu
 t line 56.
 (luatex.def)             Requested size: 714.90656pt x 371.44098pt.
 )
-<pics/queue.png, id=18, 1003.75pt x 656.4525pt>
+<pics/queue.png, id=19, 1003.75pt x 656.4525pt>
 File: pics/queue.png Graphic file (type png)
 <use pics/queue.png>
-Package luatex.def Info: pics/queue.png  used on input line 178.
+Package luatex.def Info: pics/queue.png  used on input line 183.
 (luatex.def)             Requested size: 397.173pt x 259.75165pt.
-LaTeX Font Info:    Calculating math sizes for size <20.53> on input line 178.
+LaTeX Font Info:    Calculating math sizes for size <20.53> on input line 183.
 Package svg Info: Last page of `./svg-inkscape/reldb_svg-tex.pdf' is 1 on input 
-line 178.
+line 183.
  (./svg-inkscape/reldb_svg-tex.pdf_tex
-<./svg-inkscape/reldb_svg-tex.pdf, id=20, page=1, 579.71574pt x 269.26599pt>
+<./svg-inkscape/reldb_svg-tex.pdf, id=21, page=1, 579.71574pt x 269.26599pt>
 File: ./svg-inkscape/reldb_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/reldb_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/reldb_svg-tex.pdf , page1 used on input 
 line 56.
 (luatex.def)             Requested size: 397.173pt x 184.48717pt.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+)
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 183.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-<./svg-inkscape/blockschaltbild_svg-tex.pdf><./pics/mikrocontroller.jpg><./svg-i
-nkscape/konzept_svg-tex.pdf><./pics/queue.png><./svg-inkscape/reldb_svg-tex.pdf>
-]
+<./pics/logo.png><./svg-inkscape/blockschaltbild_svg-tex.pdf><./pics/mikrocontro
+ller.jpg><./svg-inkscape/konzept_svg-tex.pdf><./pics/queue.png><./svg-inkscape/r
+eldb_svg-tex.pdf>]
 \tf@nav=\write6
 
 \openout6 = posterzwei.nav
@@ -1696,26 +1706,27 @@ nkscape/konzept_svg-tex.pdf><./pics/queue.png><./svg-inkscape/reldb_svg-tex.pdf>
 \tf@snm=\write8
 
 \openout8 = posterzwei.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 180.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 180.
- (./posterzwei.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 180.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 180.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
+
+(./posterzwei.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
 Package rerunfilecheck Info: File `posterzwei.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45349 strings out of 494383
+ 45426 strings out of 494383
  100000,1373583 words of node,token memory allocated
- 46994 words of node memory still in use:
-   490 hlist, 43 vlist, 70 rule, 366 disc, 74 local_par, 36 math, 1227 glue, 568
- kern, 252 penalty, 2638 glyph, 956 attribute, 78 glue_spec, 956 attribute_list,
- 9 write, 112 pdf_literal, 3 pdf_dest, 388 pdf_colorstack, 5 pdf_setmatrix, 5 pd
-f_save, 5 pdf_restore nodes
-   avail lists: 1:4,2:268,3:390,4:429,5:620,6:75,7:3933,8:76,9:564,10:11,11:366,
+ 47548 words of node memory still in use:
+   509 hlist, 43 vlist, 71 rule, 366 disc, 75 local_par, 36 math, 1248 glue, 569
+ kern, 253 penalty, 2638 glyph, 993 attribute, 78 glue_spec, 993 attribute_list,
+ 10 write, 1 save_pos, 129 pdf_literal, 3 pdf_dest, 388 pdf_colorstack, 6 pdf_se
+tmatrix, 6 pdf_save, 6 pdf_restore nodes
+   avail lists: 1:4,2:342,3:413,4:429,5:620,6:76,7:3954,8:77,9:583,10:11,11:366,
 12:1
- 47626 multiletter control sequences out of 65536+600000
+ 47685 multiletter control sequences out of 65536+600000
  119 fonts using 20544303 bytes
  62i,18n,96p,776b,1346s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts
@@ -1725,9 +1736,9 @@ enc}</usr/share/fonts/TTF/Lato-Light.ttf></usr/share/fonts/TTF/Lato-Regular.ttf>
 -Bold-Original.otf></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/lm/lmsy10.pfb>
-Output written on posterzwei.pdf (1 page, 2177078 bytes).
+Output written on posterzwei.pdf (1 page, 2528285 bytes).
 
-PDF statistics: 90 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 92 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
  6 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)

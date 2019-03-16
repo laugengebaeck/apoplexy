@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  10 MAR 2019 12:26
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  16 MAR 2019 14:00
  system commands enabled.
 **elektroden.tex
 (./elektroden.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.110 seconds
+luaotfload | main : initialization completed in 0.070 seconds
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/12/02 v3.55 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -1471,27 +1471,48 @@ Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
 y
 Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)
 )
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen305
+\captionmargin@=\dimen306
+\captionwidth=\dimen307
+\caption@tempdima=\dimen308
+\caption@indent=\dimen309
+\caption@parindent=\dimen310
+\caption@hangindent=\dimen311
+)
+\c@caption@flags=\count354
+\c@ContinuedFloat=\count355
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
 \sepwidth=\skip77
 \colwidth=\skip78
  (./elektroden.aux)
 \openout1 = elektroden.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1529,16 +1550,16 @@ LaTeX Font Info:    ... okay on input line 57.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count354
-\scratchdimen=\dimen305
+\scratchcounter=\count356
+\scratchdimen=\dimen312
 \scratchbox=\box79
-\nofMPsegments=\count355
-\nofMParguments=\count356
+\nofMPsegments=\count357
+\nofMParguments=\count358
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count357
-\MPscratchDim=\dimen306
-\MPnumerator=\count358
-\makeMPintoPDFobject=\count359
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen313
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
 \everyMPtoPDFconversion=\toks53
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1559,7 +1580,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring OFF on input line 57.
+Package hyperref Info: Link coloring OFF on input line 58.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1567,11 +1588,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count360
+\c@section@level=\count362
 )
-LaTeX Info: Redefining \ref on input line 57.
-LaTeX Info: Redefining \pageref on input line 57.
-LaTeX Info: Redefining \nameref on input line 57.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (./elektroden.out) (./elektroden.out)
 \@outlinefile=\write5
@@ -1602,14 +1623,16 @@ Dictionary: translator-numbers-dictionary, Language: English
 sh.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 57.
+LaTeX Info: Redefining \selectfont on input line 58.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 ck labels; missing features). Consider writing \pgfplotsset{compat=1.16} into yo
 ur preamble.
- on input line 57.
+ on input line 58.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 (./elektroden.nav)
 
 ! LaTeX Error: There's no line here to end.
@@ -1618,7 +1641,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 \begin{document}
+l.58 \begin{document}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1631,52 +1654,52 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 \begin{document}
+l.58 \begin{document}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Calculating math sizes for size <4.8> on input line 57.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 57.
+LaTeX Font Info:    Calculating math sizes for size <4.8> on input line 58.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 58.
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 57.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 58.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 58.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <4.8> on input line 57.
+(Font)              <4.8> on input line 58.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <3.35999> on input line 57.
+(Font)              <3.35999> on input line 58.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <2.4> on input line 57.
+(Font)              <2.4> on input line 58.
 <jufo.png, id=13, 96.36pt x 96.36pt>
 File: jufo.png Graphic file (type png)
 <use jufo.png>
-Package luatex.def Info: jufo.png  used on input line 57.
+Package luatex.def Info: jufo.png  used on input line 58.
 (luatex.def)             Requested size: 71.13176pt x 71.13188pt.
 <logo.png, id=14, 1660.2025pt x 1245.65375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package luatex.def Info: logo.png  used on input line 57.
+Package luatex.def Info: logo.png  used on input line 58.
 (luatex.def)             Requested size: 94.79465pt x 71.13188pt.
 <emg-output.png, id=15, 999.735pt x 934.49126pt>
 File: emg-output.png Graphic file (type png)
 <use emg-output.png>
-Package luatex.def Info: emg-output.png  used on input line 82.
+Package luatex.def Info: emg-output.png  used on input line 83.
 (luatex.def)             Requested size: 397.173pt x 371.25175pt.
 <unterarm-muskeln.png, id=16, 309.155pt x 956.57375pt>
 File: unterarm-muskeln.png Graphic file (type png)
 <use unterarm-muskeln.png>
-Package luatex.def Info: unterarm-muskeln.png  used on input line 82.
+Package luatex.def Info: unterarm-muskeln.png  used on input line 83.
 (luatex.def)             Requested size: 123.6598pt x 382.62271pt.
 
 
@@ -1686,7 +1709,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 \end{frame}
+l.83 \end{frame}
               
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1699,7 +1722,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 \end{frame}
+l.83 \end{frame}
               
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1707,11 +1730,11 @@ or  <return>  to continue without it.
 
 File: jufo.png Graphic file (type png)
 <use jufo.png>
-Package luatex.def Info: jufo.png  used on input line 82.
+Package luatex.def Info: jufo.png  used on input line 83.
 (luatex.def)             Requested size: 71.13176pt x 71.13188pt.
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package luatex.def Info: logo.png  used on input line 82.
+Package luatex.def Info: logo.png  used on input line 83.
 (luatex.def)             Requested size: 94.79465pt x 71.13188pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1725,30 +1748,30 @@ Package luatex.def Info: logo.png  used on input line 82.
 \tf@snm=\write8
 
 \openout8 = elektroden.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./elektroden.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `elektroden.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44972 strings out of 494383
+ 46052 strings out of 494383
  100000,1373583 words of node,token memory allocated
- 6388 words of node memory still in use:
-   103 hlist, 14 vlist, 8 rule, 27 disc, 12 local_par, 2 math, 165 glue, 45 kern
-, 50 penalty, 193 glyph, 254 attribute, 78 glue_spec, 254 attribute_list, 5 writ
-e, 2 save_pos, 98 pdf_literal, 46 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4
- pdf_restore nodes
-   avail lists: 1:4,2:420,3:169,4:87,5:96,6:13,7:392,8:11,9:148,10:8,11:27,12:1
- 47386 multiletter control sequences out of 65536+600000
+ 6598 words of node memory still in use:
+   108 hlist, 16 vlist, 14 rule, 27 disc, 16 local_par, 2 math, 177 glue, 45 ker
+n, 47 penalty, 193 glyph, 258 attribute, 78 glue_spec, 258 attribute_list, 5 wri
+te, 2 save_pos, 98 pdf_literal, 42 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 
+4 pdf_restore nodes
+   avail lists: 1:4,2:420,3:166,4:83,5:96,6:17,7:404,8:17,9:155,10:9,11:27,12:1
+ 48452 multiletter control sequences out of 65536+600000
  76 fonts using 16434239 bytes
- 62i,18n,96p,776b,945s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 62i,18n,103p,776b,945s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/fonts/TTF/Lato-Light.ttf></usr/share/fonts/OTF/Raleway-Bold-Original
 .otf>
-Output written on elektroden.pdf (1 page, 1011780 bytes).
+Output written on elektroden.pdf (1 page, 1011813 bytes).
 
 PDF statistics: 45 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream

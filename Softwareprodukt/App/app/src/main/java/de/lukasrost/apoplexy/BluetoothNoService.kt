@@ -73,5 +73,10 @@ class BluetoothNoService {
     }
 
     // aktuellen Durchschnittswert der Queue in Prozent des Maximalwerts berechnen
-    fun getCurrentValuePercent() : Float = 100 * ((btQueue.average() - MIN_VOLTAGE_EMG) / (MAX_VOLTAGE_EMG - MIN_VOLTAGE_EMG)).toFloat()
+    fun getCurrentValuePercent() : Float {
+        var perc = 100 * ((btQueue.average() - MIN_VOLTAGE_EMG) / (MAX_VOLTAGE_EMG - MIN_VOLTAGE_EMG)).toFloat()
+        perc = if(perc < 100f) perc else 100f
+        perc = if (perc > 0f) perc else 0f
+        return perc
+    }
 }

@@ -31,6 +31,13 @@
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 \addto\extrasngerman{\def\figureautorefname{Abb.}}
+
+\addtobeamertemplate{headline}{} 
+{
+	\begin{tikzpicture}[remember picture, overlay]
+	\node [anchor=north east, inner sep=4cm]  at (current page.north east)
+	{\includegraphics[height=5cm]{pics/logo}};
+	\end{tikzpicture}}
 % ====================
 % Title
 % ====================
@@ -57,88 +64,30 @@
   		\item plötzliche Durchblutungsstörung im Gehirn
   		\item regionaler Mangel an Sauerstoff und Nährstoffen
   		\item Absterben von Gehirngewebe
-  		\item zwei Arten:
-  		\begin{enumerate}
-  			\item ischämischer Infarkt (mangelnde Durchblutung) aufgrund von Gefäßverschlüssen
-  			\item hämorrhagischer Infarkt (Hirnblutungen) aufgrund von geplatzten Blutgefäßen
-  		\end{enumerate}
-  		\item \textbf{Vorbote:} transistorisch-ischämische Attacken (vorübergehende neurologische Ausfälle)
-  		\item \textbf{Symptome:}
-  		\begin{itemize}
-  			\item halbseitige Körperlähmung
-  			\item Sprachstörungen und eingeschränktes Sprachverständnis
-  			\item Sehstörungen, Gleichgewichtsprobleme und Verwirrtheit
-  		\end{itemize}
-  		\item \textbf{Erkennung} durch den FAST-Test (Cincinnati Prehospital Stroke Scale):
-  		\begin{enumerate}
-  			\item \textbf{Face:} Person kann nur mit einer Gesichtshälfte lächeln
-  			\item \textbf{Arms:} Unfähigkeit, beide Arme mit nach oben geöffneten Handflächen nach vorne
-  			zu strecken
-  			\item \textbf{Speech:} undeutliche Aussprache
-  			\item \textbf{Time:} umgehende Verständigung des Rettungsdienstes
-  		\end{enumerate}
-  		\item \textbf{Risikofaktoren:}
-  		 \begin{itemize}
-  		 	\item Bluthochdruck und Rauchen
-  		 	\item Diabetes, Übergewicht und Bewegungsmangel
-  		 	\item Alter, Blutgruppe und genetische Veranlagung
-  		 \end{itemize}
-  	 	\item \textbf{Prävention:}
-  	 	\begin{itemize}
-  	 		\item gesunde Lebensweise und Stressvermeidung
-  	 	\end{itemize}
   	\end{itemize}
-  
+  \begin{figure}[H]
+  	\centering
+  	\includegraphics[width=0.8\colwidth]{pics/sentst}
+  	\caption{Arten des Schlaganfalls}
+  \end{figure}  
   	\begin{figure}[H]
   		\centering
-  		\includesvg[width=0.7\colwidth]{pics/Schlaganfall}
-  		\caption{Schaubild zum FAST-Test}
-  		\label{fig:fasttest}
+  		\includesvg[width=0.8\colwidth]{pics/Schlaganfall}
+  		\caption{Erkennung durch den FAST-Test}
   	\end{figure}
 
   \end{alertblock}
 
   \begin{alertblock}{Therapiemethoden und Bewegungsübungen}
 
-    \begin{itemize}
-      \item \textbf{Erste Basismaßnahmen:}
-      \begin{itemize}
-      	\item Stabilisierung der Vitalfunktionen, Lagerung mit erhöhtem Oberkörper
-      	\item Thrombolyse-Therapie, gegebenenfalls operative Maßnahmen
-      \end{itemize}
-	  \item \textbf{Armlähmungen:}
-	  \begin{itemize}
-	  	\item stark beeinträchtigte willentliche Bewegungsfähigkeit
-	  	\item erhöhte Muskelanspannung (Spastik)
-	  	\item Schwierigkeit, den Arm passiv zu bewegen
-	  \end{itemize}
-  	  \item \textbf{Constraint-Induced Movement Therapy:}
-  	  \begin{itemize}
-  	  	\item Verhinderung eines \glqq erlernten Nichtgebrauchs\grqq ~durch Immobilisierung des gesunden Arms (täglich über längere Zeit)
-  	  	\item Betroffener ist gezwungen, erkrankten Arm zu benutzen
-  	  \end{itemize}
-	 \item \textbf{Bobath-Konzept:}
-	 \begin{itemize}
-	    	\item Förderung der Vernetzung innerhalb des Gehirns
-	    	\item vom Schlaganfall betroffene Körperseite soll wieder in Bewegungen einbezogen werden
-	 \end{itemize}
- 	\item \textbf{bilaterales Training:} Ausführung symmetrischer Bewegungen mit beiden Armen gleichzeitig (gleichmäßige Bewegungsfähigkeit)
- 	\item \textbf{schädigungsorientiertes Training:}
- 	\begin{itemize}
- 		\item \textbf{Arm-Basis-Training:} Beübung aller Bewegungsmöglichkeiten des Arms
- 		\item \textbf{Arm-Fähigkeits-Training:} Schulung verschiedener Formen von Geschicklichkeit
- 	\end{itemize}
-	 \item \textbf{aufgabenorientiertes Training:} Bewegungsaufgaben aus dem Alltag
- 	\item \textbf{technische Ansätze:}
- 	\begin{itemize}
- 		\item \textbf{Armrobot:} Roboter unterstützt nicht selbständig ausführbare Bewegungen mechanisch
- 		\item \textbf{Elektrostimulation} eines Muskels löst große Bewegung aus
- 	\end{itemize}
-    \end{itemize}
+    \begin{figure}[H]
+    	\centering
+    	\includesvg[width=0.8\colwidth]{pics/therapie}
+    \end{figure}
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\colwidth]{pics/einleit1}
+		\includegraphics[width=0.5\colwidth]{pics/armrobot}
 		\caption{Ein Gerät nach dem Armrobot-Prinzip}
 		\label{fig:armrobot}
 	\end{figure}
@@ -153,11 +102,11 @@
 	
 	\begin{alertblock}{Problemstellung}
 		\begin{itemize}
-			\item Unterstützung der Therapie einer durch Schlaganfall entstandenen Armlähmung mittels eines zu entwickelnden Geräts
-			\item Messung der Kontraktion der Armmuskeln und Übertragung an ein Smartphone mit Begleitapp
-			\item Motivationsfunktion für Patienten mittels Gamification-Prinzip
-			\item Durchführung von Übungen, Minispiel, Erinnerung an Übungen
-			\item Ansätze zur Einbindung in eine medizinisch anerkannte Therapiemethode
+			\item Unterstützung der \textbf{Therapie} einer durch Schlaganfall entstandenen \textbf{Armlähmung} mittels eines zu entwickelnden Geräts
+			\item Messung der Kontraktion der Armmuskeln per \textbf{Elektromyographie} und Übertragung an ein Smartphone mit Begleitapp
+			\item \textbf{Motivationsfunktion} für Patienten mittels \textbf{Gamification-Prinzip} (Erfahrungspunkte, Badges und Quests)
+			\item Durchführung von \textbf{Übungen}, \textbf{Minispiel}, Erinnerung an Übungen
+			\item Ansätze zur Einbindung in eine medizinisch anerkannte \textbf{Therapiemethode} (Unterstützung für schädigungsorientiertes Training)
 		\end{itemize}
 	\end{alertblock}
   
@@ -169,40 +118,25 @@
   		\begin{itemize}
   			\item positive Anreize zur Anregung zu einem bestimmten Verhalten
   			\item negative Anreize wollen vom Nutzer vermieden werden
-  		\end{itemize}
-  		\item Festlegung klarer Ziele und Regeln, dadurch \textbf{Resultatstransparenz:} Rückmeldung auf Aktionen des Nutzers vorhersehbar
-  		\item Nutzer sollte möglichst leicht gewinnen können, aber Spiel darf weder zu einfach noch zu schwierig sein
-  		\item \textbf{operante Konditionierung:} Belohnung in variablem Intervall und variabler Menge
-  		\item Einsatz \textbf{spieltypischer Mechanismen}:
-  		\begin{itemize}
-  			\item Punktesystem (Erfahrungspunkte) und Highscores
-  			\item Erfolgsanzeige durch Badges oder Fortschrittsanzeigen
-  			\item entdeckbare Aufgaben (Quests)
-  			\item Epic Meaning (Arbeit an etwas Erstrebenswertem)
-  		\end{itemize}
-  		\item \textbf{Beispiele:}
-  		\begin{itemize}
-  			\item Projekt \textsc{The Fun Theory:} Klaviertreppe, Radarfallenlotterie, bunt blinkender Flaschencontainer, tiefster Mülleimer der Welt
-  			\item \textsc{Frage-Antwort-Websites:} Quora, Stack Exchange, Stack Overflow
-  		\end{itemize}
-  	\item motivationssteigernde Wirkung ist wissenschaftlich noch strittig
+  		\end{itemize}  		
   	\end{itemize}
+  \begin{figure}[H]
+  	\centering
+  	\includegraphics[width=0.65\colwidth]{pics/elements}
+  	\caption{Einsatz spieltypischer Mechanismen}
+  \end{figure}
   	\begin{figure}[H]
   		\centering
-  		\includegraphics[width=0.5\colwidth]{pics/pianostairs}
-  		\caption{Die Klaviertreppe aus dem Projekt \textsc{The Fun Theory}}
-  		\label{fig:pianostairs}
+  		\includegraphics[width=0.65\colwidth]{pics/pianostairs}
+  		\caption{ \centering Die Klaviertreppe aus dem Projekt The Fun Theory als Beispiel für gelungene Gamification}
   	\end{figure}
   \end{alertblock}
 
   \begin{alertblock}{Rückkopplung durch Biofeedback}
   	\begin{itemize}
-  		\item ständige Veränderung von messbaren Zustandsgrößen bei biologischen Vorgängen und Körperfunktionen
-  		\item sind der unmittelbaren Sinneswahrnehmung nicht zugänglich, können jedoch mit elektronischen Hilfsmitteln beobachtbar gemacht werden
+  		\item \textbf{Körperfunktionen} und biologische Vorgänge sind der Sinneswahrnehmung normalerweise nicht zugänglich
+  		\item können jedoch mit \textbf{elektronischen Hilfsmitteln} beobachtbar gemacht werden
   		\item \textbf{Rückkopplung:} Patient kann Kontrolle über die Körperfunktion ausüben
-  		\item Messwerte werden visualisiert oder als Töne dargestellt
-  		\item tragbare, nichtinvasive Messgeräte unter Verwendung von Analog-Digital-Wandlern und kabelloser Übertragung
-  		\item messbare Größen: z.B. Blutwerte, Atem, Hautwiderstand, ...
   	\end{itemize}
 
     \begin{figure}
@@ -223,18 +157,6 @@
       \caption{mögliche Visualisierung aufgezeichneter Messwerte}
     \end{figure}
 
-  \end{alertblock}
-
-  \begin{alertblock}{Folgerungen für das Gerät}
-  	\begin{itemize}
-  		\item Konzeption des Geräts als Unterstützung für Arm-Fähigkeits-Training und Arm-Basis-Training
-  		\item Biofeedback durch Messung von Muskelpotentialen per Elektromyografie
-  		\item Gamification-System aus:
-  		\begin{itemize}
-  			\item Erfahrungspunkten
-  			\item Badges und Quests
-  		\end{itemize}
-  	\end{itemize}
   \end{alertblock}
 
 \end{column}

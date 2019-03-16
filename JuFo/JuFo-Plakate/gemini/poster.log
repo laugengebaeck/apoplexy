@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  15 MAR 2019 19:12
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.26)  16 MAR 2019 14:03
  system commands enabled.
 **poster.tex
 (./poster.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.100 seconds
+luaotfload | main : initialization completed in 0.070 seconds
 (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/12/02 v3.55 A class for typesetting presentations
 (/usr/share/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -1478,22 +1478,22 @@ Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)
  (./poster.aux)
 \openout1 = poster.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1561,7 +1561,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box80
-Package hyperref Info: Link coloring OFF on input line 47.
+Package hyperref Info: Link coloring OFF on input line 54.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1571,9 +1571,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count360
 )
-LaTeX Info: Redefining \ref on input line 47.
-LaTeX Info: Redefining \pageref on input line 47.
-LaTeX Info: Redefining \nameref on input line 47.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
  (./poster.out) (./poster.out)
 \@outlinefile=\write5
 
@@ -1603,67 +1603,89 @@ Dictionary: translator-numbers-dictionary, Language: English
 sh.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 47.
+LaTeX Info: Redefining \selectfont on input line 54.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 ck labels; missing features). Consider writing \pgfplotsset{compat=1.16} into yo
 ur preamble.
- on input line 47.
+ on input line 54.
 
 (./poster.nav)
-LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 47.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 47.
+LaTeX Font Info:    Calculating math sizes for size <11.88> on input line 54.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 54.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 47.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 54.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 47.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 54.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5.94> on input line 47.
+(Font)              <5.94> on input line 54.
+<pics/logo.png, id=13, 1660.2025pt x 1245.65375pt>
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 54.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
+<pics/sentst.jpg, id=14, 1927.2pt x 921.4425pt>
+File: pics/sentst.jpg Graphic file (type jpg)
+<use pics/sentst.jpg>
+Package luatex.def Info: pics/sentst.jpg  used on input line 166.
+(luatex.def)             Requested size: 635.47922pt x 303.83795pt.
 Package svg Info: Last page of `./svg-inkscape/Schlaganfall_svg-tex.pdf' is 1 on
- input line 244.
+ input line 166.
 
 (./svg-inkscape/Schlaganfall_svg-tex.pdf_tex
-<./svg-inkscape/Schlaganfall_svg-tex.pdf, id=14, page=1, 209.1313pt x 128.03835p
+<./svg-inkscape/Schlaganfall_svg-tex.pdf, id=16, page=1, 209.1313pt x 128.03835p
 t>
 File: ./svg-inkscape/Schlaganfall_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/Schlaganfall_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/Schlaganfall_svg-tex.pdf , page1 used on
  input line 56.
-(luatex.def)             Requested size: 556.03978pt x 340.43703pt.
+(luatex.def)             Requested size: 635.47922pt x 389.07452pt.
 )
-<pics/einleit1.png, id=15, 491.8375pt x 351.3125pt>
-File: pics/einleit1.png Graphic file (type png)
-<use pics/einleit1.png>
-Package luatex.def Info: pics/einleit1.png  used on input line 244.
-(luatex.def)             Requested size: 397.173pt x 283.70386pt.
+Package svg Info: Last page of `./svg-inkscape/therapie_svg-tex.pdf' is 1 on inp
+ut line 166.
 
-
-LaTeX Font Warning: Font shape `TU/Lato(1)/m/sc' undefined
-(Font)              using `TU/Lato(1)/m/n' instead on input line 244.
-
-<pics/pianostairs.jpg, id=16, 646.35844pt x 362.36789pt>
+(./svg-inkscape/therapie_svg-tex.pdf_tex
+<./svg-inkscape/therapie_svg-tex.pdf, id=18, page=1, 722.7pt x 542.025pt>
+File: ./svg-inkscape/therapie_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/therapie_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/therapie_svg-tex.pdf , page1 used on inp
+ut line 56.
+(luatex.def)             Requested size: 635.47922pt x 476.61128pt.
+)
+<pics/armrobot.jpg, id=19, 401.5pt x 301.125pt>
+File: pics/armrobot.jpg Graphic file (type jpg)
+<use pics/armrobot.jpg>
+Package luatex.def Info: pics/armrobot.jpg  used on input line 166.
+(luatex.def)             Requested size: 397.173pt x 297.8987pt.
+<pics/elements.jpg, id=20, 702.625pt x 377.41pt>
+File: pics/elements.jpg Graphic file (type jpg)
+<use pics/elements.jpg>
+Package luatex.def Info: pics/elements.jpg  used on input line 166.
+(luatex.def)             Requested size: 516.32005pt x 277.36134pt.
+<pics/pianostairs.jpg, id=21, 646.35844pt x 362.36789pt>
 File: pics/pianostairs.jpg Graphic file (type jpg)
 <use pics/pianostairs.jpg>
-Package luatex.def Info: pics/pianostairs.jpg  used on input line 244.
-(luatex.def)             Requested size: 397.173pt x 222.6697pt.
+Package luatex.def Info: pics/pianostairs.jpg  used on input line 166.
+(luatex.def)             Requested size: 516.32005pt x 289.48pt.
+File: pics/logo.png Graphic file (type png)
+<use pics/logo.png>
+Package luatex.def Info: pics/logo.png  used on input line 166.
+(luatex.def)             Requested size: 189.58931pt x 142.26378pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-Overfull \vbox (403.02756pt too high) detected at line 244
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-<./svg-inkscape/Schlaganfall_svg-tex.pdf><./pics/einleit1.png><./pics/pianostair
-s.jpg>]
+<./pics/logo.png><./pics/sentst.jpg><./svg-inkscape/Schlaganfall_svg-tex.pdf><./
+svg-inkscape/therapie_svg-tex.pdf><./pics/armrobot.jpg><./pics/elements.jpg><./p
+ics/pianostairs.jpg>]
 \tf@nav=\write6
 
 \openout6 = poster.nav
@@ -1673,39 +1695,35 @@ s.jpg>]
 \tf@snm=\write8
 
 \openout8 = poster.snm
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
  (./poster.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 246.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 246.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
 Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 )
 
 Here is how much of LuaTeX's memory you used:
- 45468 strings out of 494383
- 195338,1648299 words of node,token memory allocated
- 83930 words of node memory still in use:
-   628 hlist, 35 vlist, 101 rule, 815 disc, 115 local_par, 2 math, 1890 glue, 11
-50 kern, 386 penalty, 5303 glyph, 1565 attribute, 78 glue_spec, 1565 attribute_l
-ist, 9 write, 379 pdf_literal, 3 pdf_dest, 574 pdf_colorstack, 3 pdf_setmatrix, 
-3 pdf_save, 3 pdf_restore nodes
-   avail lists: 1:7,2:268,3:785,4:615,5:1202,6:116,7:7227,8:107,9:694,10:13,11:8
-15,12:1
- 47853 multiletter control sequences out of 65536+600000
- 84 fonts using 18670263 bytes
- 73i,17n,102p,772b,2828s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 45572 strings out of 494383
+ 100000,1373583 words of node,token memory allocated
+ 37530 words of node memory still in use:
+   355 hlist, 30 vlist, 47 rule, 305 disc, 56 local_par, 2 math, 928 glue, 417 k
+ern, 206 penalty, 1951 glyph, 1056 attribute, 78 glue_spec, 1056 attribute_list,
+ 6 write, 1 save_pos, 388 pdf_literal, 1 pdf_dest, 298 pdf_colorstack, 7 pdf_set
+matrix, 7 pdf_save, 7 pdf_restore nodes
+   avail lists: 1:4,2:342,3:624,4:339,5:468,6:57,7:2913,8:51,9:416,10:13,11:305,
+12:1
+ 47889 multiletter control sequences out of 65536+600000
+ 83 fonts using 18184511 bytes
+ 73i,17n,102p,772b,2825s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/fonts/TTF/Lato-Regular.ttf></usr/share/fonts/TTF/Lato-Light.ttf></us
 r/share/fonts/OTF/Raleway-Regular-Original.otf></usr/share/fonts/OTF/Raleway-Bol
 d-Original.otf>
-Output written on poster.pdf (1 page, 587655 bytes).
+Output written on poster.pdf (1 page, 976446 bytes).
 
-PDF statistics: 61 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 131072)
+PDF statistics: 69 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
